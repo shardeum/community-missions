@@ -1,8 +1,8 @@
-# shardeum-missions
+# Shardeum Missions
 
 Challenges for developers on Shardeum.
 
-Submissions must:
+# Submissions Requirements
 
       -complete all mission requirements that are not marked as optional
       -open a pull request for the mission folder being worked on
