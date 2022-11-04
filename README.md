@@ -2,4 +2,8 @@
 
 Challenges for developers on Shardeum.
 
-Users who submit pull requests to a mission first with that fully complete the mission win.
+Submissions must:
+
+      -complete all mission requirements that are not marked as optional
+      -open a pull request for the mission folder being worked on
+      -show a video demo based on the pull request open (60 seconds long max)
