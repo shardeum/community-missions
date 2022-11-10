@@ -1,5 +1,7 @@
 # Mission 1: Pinata Storing Candy
 
+<img src="https://gateway.pinata.cloud/ipfs/QmdrnCFg5vxJbw4VCaNyEWSsJBMy9JS4CgaEk3NRc6nb2V" alt="shardeumPinata"/>
+
 ## Overview
 
 You are at a party, and you are hitting a Pinata with a stick.
@@ -15,6 +17,7 @@ Using an ERC-1155 contract, create a function called that can:
       -mint 5 pieces of each candy type
       -require / revert hitting the Pinata after 3 unique pieces of candy have been minted (since Pinata has no more candy)
       -each candy type has a photo of what the candy looks like, by using Pinata storage and IPFS CID hashes
+      -do not include the gateway url info, just the CID on IPFS
 
 ## Resources
 
