@@ -5,6 +5,7 @@
 You are at a party, and you are hitting a Pinata with a stick.
 Each time you hit the Pinata, a new type of candy pops out.
 Let's say that the Pinata shows all candy after 3 hits.
+On every hit, the Pinata will give the same candy type in exactly 5 pieces. 
 
 ## Requirements
 
