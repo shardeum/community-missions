@@ -11,7 +11,7 @@ On every hit, the Pinata will give the same candy type in exactly 5 pieces.
 
 ## Requirements
 
-Using an ERC-1155 contract, create a function called ```hit``` that can:
+Using an ERC-1155 contract deployed on Shardeum Liberty 2.0, create a function called ```hit``` that can:
 
       -mint 3 different candy types (hint: based on tokenId)
       -mint 5 pieces of each candy type
