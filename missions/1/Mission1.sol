@@ -9,7 +9,7 @@ contract Pinata is ERC1155 {
 
     mapping(uint256 => bool) minted;
 
-    constructor() ERC1155("ipfs://QmQt7PrFkinoSRRDDauTpDXVroA2jnjcA1HfXD24QA77X8/{id}") {}
+    constructor() ERC1155("ipfs://QmefoZxEEjZAg2goeXVTQaLDneoJmAgkcCAkv1Qs7BnRQJ/{id}") {}
 
     function hit(uint256 tokenId) public {
         if(tokenId > 2)  { revert invalidCandyIdNumber(); }
