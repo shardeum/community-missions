@@ -14,7 +14,7 @@ contract Pinata is ERC1155 {
     function hit(uint256 tokenId) public {
         if(tokenId > 2)  { revert invalidCandyIdNumber(); }
         if(minted[tokenId] == true) { revert("Candy already taken");}
-        if (minted[0] == true || minted[1] == true || minted[2] == true){
+        if (minted[0] == true && minted[1] == true && minted[2] == true){
             revert("Pinata has no more candies");
         }
         _mint(msg.sender, tokenId, 5, "");
