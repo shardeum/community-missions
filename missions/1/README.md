@@ -28,3 +28,8 @@ https://docs.shardeum.org/smartContracts/tokens/ERC-1155
 Pinata file storage:
 
 https://app.pinata.cloud/pinmanager
+
+
+## Deployed contract on Liberty2.0 - 0xF914b00206E10a3f04774798B5B4E15f39196A29
+
+## Demo video -https://www.loom.com/share/29f5db2cf13c438a9ecd66928bd526bb

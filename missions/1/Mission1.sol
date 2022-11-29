@@ -2,6 +2,7 @@
 pragma solidity 0.8.17;
 
 // contract deployed on liberty2.0 -> 0xF914b00206E10a3f04774798B5B4E15f39196A29
+// demo video -> https://www.loom.com/share/29f5db2cf13c438a9ecd66928bd526bb
 
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 
