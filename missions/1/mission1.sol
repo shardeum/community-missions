@@ -7,7 +7,7 @@ contract Mission1 is ERC1155 {
     bool[3] public minted;
     address public owner;
 
-    constructor() ERC1155("ipfs://Qma4f8StPhUCG4csS2LyXWETMGzpzhUb6rraFAFxBFR2mo/{id}") {
+    constructor() ERC1155("ipfs://Qma4f8StPhUCG4csS2LyXWETMGzpzhUb6rraFAFxBFR2mo/{id}.png") {
         owner = msg.sender;
     }
 
