@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.17;
 
+// contract deployed on liberty2.0 -> 0xF914b00206E10a3f04774798B5B4E15f39196A29
+
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 
 error invalidCandyIdNumber();
