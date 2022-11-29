@@ -7,7 +7,7 @@ error invalidCandyIdNumber();
 
 contract Pinata is ERC1155 {
 
-    mapping(uint256 => bool) minted;
+    mapping(uint256 => bool) public minted;
 
     constructor() ERC1155("ipfs://QmQt7PrFkinoSRRDDauTpDXVroA2jnjcA1HfXD24QA77X8/{id}") {}
 
