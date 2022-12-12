@@ -16,12 +16,38 @@ contract Nim {
     }
 
     function turn(uint marblesAmount) public {
+        bool playerTurn;
         // First turn
         if (players[msg.sender].marblesOnTable == 12) {
             require(marblesAmount <= 3);
         }
+        // After first turn
         else if (players[msg.sender].marblesOnTable < 12) {
             require(marblesAmount <= 3 && marblesAmount > 0);
+        }
+        else { revert("Unexpected"); }
+        
+        // Player's turn
+        playerTurn = true;
+        players[msg.sender].marblesOnTable -= marblesAmount;
+        
+        // Computer's turn
+        playerTurn = false;
+        uint _marblesOnTable = players[msg.sender].marblesOnTable;
+        if (_marblesOnTable == 4 || _marblesOnTable == 8 || _marblesOnTable == 12) {
+            players[msg.sender].marblesOnTable -= 1;
+        }
+        players[msg.sender].marblesOnTable -= players[msg.sender].marblesOnTable % 4;
+        if (players[msg.sender].marblesOnTable < 4) {
+            players[msg.sender].marblesOnTable -= players[msg.sender].marblesOnTable;
+        }
+
+        // Add win count when someone win
+        if (players[msg.sender].marblesOnTable == 0 && playerTurn ) {
+            players[msg.sender].playerWins += 1;
+        }
+        else if (players[msg.sender].marblesOnTable == 0 && !playerTurn) {
+            players[msg.sender].computerWins += 1;
         }
     }
 }
