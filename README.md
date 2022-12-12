@@ -18,3 +18,5 @@ The first valid submission wins $250!
 # Shardeum Missions Winners
 
 Mission 1: https://github.com/Kaiziron
+
+Mission 2: https://github.com/Kaiziron
