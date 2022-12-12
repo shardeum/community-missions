@@ -1,5 +1,10 @@
 # Mission 2: Nim
 
+## Demo and frontend 
+
+Frontend : https://super-cake-3763.on.fleek.co/missions/new/2/
+Demo : https://youtu.be/KEs1URU-nFA
+
 <img src="images/nimatron.jpg" alt="nimGame"/>
 
 Image Credit: https://bojoga.com.br/artigos/retroplay/jogos-eletromecanicos/nimatron/
