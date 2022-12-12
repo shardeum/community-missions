@@ -17,6 +17,10 @@ async function updatePlayerState() {
     document.getElementById("marblesOnTable").textContent = playerState['marblesOnTable'];
     document.getElementById("playerWins").textContent = playerState['playerWins'];
     document.getElementById("computerWins").textContent = playerState['computerWins'];
+    
+    marble = '<td><img src="images/marble.png" width="50"></td>';
+    var row = document.getElementById("board");
+    row.innerHTML = marble.repeat(playerState['marblesOnTable']);
   }
 }
 setInterval(updatePlayerState, 3000);
