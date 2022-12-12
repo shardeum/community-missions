@@ -1,0 +1,86 @@
+[
+	{
+		"inputs": [],
+		"name": "newGame",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "marbles",
+				"type": "uint256"
+			}
+		],
+		"name": "turn",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [],
+		"name": "getUserStats",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "marblesOnTable",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "playerWins",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "computerWins",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct Nim.Stat",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "playerStats",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "marblesOnTable",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "playerWins",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "computerWins",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
