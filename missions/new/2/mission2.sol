@@ -17,6 +17,9 @@ contract Nim {
 
     function turn(uint marblesAmount) public {
         bool playerTurn;
+        require(players[msg.sender].marblesOnTable > 0, "No more marbles on table, start a new game");
+
+        // Validate marblesAmount
         // First turn
         if (players[msg.sender].marblesOnTable == 12) {
             require(marblesAmount <= 3);
@@ -42,7 +45,7 @@ contract Nim {
             players[msg.sender].marblesOnTable -= players[msg.sender].marblesOnTable;
         }
 
-        // Add win count when someone win
+        // Add win count if someone wins
         if (players[msg.sender].marblesOnTable == 0 && playerTurn ) {
             players[msg.sender].playerWins += 1;
         }
