@@ -70,12 +70,25 @@ async function turn(amount) {
   tx = nimWithSigner.turn(amount);
 }
 
-turnButton.addEventListener('click', () => {
+turnButton.addEventListener('click', async () => {
+  playerState = await nimContract.players(getCurrentAccount());
+
   if (document.getElementById("marblesAmount").value == '') {
     alert("Enter a number as argument for turn() !");
   }
   else {
     amount = parseInt(document.getElementById("marblesAmount").value);
-    turn(amount);
+    if (playerState['marblesOnTable'] == 12 && amount > 3) {
+      alert("You can only take 0 to 3 marbles on the first turn");
+    }
+    else if (playerState['marblesOnTable'] < 12 && (amount > 3 || amount == 0)) {
+      alert("You can only take 1 to 3 marbles after the first turn");
+    }
+    else if (playerState['marblesOnTable'] == 0) {
+      alert("No more marbles on the table, start a new game instead");
+    }
+    else {
+      turn(amount);
+    }
   }
 });
