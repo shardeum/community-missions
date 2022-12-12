@@ -41,10 +41,10 @@ contract Nim {
             uint _marblesOnTable = players[msg.sender].marblesOnTable;
             if (_marblesOnTable == 4 || _marblesOnTable == 8 || _marblesOnTable == 12) {
                 players[msg.sender].marblesOnTable -= 1;
-            }
-            players[msg.sender].marblesOnTable -= players[msg.sender].marblesOnTable % 4;
-            if (players[msg.sender].marblesOnTable < 4) {
+            } else if (players[msg.sender].marblesOnTable < 4) {
                 players[msg.sender].marblesOnTable -= players[msg.sender].marblesOnTable;
+            } else {
+                players[msg.sender].marblesOnTable -= players[msg.sender].marblesOnTable % 4;
             }
 
             // Add win count if computer wins
