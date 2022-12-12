@@ -6,7 +6,7 @@ const showAccount = document.querySelector('.showAccount');
 const chainID = document.querySelector('.chainID');
 
 contract_abi = [{"inputs":[],"name":"newGame","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"players","outputs":[{"internalType":"uint256","name":"marblesOnTable","type":"uint256"},{"internalType":"uint256","name":"playerWins","type":"uint256"},{"internalType":"uint256","name":"computerWins","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"marblesAmount","type":"uint256"}],"name":"turn","outputs":[],"stateMutability":"nonpayable","type":"function"}] ;
-contract_address = '0xa8D28246fdee56630C7Cbf3b7686077a69244880'; // Nim contract on shardeum liberty 1.6
+contract_address = '0x79482C3336B36DCD9DA7eC40110eE8a7E799B756'; // Nim contract on shardeum liberty 1.6
 const nimContract = new ethers.Contract(contract_address, contract_abi, provider);
 
 async function updatePlayerState() {
