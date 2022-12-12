@@ -1,0 +1,35 @@
+<html>      
+<head>
+<title>Approve token</title>
+<link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+</head>
+
+<body style="margin:15;padding:0">
+
+<h1>Nim</h1>
+<button class="enableEthereumButton btn btn-primary">Connect wallet</button>
+<h4>Your account: <span class="showAccount"></span></h2>
+
+<button class="newGameButton btn btn-primary">New Game</button>
+<button class="turnButton btn btn-primary">Turn</button>
+<input id="marblesAmount" type="number" min="0">
+
+<table>
+    <tr>
+        <td><p>marblesOnTable : </p></td>
+        <td><p id="marblesOnTable"></p></td>
+    </tr>
+    <tr>
+        <td><p>playerWins : </p></td>
+        <td><p id="playerWins"></p></td>
+    </tr>
+    <tr>
+        <td><p>computerWins : </p></td>
+        <td><p id="computerWins"></p></td>
+    </tr>
+</table>
+
+<script src="main.js"></script>
+</body>
+</html>
