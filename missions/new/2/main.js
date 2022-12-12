@@ -40,9 +40,19 @@ async function getAccount() {
   const account = accounts[0];
   showAccount.innerHTML = account;
   connected = true; 
+  checkNetwork();
 }
 
-
+async function checkNetwork(){
+  const requiredChainId = "0x1f90" // shardeum liberty 1.6
+  
+  if (window.ethereum.networkVersion !== requiredChainId) {
+        await window.ethereum.request({
+          method: 'wallet_switchEthereumChain',
+          params: [{ chainId: requiredChainId }]
+        });
+  }
+}
 
 const newGameButton = document.querySelector('.newGameButton');
 
@@ -53,6 +63,7 @@ async function getCurrentAccount() {
 
 async function newGame() {
   
+  checkNetwork();
   const account = await getCurrentAccount();
   const signer = provider.getSigner()
   const nimWithSigner = nimContract.connect(signer);
@@ -67,7 +78,7 @@ newGameButton.addEventListener('click', () => {
 const turnButton = document.querySelector('.turnButton');
 
 async function turn(amount) {
-  
+  checkNetwork();
   const account = await getCurrentAccount();
   const signer = provider.getSigner()
   const nimWithSigner = nimContract.connect(signer);
