@@ -24,18 +24,22 @@ contract Nim {
     }
 
     function turn(uint marbles) public {
-        if (playerStats[msg.sender].marblesOnTable == 12) {
+        Stat storage userStats = playerStats[msg.sender];
+        require(
+            userStats.marblesOnTable < 1,
+            "You can't play now, restart the game."
+        );
+        if (userStats.marblesOnTable == 12) {
             require(marbles <= 3, "Marbles should be less than 3");
         }
 
-        if (playerStats[msg.sender].marblesOnTable < 12) {
+        if (userStats.marblesOnTable < 12) {
             require(
                 marbles > 0 && marbles <= 3,
                 "Marbles should be atleast 1 & at max 3"
             );
         }
 
-        Stat storage userStats = playerStats[msg.sender];
         userStats.marblesOnTable = userStats.marblesOnTable - marbles;
         if (userStats.marblesOnTable == 0) {
             userStats.playerWins = userStats.playerWins + 1;
