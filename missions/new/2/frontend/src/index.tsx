@@ -7,7 +7,7 @@ import { alchemyProvider } from "wagmi/providers/alchemy";
 import App from "./App";
 import "./index.css";
 
-const { chains, webSocketProvider, provider } = configureChains(
+const { webSocketProvider, provider } = configureChains(
   [polygonMumbai],
   [
     publicProvider(),

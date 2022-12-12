@@ -5,7 +5,6 @@ import {
   useContractRead,
   useContractWrite,
   usePrepareContractWrite,
-  useTransaction,
   useWaitForTransaction,
 } from "wagmi";
 import { InjectedConnector } from "wagmi/connectors/injected";
@@ -45,11 +44,14 @@ function App() {
     abi,
     functionName: "newGame",
   });
-  const {
-    write,
-    data: newGameData,
-    isLoading: gameLoading,
-  } = useContractWrite(config);
+  const { write, isLoading: gameLoading } = useContractWrite({
+    ...config,
+    onSuccess(data, variables, context) {
+      if (data?.hash) {
+        setCurrentTx(data.hash);
+      }
+    },
+  });
 
   const { config: turnConfig } = usePrepareContractWrite({
     address: CONTRACT_ADDRESS,
@@ -58,11 +60,17 @@ function App() {
     args: [marbles],
   });
   const {
-    data: turnData,
     isLoading: turnLoading,
     write: writeTurn,
     error: turnError,
-  } = useContractWrite(turnConfig);
+  } = useContractWrite({
+    ...turnConfig,
+    onSuccess(data, variables, context) {
+      if (data?.hash) {
+        setCurrentTx(data.hash);
+      }
+    },
+  });
 
   const { data: txData, isLoading: txLoading } = useWaitForTransaction({
     hash: currentTx || undefined,
@@ -91,23 +99,13 @@ function App() {
   }, [data, isError, isSuccess, error]);
 
   useEffect(() => {
-    if (turnData?.hash) {
-      setCurrentTx(turnData.hash);
-    }
-
-    if (newGameData?.hash) {
-      setCurrentTx(turnData?.hash);
-    }
-  }, [turnData, newGameData]);
-
-  useEffect(() => {
     if (txData) {
       if (!isNewGame) {
         setIsNewGame(true);
       }
       refetch();
     }
-  }, [txData]);
+  }, [txData, isNewGame, refetch]);
 
   useEffect(() => {
     if (!turnError) return;
