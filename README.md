@@ -6,6 +6,8 @@ The first valid submission wins $250!
 
 # Submissions Requirements
 
+      -You did not win the last Shardeum Mission 
+           (for example if you won Mission 2, you cannot do Mission 3, but you can do Mission 4)
       -Complete all mission requirements that are not marked as optional
       -Open a pull request for the mission folder being worked on
       -YouTube video link for pull request submission (60 seconds long max)
