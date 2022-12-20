@@ -1,0 +1,38 @@
+/* Tic Tac Toe board */
+#board {
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+  height: 300px;
+  border: 1px solid #ccc;
+}
+
+/* Tic Tac Toe squares */
+.square {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  font-size: 48px;
+  font-weight: bold;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  line-height: 100px;
+}
+
+#scores {
+display:contents;
+    width: 10px;
+  height: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#connect-button {
+    background-color: rgb(58, 58, 95);
+    color: aquamarine;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
