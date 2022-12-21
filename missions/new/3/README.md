@@ -10,7 +10,7 @@ Solidity programming challenge for creating Tic Tac Toe with a computer which pl
 
 ## Requirements
 
-Create a smart contract called ```TicTacToe``` which plays Tic Tac Toe against a player where:
+Create a smart contract called `TicTacToe` which plays Tic Tac Toe against a player where:
 
      -there is a mapping with a struct: address => playerStates
      -struct playerStates includes:
@@ -29,7 +29,7 @@ Create a smart contract called ```TicTacToe``` which plays Tic Tac Toe against a
      -if the player wins, the playerWins value increases by 1
      -if the computer wins, the computerWins value increases by 1
 
-Create a basic frontend for playing ```TicTacToe``` which:
+Create a basic frontend for playing `TicTacToe` which:
 
     -is hosted on IPFS/Filecoin using Fleek for easy access
     -allows user to connect Metamask wallet with a button
@@ -42,3 +42,6 @@ Create a basic frontend for playing ```TicTacToe``` which:
 How to make your Tic Tac Toe game unbeatable by using the minimax algorithm
 
 https://www.freecodecamp.org/news/how-to-make-your-tic-tac-toe-game-unbeatable-by-using-the-minimax-algorithm-9d690bad4b37/
+
+[Website link](https://mute-shape-4306.on.fleek.co/)
+[Demo link](https://youtu.be/OSZTqNYPxfI)

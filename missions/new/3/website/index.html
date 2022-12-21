@@ -1,0 +1,71 @@
+<html>      
+<head>
+<title>Tic-Tac-Toe</title>
+<link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+
+
+<style>
+th, td {
+  padding: 15px;
+}
+</style>
+
+<meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+
+<body style="margin:15;padding:0">
+
+<h1 style="display: flex; justify-content: center">Tic-Tac-Toe</h1>
+<div style="display: flex; justify-content: flex-end"><button  class="enableEthereumButton btn btn-primary">Connect wallet</button></div>
+
+<h4>Your account: <span class="showAccount"></span></h2>
+<!-- <button class="newGameButton btn btn-primary">New Game</button> -->
+<table style="display: flex; justify-content: center">
+    <tr>
+      <td>
+        <p>playerWins : </p>
+        <p id="playerWins"></p>
+      </td>
+      <td>
+        <p>computerWins : </p>
+        <p id="computerwins"></p>
+      </td>
+      <td>
+        <p>tiedGames : </p>
+        <p id="tiedGames"></p>
+      </td>
+    </tr>
+</table>
+<main class="background">
+  
+  <section class="container">
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+  </section>
+  <section class="display announcer hide"></section>
+  <section class="controls">
+      <button id="reset">Reset</button>
+  </section>
+</main>
+<script src="main.js"></script>
+<script src="./index.js"></script>
+</body>
+</html>
