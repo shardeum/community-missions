@@ -7,6 +7,7 @@ window.addEventListener("DOMContentLoaded", () => {
   let board = ["", "", "", "", "", "", "", "", ""];
   let currentPlayer = "X";
   let isGameActive = true;
+
   setInterval(async () => {
     if (connected) {
       playerState = await tictoe.showBoard(getCurrentAccount());
@@ -148,14 +149,6 @@ window.addEventListener("DOMContentLoaded", () => {
       tile.classList.remove("playerX");
       tile.classList.remove("playerO");
     });
-    foo = async () => {
-      checkNetwork();
-      const account = await getCurrentAccount();
-      const signer = provider.getSigner();
-      const nimWithSigner = tictoe.connect(signer);
-      tx = nimWithSigner.newGame();
-    };
-    foo();
   };
 
   tiles.forEach((tile, index) => {

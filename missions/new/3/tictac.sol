@@ -39,10 +39,13 @@ contract Encode {
             }
         } else if (is_win(playerStates[player].boardState, 2)) {
             playerStates[player].computerWins++;
+            newGame();
         } else if (is_win(playerStates[player].boardState, 1)) {
             playerStates[player].playerWins++;
+            newGame();
         } else if (check(playerStates[player].boardState) == 0) {
             playerStates[player].tiedGames++;
+            newGame();
         } else {
             aimove(player);
         }
@@ -68,10 +71,13 @@ contract Encode {
         playerState.boardState[best_pos] = 2;
         if (is_win(playerStates[sender].boardState, 2)) {
             playerStates[sender].computerWins++;
+            newGame();
         } else if (is_win(playerStates[sender].boardState, 1)) {
             playerStates[sender].playerWins++;
+            newGame();
         } else if (check(playerStates[sender].boardState) == 0) {
             playerStates[sender].tiedGames++;
+            newGame();
         }
     }
 
