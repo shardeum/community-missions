@@ -99,7 +99,7 @@ contract_abi = [
     type: "function",
   },
 ];
-contract_address = "0x483dD589CEBF3b2312717a9CaDdB641781BC8505"; // Nim contract on shardeum liberty 1.6
+contract_address = "0xCbE10531aBC679EdCF66535755ac22308bf57010"; // Nim contract on shardeum liberty 1.6
 const tictoe = new ethers.Contract(contract_address, contract_abi, provider);
 
 async function updatePlayerState() {
@@ -132,7 +132,7 @@ async function getAccount() {
 }
 
 async function checkNetwork() {
-  const requiredChainId = "0x1F90";
+  const requiredChainId = "0x1F91";
 
   if (window.ethereum.networkVersion !== requiredChainId) {
     await window.ethereum.request({
