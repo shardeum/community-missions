@@ -32,24 +32,19 @@ contract Encode {
 
         playerStates[player].boardState[x] = 1;
         if (check(playerStates[player].boardState) == 8) {
-            for (uint8 i = 0; i < 9; i++) {
-                if (playerStates[player].boardState[i] == 0) {
-                    playerStates[player].boardState[i] = 2;
-                    break;
-                }
+            if (playerStates[player].boardState[4] == 0) {
+                playerStates[player].boardState[4] = 2;
+            } else {
+                playerStates[player].boardState[0] = 2;
             }
-        } else {
-            if (check(playerStates[player].boardState) != 0) {
-                aimove(player);
-            }
-        }
-
-        if (is_win(playerStates[player].boardState, 2)) {
+        } else if (is_win(playerStates[player].boardState, 2)) {
             playerStates[player].computerWins++;
         } else if (is_win(playerStates[player].boardState, 1)) {
             playerStates[player].playerWins++;
         } else if (check(playerStates[player].boardState) == 0) {
             playerStates[player].tiedGames++;
+        } else {
+            aimove(player);
         }
     }
 
@@ -63,6 +58,7 @@ contract Encode {
             if (board[i] == 0) {
                 board[i] = 2;
                 score = minimax(board, false, -10, 10);
+                board[i] = 0;
                 if (score > best_score) {
                     best_score = score;
                     best_pos = i;
@@ -70,6 +66,13 @@ contract Encode {
             }
         }
         playerState.boardState[best_pos] = 2;
+        if (is_win(playerStates[sender].boardState, 2)) {
+            playerStates[sender].computerWins++;
+        } else if (is_win(playerStates[sender].boardState, 1)) {
+            playerStates[sender].playerWins++;
+        } else if (check(playerStates[sender].boardState) == 0) {
+            playerStates[sender].tiedGames++;
+        }
     }
 
     function minimax(
@@ -125,36 +128,34 @@ contract Encode {
         uint8[9] memory board,
         uint8 letter
     ) internal pure returns (bool) {
-        if (
-            board[0] == board[1] && board[1] == board[2] && board[0] == letter
+        if (board[0] == letter && board[1] == letter && board[2] == letter) {
+            return true;
+        } else if (
+            board[3] == letter && board[4] == letter && board[5] == letter
         ) {
             return true;
         } else if (
-            board[3] == board[4] && board[4] == board[5] && board[3] == letter
+            board[6] == letter && board[7] == letter && board[8] == letter
         ) {
             return true;
         } else if (
-            board[6] == board[7] && board[7] == board[8] && board[6] == letter
+            board[0] == letter && board[3] == letter && board[6] == letter
         ) {
             return true;
         } else if (
-            board[0] == board[3] && board[3] == board[6] && board[0] == letter
+            board[1] == letter && board[4] == letter && board[7] == letter
         ) {
             return true;
         } else if (
-            board[1] == board[4] && board[4] == board[7] && board[1] == letter
+            board[2] == letter && board[5] == letter && board[8] == letter
         ) {
             return true;
         } else if (
-            board[2] == board[5] && board[5] == board[8] && board[2] == letter
+            board[0] == letter && board[4] == letter && board[8] == letter
         ) {
             return true;
         } else if (
-            board[0] == board[4] && board[4] == board[8] && board[0] == letter
-        ) {
-            return true;
-        } else if (
-            board[2] == board[4] && board[4] == board[6] && board[2] == letter
+            board[2] == letter && board[4] == letter && board[6] == letter
         ) {
             return true;
         } else {
@@ -164,6 +165,7 @@ contract Encode {
 
     function showBoard(address sender) public view returns (uint8[9] memory) {
         PlayerState storage playerState = playerStates[sender];
+        // playerState.boardState[1]="x";
         return (playerState.boardState);
     }
 }
