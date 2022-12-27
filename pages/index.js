@@ -80,6 +80,8 @@ export default function Home() {
     console.log("BTC Address", process.env.NEXT_PUBLIC_BTC_TOKEN_ADDRESS);
     // return;
 
+    const getUSDTPRICE = await contract.getUsdtBtcPrice();
+    console.log(getUSDTPRICE);
     await contract.swap(
       walletAddress,
       convertFrom.name == "USDT"
@@ -88,7 +90,7 @@ export default function Home() {
       converTo.name == "BTC"
         ? process.env.NEXT_PUBLIC_BTC_TOKEN_ADDRESS
         : process.env.NEXT_PUBLIC_USDT_TOKEN_ADDRESS,
-      ethers.utils.parseUnits(fromAmount)
+      ethers.utils.parseUnits("1")
     );
   };
 

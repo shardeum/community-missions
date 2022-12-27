@@ -9,24 +9,24 @@ const hre = require("hardhat");
 async function main() {
   //USDT Token
   const USDToken = await hre.ethers.getContractFactory("USDToken");
-  const USDTokenContract = await USDToken.deploy(100000);
+  const USDTokenContract = await USDToken.deploy(100000000);
   await USDTokenContract.deployed();
 
   //tranfer token to user
   await USDTokenContract.transferToken(
-    "0x913F2Eb4f9A01537F2370661517137Ee9988F97D",
-    100
+    "0x1E8711053D9BA4Ac94466212081f8568930c9C61",
+    10000
   );
 
   //BTC Token
   const BTCToken = await hre.ethers.getContractFactory("BTCToken");
-  const BTCTokenContract = await BTCToken.deploy(100000);
+  const BTCTokenContract = await BTCToken.deploy(100000000);
   await BTCTokenContract.deployed();
 
   //transfer token to user
   await BTCTokenContract.transferToken(
-    "0x913F2Eb4f9A01537F2370661517137Ee9988F97D",
-    20
+    "0x1E8711053D9BA4Ac94466212081f8568930c9C61",
+    10000
   );
 
   const OrderBookDex = await hre.ethers.getContractFactory("OrderBookDex");
@@ -37,20 +37,20 @@ async function main() {
   await OrderBookDexcontract.deployed();
 
   //transfer tokens to contract
-  await USDTokenContract.transferToken(OrderBookDexcontract.address, 50000);
+  await USDTokenContract.transferToken(OrderBookDexcontract.address, 5000000);
 
-  await BTCTokenContract.transferToken(OrderBookDexcontract.address, 50000);
+  await BTCTokenContract.transferToken(OrderBookDexcontract.address, 5000000);
 
   //approve contract to transfer tokens
-  await USDTokenContract.approve(OrderBookDexcontract.address, 10000);
-  await BTCTokenContract.approve(OrderBookDexcontract.address, 10000);
+  await USDTokenContract.approve(OrderBookDexcontract.address, 5000000);
+  await BTCTokenContract.approve(OrderBookDexcontract.address, 5000000);
 
   const USDTBalance = await OrderBookDexcontract.getUSDTBalance(
-    "0x913F2Eb4f9A01537F2370661517137Ee9988F97D"
+    "0x1E8711053D9BA4Ac94466212081f8568930c9C61"
   );
 
   const BTCBalance = await OrderBookDexcontract.getBTCBalance(
-    "0x913F2Eb4f9A01537F2370661517137Ee9988F97D"
+    "0x1E8711053D9BA4Ac94466212081f8568930c9C61"
   );
 
   console.log("USDT Token Address", USDTokenContract.address);
