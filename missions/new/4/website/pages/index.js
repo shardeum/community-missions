@@ -33,8 +33,35 @@ export default function Home() {
         );
 
   useEffect(() => {
-    console.log(convertFrom);
+    setToAmount(getUsdtBtcPrice());
   }, [convertFrom]);
+
+  const getUsdtBtcPrice = async () => {
+    const abi = [
+      {
+        inputs: [
+          { internalType: "string", name: "marketPair", type: "string" },
+        ],
+        name: "checkPrice",
+        outputs: [
+          { internalType: "int256", name: "price", type: "int256" },
+          { internalType: "uint256", name: "timestamp", type: "uint256" },
+        ],
+        stateMutability: "view",
+        type: "function",
+      },
+    ];
+    const contractAddress = "0x700a89Ba8F908af38834B9Aba238b362CFfB665F";
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const accounts = await provider.listAccounts();
+    const signer = provider.getSigner();
+
+    const contract = new ethers.Contract(contractAddress, abi, signer);
+
+    const price = await contract.checkPrice("eth_usdt");
+
+    return ethers.utils.formatEther(price.price);
+  };
 
   const loginWithMetaMask = async () => {
     if (typeof window.ethereum == "undefined") {
@@ -80,6 +107,8 @@ export default function Home() {
     console.log("BTC Address", process.env.NEXT_PUBLIC_BTC_TOKEN_ADDRESS);
     // return;
 
+    const getUSDTPRICE = await contract.getUsdtBtcPrice();
+    console.log(getUSDTPRICE);
     await contract.swap(
       walletAddress,
       convertFrom.name == "USDT"
@@ -88,7 +117,7 @@ export default function Home() {
       converTo.name == "BTC"
         ? process.env.NEXT_PUBLIC_BTC_TOKEN_ADDRESS
         : process.env.NEXT_PUBLIC_USDT_TOKEN_ADDRESS,
-      ethers.utils.parseUnits(fromAmount)
+      ethers.utils.parseUnits("1")
     );
   };
 
