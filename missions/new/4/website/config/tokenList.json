@@ -1,0 +1,85 @@
+{
+  "name": "libery21",
+  "logoURI": "",
+  "keywords": ["shardeum", "defi", "dex"],
+  "version": {
+    "major": 6,
+    "minor": 14,
+    "patch": 0
+  },
+  "timestamp": "2021-12-16T10:00:00+00:00",
+  "tokens": [
+    {
+      "address": "0xD55E530B14b05028c3dd650D4D0F69B81C49DeAA",
+      "name": "USDT",
+      "symbol": "USDT",
+      "decimals": 18,
+      "logoURI": "https://github.com/sushiswap/list/raw/master/logos/token-logos/network/matic/0xc2132D05D31c914a87C6611C10748AEb04B58e8F.jpg",
+      "chainId": 8081
+    },
+    {
+      "address": "0xc02E792a482550637e1D645C3490dE65d9C6CE7a",
+      "name": "USDC",
+      "symbol": "USDC",
+      "decimals": 18,
+      "permitSupported": false,
+      "logoURI": "https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/usdc.jpg",
+      "chainId": 8081
+    },
+
+    {
+      "address": "0xb9Ab1FDe0d82e0060252d2660Fff4F5380BFBfFb",
+      "name": "ADA",
+      "symbol": "ADA",
+      "decimals": 18,
+      "permitSupported": false,
+      "logoURI": " https://assets.coingecko.com/coins/images/975/small/cardano.png",
+      "chainId": 8081
+    },
+    {
+      "address": "0xD9Ff57cD5794dA453333264fA34d50F37b76cC30",
+      "name": "ETH",
+      "symbol": "ETH",
+      "decimals": 18,
+      "permitSupported": false,
+      "logoURI": "https://assets.coingecko.com/coins/images/279/small/ethereum.png",
+      "chainId": 8081
+    },
+    {
+      "address": "0x07B2e45D5706Ec21768255C2C6600717Df32BE62",
+      "name": "BTC",
+      "symbol": "BTC",
+      "decimals": 18,
+      "permitSupported": false,
+      "logoURI": "https://assets.coingecko.com/coins/images/1/small/bitcoin.png",
+      "chainId": 8081
+    },
+    {
+      "address": "0x48004c218E945c16c0a5Bea42201eeBbDff27663",
+      "name": "AVAX",
+      "symbol": "AVAX",
+      "decimals": 18,
+      "permitSupported": false,
+      "logoURI": "https://assets.coingecko.com/coins/images/12559/small/Avalanche_Circle_RedWhite_Trans.png?1670992574",
+      "chainId": 8081
+    },
+    {
+      "address": "0x37b33270257e06a973AffE86589Ce2800F7b4C65",
+      "name": "ALGO",
+      "symbol": "ALGO",
+      "decimals": 18,
+      "permitSupported": false,
+      "logoURI": "https://assets.coingecko.com/coins/images/4380/small/download.png?1547039725",
+      "chainId": 8081
+    },
+    {
+      "address": "0x6E375e5C4244C61d2a513ca7d07Ac824eb856416",
+      "name": "ATOM",
+      "symbol": "ATOM",
+      "decimals": 18,
+      "permitSupported": false,
+      "logoURI": "https://assets.coingecko.com/coins/images/1481/small/cosmos_hub.png?1555657960",
+      "chainId": 8081
+    }
+  ]
+}

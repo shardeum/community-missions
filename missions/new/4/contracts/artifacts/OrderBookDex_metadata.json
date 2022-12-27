@@ -1,0 +1,316 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_pricefeed",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "addLiquidity",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					}
+				],
+				"name": "addTrustedTokens",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "_tokens",
+						"type": "address[]"
+					},
+					{
+						"internalType": "string[]",
+						"name": "_names",
+						"type": "string[]"
+					}
+				],
+				"name": "addTrustedTokensMulti",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "fromTokenName",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "toTokenName",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "queryAmountOut",
+				"outputs": [
+					{
+						"internalType": "int256",
+						"name": "",
+						"type": "int256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "numerator",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "denominator",
+						"type": "string"
+					}
+				],
+				"name": "ratio",
+				"outputs": [
+					{
+						"internalType": "int256",
+						"name": "",
+						"type": "int256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_fromTokenName",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_toTokenName",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "swap",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"name": "tokenAddresses",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/OrderBookDex.sol": "OrderBookDex"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 99999
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/OrderBookDex.sol": {
+			"keccak256": "0x981fe5c8930f6f5e68e34d0ed306228630c9cc1c08a8667d6f1c076d4733e1cf",
+			"license": "UNLICENSED",
+			"urls": [
+				"bzz-raw://f6d515b54d678e8d5182cc4a8e144ad83e1f41d2d8007648ba85e99b63f4b337",
+				"dweb:/ipfs/QmeU6iRQvXsJsv1JqHeCNxVC4YiDPCUF18CRFphNShtvKW"
+			]
+		},
+		"contracts/utils/Context.sol": {
+			"keccak256": "0x24aaa8312885fd156a9b311ec39f5fd68edb6703f4a21b0447a2522c90ae6c99",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://20cf21b6ac3ea8b8ffc3f506b549196e3ff2a56fa30511c5aed5bfef2c23cf38",
+				"dweb:/ipfs/QmZKMvYTMDa7HkagdsyuzFW8XhdPyXWZGRTu3hA2UyzD6p"
+			]
+		},
+		"contracts/utils/IERC20.sol": {
+			"keccak256": "0xe0dd25fc0a978a40e8a07108cc43038512b56d173a63edae65070cd952468f3c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bf5fee1f2d6545064a1ff8ddf36dfc5130947d0b23ddb29b77f778fffb2650af",
+				"dweb:/ipfs/QmdB9BnYtfTaKFDvvUUyB5hKpfT2X4SDis4mxQ2VyDqfT8"
+			]
+		},
+		"contracts/utils/ISupraOracle.sol": {
+			"keccak256": "0x453dbc25abc7466770c942d7ba94fea165032a4d0a726c4b794e204acd085efd",
+			"license": "UNLICENSED",
+			"urls": [
+				"bzz-raw://14c362d4bb9e49acc10a5c4cc5448f595bb961de3ddf248a89522a31ab119473",
+				"dweb:/ipfs/QmazDp8r69pzkvJYhSwRLjrpPS4GPBdovDSnujCwCiKcFz"
+			]
+		},
+		"contracts/utils/Ownable.sol": {
+			"keccak256": "0xe447e234293e2fa3c867e7ab927c07629f5e412ee3037d48b0e0a945eb01e787",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://82202cee4abe4b0f4b9a9b7ec32b4cac6e4c60bca89a4aa3480a946f26f314a1",
+				"dweb:/ipfs/QmVmZ2H1zvvzQGNZZxHXjznCj9aQnuVizNH85aixAw4fg3"
+			]
+		},
+		"contracts/utils/SafeERC20.sol": {
+			"keccak256": "0xb87506b1c1ec133f15b882539b0056275dbb385bc930b836e78c94df3f84c58f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://14c7601fec0ae5a5b50d7ce05ae7f382eb0da759507dd9810f4006168e6b7602",
+				"dweb:/ipfs/QmeJSYK53QX5E6r6znULc51nYJB6zoaXk4jrVDDTbeE2W4"
+			]
+		},
+		"contracts/utils/SafeMath.sol": {
+			"keccak256": "0x1b1ab545dfde11a2697d8dce26ffc381765d7f073a32e0a4f8288b23a5e44dfa",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://313a87e1be8a19b3d5d3f5cd3de7ba4257b6fba9bb239d8b213a6bfb5718efe3",
+				"dweb:/ipfs/QmYZgT4gXj15jA7XPwUexanaeBArmHRDBQg78rgpS2qBWG"
+			]
+		}
+	},
+	"version": 1
+}
