@@ -2,7 +2,9 @@
 
 <img src="images/supraOracles.jpeg" alt="supraOracles"/>
 
-<img src="images/Screenshot 2022-12-27 at 6.30.57 AM.png" alt="supraOracles"/>
+<img src="images/banner.png" alt="supraOracles"/>
+
+<img src="images/screenshot.png" alt="supraOracles"/>
 
 Image Credit: https://twitter.com/supraoracles/status/1518626704008249344
 
