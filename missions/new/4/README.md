@@ -2,7 +2,17 @@
 
 <img src="images/supraOracles.jpeg" alt="supraOracles"/>
 
+<img src="images/Screenshot 2022-12-27 at 6.30.57 AM.png" alt="supraOracles"/>
+
 Image Credit: https://twitter.com/supraoracles/status/1518626704008249344
+
+# Demo :
+
+https://www.youtube.com/watch?v=yl0MUGEzzos
+
+# Deployment :
+
+https://supradex.vercel.app/
 
 ## Overview
 
@@ -10,14 +20,14 @@ Solidity programming challenge for doing swaps with a smart contract with a Supr
 
 ## Requirements
 
-Create a smart contract called ```OrderBookDex``` which:
+Create a smart contract called `OrderBookDex` which:
 
      -is deployed to Shardeum Liberty 2.1
      -connects to the SupraOracle pricefeed oracle contract
      -has a function called ratio which:
          -has two input strings:
             -numerator
-            -denominator        
+            -denominator
          -both input strings are used to call sValueFeed.checkPrice(string supportedPair). Example:
             -(int price,) = sValueFeed.checkPrice("btc_usdt");:
          -return the price feed ratio to do the swap
@@ -26,7 +36,7 @@ Create a smart contract called ```OrderBookDex``` which:
          -will take USDT (if selected) from the user in exchange for the token selected based on price feed oracle
          -will handle swaps between all other token pairs using the ratio function
 
-Create a basic frontend for ```OrderBookDex``` which:
+Create a basic frontend for `OrderBookDex` which:
 
     -is hosted on IPFS/Filecoin using Fleek for easy access
     -allows user to connect Metamask wallet with a button
