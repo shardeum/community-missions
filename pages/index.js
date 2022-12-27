@@ -7,8 +7,6 @@ import { USDTLogo } from "../components/icons";
 import { ethers } from "ethers";
 import ContractAbi from "../artifacts/contracts/OrderBookDex.sol/OrderBookDex.json";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export default function Home() {
   const tokens = [
     { id: 1, name: "USDT" },
