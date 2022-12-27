@@ -33,8 +33,7 @@ const Home: NextPage = () => {
   const [allowance, setallowance] = useState(0);
   const [fromToken, setfromToken] = useState({
     symbol: "USDT",
-    logoURI:
-      "https://github.com/sushiswap/list/raw/master/logos/token-logos/network/matic/0xc2132D05D31c914a87C6611C10748AEb04B58e8F.jpg",
+    logoURI: "https://assets.coingecko.com/coins/images/325/thumb/Tether.png",
     address: "0xD55E530B14b05028c3dd650D4D0F69B81C49DeAA",
     decimals: 18,
   });
@@ -213,7 +212,7 @@ const Home: NextPage = () => {
               className="my-5 btn btn-primary"
               onClick={() => activate(injected)}
             >
-              Connect
+              connect wallet
             </button>
           )}
         </div>

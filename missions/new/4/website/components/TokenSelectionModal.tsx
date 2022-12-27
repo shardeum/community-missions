@@ -48,10 +48,18 @@ function TokenSelectionModal({
       />
       <div className="modal">
         <div className="modal-box">
-          <h3 className="text-lg font-bold">Token Select</h3>
+          <div className="flex justify-between">
+            <h3 className="text-lg font-bold">Token Select</h3>
+            <label
+              htmlFor={`my-modal-${selectedToken?.symbol}`}
+              className="btn btn-square btn-sm"
+            >
+              X
+            </label>
+          </div>
           <input
             type="text"
-            placeholder="Type here"
+            placeholder="Search Token"
             className="w-full max-w-xs p-3 m-3 input input-bordered "
             value={query}
             onChange={(e) => setQuery(e.target.value)}
