@@ -1,4 +1,4 @@
-# Mission 3: Minimax Connect 4 
+# Mission 3: Minimax Connect 4
 
 <img src="images/connect4.png" alt="connect4"/>
 
@@ -44,3 +44,6 @@ https://www.youtube.com/watch?v=MMLtza3CZFM
 Connect 4 Minimax AI version in Python from video above:
 
 https://github.com/KeithGalli/Connect4-Python/blob/master/connect4_with_ai.py
+
+[Website link](https://mute-shape-4306.on.fleek.co/) <br>
+[Demo link](https://youtu.be/uBKA922RC38)
