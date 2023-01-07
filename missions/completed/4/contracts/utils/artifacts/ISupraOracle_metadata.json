@@ -1,0 +1,69 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "marketPair",
+						"type": "string"
+					}
+				],
+				"name": "checkPrice",
+				"outputs": [
+					{
+						"internalType": "int256",
+						"name": "price",
+						"type": "int256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/utils/ISupraOracle.sol": "ISupraOracle"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 99999
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/utils/ISupraOracle.sol": {
+			"keccak256": "0x14ad415867e6de031a8dcd59bd93535a60e17e4fb3bb16d3e8a7aedfa7b8a593",
+			"urls": [
+				"bzz-raw://aaded121666511ee4fb05d87e24b5140daf88ebb20bf41e00b543fcb0cf673ee",
+				"dweb:/ipfs/QmeiBoVRvJobjkrFqid7yaN8zMAAVjn1NoUpc1GSRCCoWQ"
+			]
+		}
+	},
+	"version": 1
+}
