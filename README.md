@@ -4,6 +4,8 @@ Solidity challenges for developers on Shardeum.
 Visit Shardeum's Discord in the Missions text channel every week.
 The first valid submission wins $250!
 
+Note: there can be multiple winners if there are multiple submissions that meet all requirements.
+
 # Submissions Requirements
 
       -You did not win the last Shardeum Mission 
@@ -11,6 +13,7 @@ The first valid submission wins $250!
       -Complete all mission requirements that are not marked as optional
       -Open a pull request for the mission folder being worked on
       -YouTube video link for pull request submission (60 seconds long max)
+      -Submissions open at Friday 9AM EST (please make sure all requirements are met and tested and try to polish as much as possible)
 
 # Instructions
 
