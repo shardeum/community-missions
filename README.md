@@ -24,7 +24,7 @@ Note: there can be multiple winners if there are multiple submissions that meet 
 
 Mission 1: https://github.com/Kaiziron
 
-Mission 2: https://github.com/Kaiziron Demo: https://super-cake-3763.on.fleek.co/missions/new/2/
+Mission 2: https://github.com/Kaiziron Demo: https://super-cake-3763.on.fleek.co/missions/completed/2/
 
 Mission 3: https://github.com/bytes1 Demo: https://tictac.on.fleek.co/
 
