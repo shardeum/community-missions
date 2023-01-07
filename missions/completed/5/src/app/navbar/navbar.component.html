@@ -1,0 +1,6 @@
+<div class="navbar">
+    <div class="user-info">
+        <button (click)="connectWallet()" class="connect-wallet" *ngIf="address == undefined">Connect Wallet</button>
+        <span class="address" *ngIf="address != undefined">{{address}}</span>
+    </div>
+</div>
