@@ -1,5 +1,9 @@
 # Mission 3: Minimax Connect 4 
 
+[Website](https://quiet-bush-2358.on.fleek.co/)
+
+[Video](https://youtu.be/k_UK88111fQ)
+
 <img src="images/connect4.png" alt="connect4"/>
 
 Image Credit: https://www.youtube.com/watch?v=MMLtza3CZFM
