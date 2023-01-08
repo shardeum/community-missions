@@ -1,4 +1,6 @@
 # Mission 3: Minimax Connect 4 
+[Website AI](https://little-limit-5002.on.fleek.co/) <br>
+[Demo AI](https://youtu.be/eqD1fIXplmY)
 
 [Best Frontend: Website](https://quiet-bush-2358.on.fleek.co/)
 
