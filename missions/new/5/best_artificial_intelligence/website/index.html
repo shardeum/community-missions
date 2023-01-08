@@ -1,0 +1,46 @@
+<html>      
+<head>
+<title>Connect 4</title>
+<link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<style>
+  div {
+  width: 50%; /* Set a fixed width for the element */
+  margin: 0 auto; /* Center the element horizontally */
+}
+</style>
+</head>
+
+<body style="margin:15;padding:0">
+
+<h1 style="display: flex; justify-content: center">Connect 4  </h1>
+<div style="display: flex; justify-content: flex-end"><button  class="enableEthereumButton btn btn-primary">Connect wallet</button></div>
+
+<h4>Your account: <span class="showAccount"></span></h2>
+<!-- <button class="newGameButton btn btn-primary">New Game</button> -->
+<table style="display: flex; justify-content: center">
+    <tr>
+      <td>
+        <p>playerWins : </p>
+        <p id="playerWins"></p>
+      </td>
+      <td>
+        <p>computerWins : </p>
+        <p id="computerwins"></p>
+      </td>
+      <td>
+        <p>tiedGames : </p>
+        <p id="tiedGames"></p>
+      </td>
+    </tr>
+</table>
+<div id="gameContainer">
+  <div id='playButton' onclick="newGame(this)">
+      <div>Play Game</div>
+  </div>
+</div>
+<script src="main.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
