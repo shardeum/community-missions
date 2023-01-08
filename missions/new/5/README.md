@@ -1,8 +1,8 @@
 # Mission 3: Minimax Connect 4 
 
-[Website](https://quiet-bush-2358.on.fleek.co/)
+[Best Frontend: Website](https://quiet-bush-2358.on.fleek.co/)
 
-[Video](https://youtu.be/k_UK88111fQ)
+[Best Frontend: Video](https://youtu.be/k_UK88111fQ)
 
 <img src="images/connect4.png" alt="connect4"/>
 
