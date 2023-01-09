@@ -1,5 +1,9 @@
 # Mission 6: Shardeum Timeshare Islands
 
+Website: [spring-surf-2752.on.fleek.co](https://spring-surf-2752.on.fleek.co/)
+
+Video: [YouTube](https://youtu.be/9sp3mG1toI0)
+
 <img src="images/islandCount.png" alt="islandCount"/>
 
 Image Credit: https://www.youtube.com/watch?v=viJEZSX4cDg
