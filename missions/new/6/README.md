@@ -59,4 +59,4 @@ Number of Islands Leetcode 200 | Recursion | Depth First Search | Amazon Intervi
 https://www.youtube.com/watch?v=viJEZSX4cDg
 
 IPFS : https://green-resonance-6286.on.fleek.co/
-video: https://www.youtube.com/watch?v=kQPHdcQhfJs
+video: https://youtu.be/ilGhPyecaWg
