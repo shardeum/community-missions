@@ -160,7 +160,6 @@ function setColor(i, j){
 
 async function getMap(){
     let mapData = await contract.getUserData();
-    debugger;
     setMapDataToBoard(mapData.currentTimeMap);
     setStatsToBoard(mapData.totalMaps, mapData.totalIslands);
 }
