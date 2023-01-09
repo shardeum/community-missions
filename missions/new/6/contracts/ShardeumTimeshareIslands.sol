@@ -13,22 +13,6 @@ contract ShardeumTimeshareIslands{
     uint8 COLS = 5;
     mapping(address => userMapIslandData) userMapData;
 
-    // function toBinary(uint256 number) internal pure returns (string memory) {
-    //     bytes memory binary = new bytes(32);
-    //     uint i = 0;
-    //     while(number > 0){
-    //         if(number % 2 == 1){
-    //             binary[31 - i] = bytes1("1");
-    //         }
-    //         else{
-    //             binary[31 - i] = bytes1("0");
-    //         }
-    //         i++;
-    //         number /= 2;
-    //     }
-    //     return string(binary);
-    // }
-
     function createNewMap() public returns (userMapIslandData memory) {
         uint8[5][3] memory mapArray;
         for(uint i = 0; i < ROWS; i++){
@@ -77,11 +61,6 @@ contract ShardeumTimeshareIslands{
         searchForConnections(grid, i, j + 1);
         return 0;
     }
-
-
-    // function getCurrentMap() external returns (userMapIslandData memory){
-    //     string memory binaryData = toBinary(block.timestamp);
-    // }
 
 
 }
