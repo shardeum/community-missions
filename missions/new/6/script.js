@@ -165,8 +165,7 @@ async function getMap(){
 }
 
 async function createNewMap(){
-    await contract.createNewMap();
-    await getMap();
+    contract.createNewMap().then(success => success.wait().then(done => getMap()));
 }
 
 async function countIslands(){
