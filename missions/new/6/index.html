@@ -1,0 +1,72 @@
+<html>      
+<head>
+<title>Approve token</title>
+<link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+<style>
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(5, 100px);
+      grid-template-rows: repeat(3, 100px);
+    }
+    .grid > div {
+      border: 1px solid black;
+      text-align: center;
+      font-size: 30px;
+    }
+    .selected {
+      border: 2px solid red;
+    }
+</style>
+</head>
+
+<body style="margin:15;padding:0">
+
+<h1>Island</h1>
+<button class="enableEthereumButton btn btn-primary">Connect wallet</button>
+<h4>Your account: <span class="showAccount"></span></h2>
+
+<table>
+    <tr>
+        <td><p>CurrentTimeMap : </p></td>
+        <td><p id="marblesOnTable"></p></td>
+    </tr>
+    <tr>
+        <td><p>totalMaps : </p></td>
+        <td><p id="playerWins"></p></td>
+    </tr>
+    <tr>
+        <td><p>TotalIslands : </p></td>
+        <td><p id="computerWins"></p></td>
+    </tr>
+</table>
+
+<p>Board : </p>
+<div class="grid">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </div>
+
+<button class="newGameButton btn btn-primary">New Map</button>
+<button class="turnButton btn btn-primary">Cout Island</button>
+
+<script src="connect.js"></script>
+
+<footer id="footer" style="position: fixed; bottom: 0px;">
+</footer>
+</body>
+</html>
