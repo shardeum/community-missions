@@ -1,0 +1,50 @@
+.container{
+    position: absolute;
+    /* width: 60vw; */
+    height: 60vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.wallet{
+    text-align: center;
+}
+
+.wallet .connect-wallet{
+    cursor: pointer;
+}
+.grid-container{
+    border: 1px solid #ccc;
+    width: fit-content;
+    margin-top: 20px;
+}
+
+.grid-container .row{
+    min-height: 80px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    width: fit-content;
+}
+
+.grid-container .row .col{
+    min-width: 130px;
+    border-right: 1px solid #ccc;
+    background-color: #00f;
+}
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.buttons button{
+    height: 40px;
+    cursor: pointer;
+}
+
+.stats{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
