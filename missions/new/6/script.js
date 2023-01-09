@@ -1,8 +1,3 @@
-// const ethers = require('ethers');
-
-// const { ethers } = require("ethers");
-
-// import {ethers} from 'ethers';
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 let address, contract, isConnected = false;
 let walletConnectBtn = document.querySelector('.connect-wallet');
@@ -170,5 +165,4 @@ async function createNewMap(){
 
 async function countIslands(){
     contract.countIslands().then(success => success.wait().then(done => getMap()));
-    // await getMap();
 }
