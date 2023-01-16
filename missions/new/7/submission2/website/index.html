@@ -1,0 +1,52 @@
+<html>      
+<head>
+<title>Connect 4</title>
+<link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="main.css" />
+<style>
+  div {
+  width: 50%; /* Set a fixed width for the element */
+  margin: 0 auto; /* Center the element horizontally */
+}
+</style>
+</head>
+
+<body style="margin:15;padding:0">
+
+<h1 style="display: flex; justify-content: center">Pixel Art  </h1>
+<div style="display: flex; justify-content: flex-end"><button  class="enableEthereumButton btn btn-primary">Connect wallet</button></div>
+
+<h4>Your account: <span class="showAccount"></span></h2>
+<!-- <button class="newGameButton btn btn-primary">New Game</button> -->
+<label for="colordata">Choose a color:</label>
+<select name="cdata" id="cdata">
+  <option value="1">no color</option>
+  <option value="2">grayscale</option>
+  <option value="3">color</option>
+</select>
+<button class="turnButton btn btn-primary">Mint NFT</button>
+<div>
+  <div id="guide"></div>
+  <canvas width="1000" height="1000" id="canvas"></canvas>
+</div>
+<div>
+  <label for="colorInput" id="setc">Set Color: </label>
+  <input type="color" id="colorInput" />
+</div>
+<div>
+  <label for="toggleGuide">Show Guide: </label>
+  <input type="checkbox" id="toggleGuide" checked />
+</div>
+<div>
+  <label for="colorInput" id="setr">Select Gray Range: </label>
+  <input type="range" min="0" max="255" value="0" id="scalerange" />
+</div>
+<div>
+  <button type="button" id="clearButton">Clear</button>
+</div>
+<script src="sketch.js" defer></script>
+<script src="main.js"></script>
+</body>
+</html>
