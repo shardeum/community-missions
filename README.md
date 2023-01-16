@@ -37,3 +37,9 @@ Best Artificial Intelligence: https://github.com/bytes1 Demo: https://little-lim
 Best Frontend: https://github.com/sagarvd01 Demo: https://quiet-bush-2358.on.fleek.co/
 
 Mission 6: https://github.com/w1729 Demo: https://green-resonance-6286.on.fleek.co/
+
+Mission 7:
+
+Submission 1: https://github.com/saurabhburade Demo: https://royal-hall-8221.on.fleek.co/
+
+
