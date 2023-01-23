@@ -1,4 +1,5 @@
 ## Mission 8: Lighthouse View
+[YouTube](https://youtu.be/FzeQHy1wXtc)
 
 <img src="images/lighthouse.png" alt="lighthouse"/>
 
