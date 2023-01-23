@@ -1,6 +1,6 @@
 ## Mission 8: Lighthouse View
 [YouTube](https://youtu.be/FzeQHy1wXtc)
-
+[Website](https://silent-waterfall-9928.on.fleek.co)
 <img src="images/lighthouse.png" alt="lighthouse"/>
 
 Image credit: https://filecoin.io/blog/posts/lighthouse-makes-permanent-storage-on-filecoin-easy-and-affordable/
