@@ -1,0 +1,10 @@
+<div class="container" *ngIf="address">
+    <img class="secret-img" [src]="url" *ngIf="url">
+</div>
+<button (click)="decryptFile()" *ngIf="address && !url && haveAccess">Decrypt file</button>
+<button (click)="getAccess()" *ngIf="address && !url && !haveAccess">Get Access</button>
+<div class="container" *ngIf="!address">
+    <div class="title-container">
+        <h2>Please connect wallet</h2>
+    </div>
+</div>

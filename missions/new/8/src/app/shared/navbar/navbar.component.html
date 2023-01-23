@@ -1,0 +1,6 @@
+<div class="nav-container">
+    <div class="wallet-connect-btn">
+        <button class="btn" *ngIf="!isConnected" (click)="connectWallet()">Connect Wallet</button>
+        <span class="btn-span" *ngIf="isConnected">{{address | addres}}</span>
+    </div>
+</div>
