@@ -12,7 +12,7 @@ Create a community Telegram faucet bot that is secure.
 
 The Telegram Bot:
 
-    -sends 10 SHM tokens per request to users on Betanet
+    -sends 11 SHM tokens per request to users on Betanet
     -shows its wallet address in a clear way so people can donate to the faucet
     -to help prevent spam:
         -has a 12 hour cooldown for the same wallet
