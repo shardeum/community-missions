@@ -15,7 +15,7 @@ from web3.gas_strategies.rpc import rpc_gas_price_strategy
 import random, string
 
 
-def get_captch():
+def get_captcha():
     captha = ""
     for _ in range(6):
         captha += random.choice(string.ascii_letters + string.digits)
@@ -29,16 +29,7 @@ connection.eth.set_gas_price_strategy(rpc_gas_price_strategy)
 
 async def start(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
-        f"Hi,there.!\n\nMy Commands are\n\n`/help`\n`/facucet`\n`/balance`\n\n`/donate`\n\nTo Support faucet going and usable for everyone, please send the token to this address `{ADDRESS}`"
-    )
-
-    captcha = get_captch()
-
-    ctx.user_data["captcha"] = captcha
-    ctx.user_data["verified"] = False
-
-    await update.message.reply_text(
-        f"Please send the following text to me in this format `/captcha <text>`\n\n CAPTCHA: {captcha}"
+        f"Hi,there.!\n\nMy Commands are\n\n`/help`\n`/faucet`\n`/balance`\n\n`/donate`\n\nTo Support faucet going and usable for everyone, please send the token to this address `{ADDRESS}`"
     )
 
 
@@ -60,14 +51,6 @@ async def faucet(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
     user_address = ctx.user_data.get("address")
     prev_time = ctx.user_data.get("sent_time")
 
-    verified = ctx.user_data.get("verified")
-
-    if not verified:
-        await update.message.reply_text(
-            "Please verify the captha, use /captch to get the captcha again"
-        )
-        return
-
     if prev_time is not None:
         difference_time = datetime.fromtimestamp(int(prev_time)) + timedelta(hours=12)
 
@@ -81,9 +64,56 @@ async def faucet(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
 
     if user_address is None:
         await update.message.reply_text(
-            "Please send Your Wallet to me using this `/wallet` <address>"
+            "Please send Your Wallet to me using this `/wallet` <address>\n\n*Note: This is one time only*"
         )
         return
+
+    transaction_captcha = get_captcha()
+
+    await update.message.reply_text(f"Please send me the captcha to start the process in below format\n\n**Command:** /verify <captcha>\n\n**Captcha:** {transaction_captcha}")
+    ctx.user_data["captcha"] = transaction_captcha
+
+
+async def wallet(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
+    address = ctx.args
+
+    if len(address) < 1 or len(address) > 1:
+        await update.message.reply_text("Not valid input, please check")
+        return
+
+    is_correct_address = Web3.isAddress(address[0])
+
+    if not is_correct_address:
+        await update.message.reply_text("Not a valid address")
+        return
+
+    await update.message.reply_text("Your wallet address is added/updated")
+
+    ctx.user_data["address"] = address[0]
+
+
+async def verify(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
+    args = ctx.args
+
+    captcha_word = ctx.user_data.get("captcha")
+
+    user_address = ctx.user_data.get("address")
+    if not captcha_word:
+        await update.message.reply_text(f"No faucet request started, try `/faucet`")
+        return
+
+    if len(args) == 0:
+        await update.message.reply_text(f"No Captcha Provided, try again")
+        return
+
+    user_captch = args[0]
+
+    if captcha_word.lower() != user_captch.lower():
+        await update.message.reply_text("Wrong captch, try again!")
+        return
+
+    await update.message.reply_text("Captcha Verified, sending transaction now!")
+    ctx.user_data["captcha"] = None
 
     balance = connection.eth.get_balance(ADDRESS)
 
@@ -118,50 +148,6 @@ async def faucet(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
         f"Sent 11 Tokens to the following address\n\n TX HASH is: {tx_hash.hex()}"
     )
 
-
-async def wallet(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
-    address = ctx.args
-
-    if len(address) < 1 or len(address) > 1:
-        await update.message.reply_text("Not valid input, please check")
-        return
-
-    is_correct_address = Web3.isAddress(address[0])
-
-    if not is_correct_address:
-        await update.message.reply_text("Not a valid address")
-        return
-
-    await update.message.reply_text("Your wallet address is added/updated")
-
-    ctx.user_data["address"] = address[0]
-
-
-async def captcha(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
-    args = ctx.args
-
-    captcha_word = ctx.user_data.get("captcha")
-
-    if not captcha_word:
-        captcha_word = get_captch()
-        await update.message.reply_text(f"Your captcha word is {captcha_word}")
-        ctx.user_data["captcha"] = captcha_word
-        return
-
-    if len(args) == 0:
-        await update.message.reply_text(f"Your captcha word is {captcha_word}")
-        return
-
-    user_captch = args[0]
-
-    if captcha_word.lower() == user_captch.lower():
-        await update.message.reply_text("You're verified!")
-        ctx.user_data["verified"] = True
-        return
-
-    await update.message.reply_text("Wrong captch, try again!")
-
-
 if __name__ == "__main__":
     persistance = PicklePersistence("faucet_data")
     defaults = Defaults(parse_mode=ParseMode.MARKDOWN)
@@ -176,7 +162,7 @@ if __name__ == "__main__":
     app.add_handler(CommandHandler(["wallet"], wallet))
     app.add_handler(CommandHandler(["help", "start"], start))
     app.add_handler(CommandHandler(["balance"], balance))
-    app.add_handler(CommandHandler("facucet", faucet))
-    app.add_handler(CommandHandler(["captcha"], captcha))
+    app.add_handler(CommandHandler("faucet", faucet))
+    app.add_handler(CommandHandler(["verify"], verify))
 
     app.run_polling()
