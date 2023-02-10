@@ -1,0 +1,65 @@
+import requests
+import telegram
+import time
+import random
+import hashlib
+import json
+
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import Updater, CommandHandler, CallbackQueryHandler
+
+# API endpoint for retrieving information about a specific wallet
+wallet_info_url = "https://api.shardium.io/v1/wallet/{wallet_address}"
+
+# API endpoint for sending tokens
+send_tokens_url = "https://api.shardium.io/v1/wallet/{wallet_address}/send"
+
+# Replace {wallet_address} with the actual wallet address
+wallet_address = "0x123456789abcdef"
+wallet_info_url = wallet_info_url.format(wallet_address=wallet_address)
+send_tokens_url = send_tokens_url.format(wallet_address=wallet_address)
+
+# Bot token obtained from the BotFather
+bot_token = "6222804337:AAE30MbQ4IdNfFnFiEJsZYYsY5iTDzAYBvw"
+
+# 12 hour cooldown time in seconds
+cooldown_time = 12 * 60 * 60
+
+# Request rate limit
+request_rate_limit = 200
+
+# Captcha seed
+captcha_seed = "captcha_seed"
+
+# Wallet address to username mapping
+wallet_address_to_username = {}
+
+# Wallet address to cooldown end time mapping
+wallet_address_to_cooldown_end_time = {}
+
+def start(update, context):
+    text = "Welcome to the Shardeum Faucet Bot!\n"
+    text += "Use the /wallet command to retrieve information about your wallet and its balance.\n"
+    text += "Use the /send command to send tokens.\n"
+    text += "Donate to the faucet using the following address: " + wallet_address
+    update.message.reply_text(text)
+
+def wallet(update, context):
+    response = requests.get(wallet_info_url)
+    if response.status_code == 200:
+        wallet_info = response.json()
+        text = "Wallet Info:\n"
+        text += "Address: " + wallet_info["address"] + "\n"
+        text += "Balance: " + str(wallet_info["balance"]) + " " + wallet_info["token"]
+        update.message.reply_text(text)
+    else:
+        update.message.reply_text("Failed to retrieve wallet info. Error: " + response.text)
+
+def send(update, context):
+    wallet_address = get_wallet_address(update)
+    if wallet_address is None:
+        update.message.reply_text("You have not linked a wallet address to your Telegram account. Please use the /link command to link your wallet address.")
+        return
+
+    if wallet_address in wallet_address_to_username and wallet_address_to_username[wallet_address] != update.message.from_user.username:
+        update.message.reply_text("The linked wallet address is associated with another Telegram account. Please use the /link command to link your wallet address.")
