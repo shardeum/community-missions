@@ -5,7 +5,8 @@ const ethers = require("ethers")
 const network = process.env.NETWORK
 const getfaucetval = process.env.GETFAUCETVAL
 const timeout = parseInt(process.env.TIMEOUTMINUTE)*60000
-//const timeout = parseInt(process.env.TIMEOUTMINUTE)
+const throttledQueue = require('throttled-queue');
+const throttle = throttledQueue(200, 1000);
 var db = require('./request/my_sql_connect.js');
 bot.setMyCommands([
     {command: '/start', description: 'start'},  
@@ -175,7 +176,8 @@ const start = () => {
                 //console.log('timestamp: ',resp[0]['wallet'])
                 let vremya = ((Date.now() - parseInt(resp[0]['timestamp']))>0) ? true : false
                 if(vremya && resp[0]['wallet']!=null){
-                    const tmp = await main(resp[0]['wallet'])
+                    throttle(async () => {
+                        const tmp = await main(resp[0]['wallet'])
                     const sql2 = `UPDATE shardbot SET timestamp=? WHERE userid=${msg.from.id}`;
                     let time_ = Date.now()+timeout;
                     //console.log(typeof(time_))
@@ -185,7 +187,8 @@ const start = () => {
                         return console.log(err);
                         }
                     })
-                return bot.sendMessage(msg.from.id, tmp);
+                    return bot.sendMessage(msg.from.id, tmp);
+                    });
                 }else if(resp[0]['wallet']==null){
                     return bot.sendMessage(msg.from.id, `wallet not added\nadd your wallet address, \nExample \n\/add 0x359BB95D0A43f4688e948EAE911CDB642eC03fDf`);
                 }
