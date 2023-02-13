@@ -5,6 +5,7 @@ const ethers = require("ethers")
 const network = process.env.NETWORK
 const getfaucetval = process.env.GETFAUCETVAL
 const timeout = parseInt(process.env.TIMEOUTMINUTE)*60000
+//throttles requests if there are more than 200 requests per second
 const throttledQueue = require('throttled-queue');
 const throttle = throttledQueue(200, 1000);
 var db = require('./request/my_sql_connect.js');
@@ -173,7 +174,7 @@ const start = () => {
             if(resp && resp!=''){ 
                 console.log('timestamp: ',parseInt(resp[0]['timestamp']))
                 console.log('datenow: ',Date.now())
-                //console.log('timestamp: ',resp[0]['wallet'])
+                //cooldown
                 let vremya = ((Date.now() - parseInt(resp[0]['timestamp']))>0) ? true : false
                 if(vremya && resp[0]['wallet']!=null){
                     throttle(async () => {
