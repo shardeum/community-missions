@@ -1,0 +1,76 @@
+TotalVolumeTanks
+
+pragma solidity ^0.6.0;
+
+contract TotalVolumeTanks {
+    struct userWaterTankData {
+        uint256 currentBlockTime;
+        uint256[] currentTankWalls;
+        uint256 totalTanks;
+        uint256 currentWaterVolume;
+        uint256 totalWaterVolume;
+    }
+
+    mapping (address => userWaterTankData) userData;
+
+    function createNewMap() public {
+        userData[msg.sender].currentBlockTime = block.timestamp;
+        
+        // convert decimal places to wall height array
+        uint256[] memory walls = new uint256[9];
+        uint256 wallHeight;
+        uint256 time = block.timestamp;
+        for (uint256 i = 0; i < 9; i++) {
+            wallHeight = time % 10;
+            walls[i] = wallHeight;
+            if (wallHeight == 0) {
+                walls[i] = 1;
+            }
+            if (wallHeight == 9) {
+                walls[i] = 8;
+            }
+            time = floor(time / 10);
+        }
+        userData[msg.sender].currentTankWalls = walls;
+        userData[msg.sender].totalTanks++;
+    }
+
+    function currentTankTotalWaterVolume() public view returns (uint256) {
+        uint256 totalVolume = 0;
+        for (uint256 i = 0; i < userData[msg.sender].currentTankWalls.length; i++) {
+            totalVolume += userData[msg.sender].currentTankWalls[i] * userData[msg.sender].currentBlockTime;
+        }
+        userData[msg.sender].currentWaterVolume = totalVolume;
+        userData[msg.sender].totalWaterVolume += totalVolume;
+        return totalVolume;
+    }
+}
+
+
+
+TotalVolumeTanks: 
+
+pragma solidity ^0.6.0;
+
+contract TotalVolumeTanks {
+    uint256 currentBlockTime;
+    uint256[] currentTankWalls;
+    uint256 totalTanks;
+    uint256 currentWaterVolume;
+    uint256 totalWaterVolume;
+
+    // func to create new tank walls based on time parameter 
+    function createNewTankWalls(uint256 _time) public {
+        currentBlockTime = _time;
+    }
+
+    // Function to calculate total volume with current walls 
+    function calculateTotalVolume() public view returns (uint256) {
+        uint256 totalVolume = 0;
+        for (uint256 i = 0; i < currentTankWalls.length; i++) {
+            totalVolume += currentTankWalls[i] * currentBlockTime;
+        }
+        return totalVolume;
+    }
+}
+
