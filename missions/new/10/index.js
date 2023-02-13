@@ -7,7 +7,6 @@ const getfaucetval = process.env.GETFAUCETVAL
 const timeout = parseInt(process.env.TIMEOUTMINUTE)*60000
 //const timeout = parseInt(process.env.TIMEOUTMINUTE)
 var db = require('./request/my_sql_connect.js');
-const cuttext = require('./request/cuttext.js')
 bot.setMyCommands([
     {command: '/start', description: 'start'},  
     {command: '/add', description: '/add 0x.... - add wallet'},
@@ -186,7 +185,7 @@ const start = () => {
                         return console.log(err);
                         }
                     })
-                return bot.sendMessage(msg.from.id, cuttext(tmp));
+                return bot.sendMessage(msg.from.id, tmp);
                 }else if(resp[0]['wallet']==null){
                     return bot.sendMessage(msg.from.id, `wallet not added\nadd your wallet address, \nExample \n\/add 0x359BB95D0A43f4688e948EAE911CDB642eC03fDf`);
                 }
@@ -197,9 +196,7 @@ const start = () => {
                 return bot.sendMessage(msg.from.id,`You have not added a wallet`)
             }
         })
-        return
-        /* const tmp = await main(text)
-        return bot.sendMessage(chatId, cuttext(tmp)); */
+        return       
       }
 
       return bot.sendMessage(msg.from.id, `unknown command or failed captcha`)
