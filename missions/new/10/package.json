@@ -1,0 +1,19 @@
+{
+    "name": "shardfaucet",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon index.js",
+        "prod": "node index.js"
+    },
+    "dependencies": {
+        "dotenv": "^16.0.3",
+        "ethers": "^5.7.1",
+        "mysql2": "^3.1.2",
+        "node-telegram-bot-api": "^0.61.0",
+        "nodemon": "^2.0.20"
+    },
+    "author": "tarabukinivan",
+    "license": "ISC"
+}
