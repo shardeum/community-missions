@@ -12,7 +12,8 @@
         "ethers": "^5.7.1",
         "mysql2": "^3.1.2",
         "node-telegram-bot-api": "^0.61.0",
-        "nodemon": "^2.0.20"
+        "nodemon": "^2.0.20",
+        "throttled-queue": "^2.1.4"
     },
     "author": "tarabukinivan",
     "license": "ISC"
