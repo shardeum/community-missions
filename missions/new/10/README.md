@@ -1,27 +1,47 @@
 ## Mission 10: Telegram Faucet Bot
 
-<img src="images/telegram.png" alt="telegram"/>
+## Installation
 
-Image credit: https://commons.wikimedia.org/wiki/File:Telegram_logo.svg
+1. 
+```
+sudo apt update && sudo apt upgrade -y
+```
+2.
+```
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash - && \
+sudo apt-get install nodejs -y && \
+echo -e "\nnodejs > $(node --version).\nnpm  >>> v$(npm --version).\n"
+```
+3.
+```
+cd
+git clone https://github.com/tarabukinivan/shadeumtelegramfaucet
+cd shadeumtelegramfaucet
+npm i
+```
+4.
+install mysql locally.<br>
+create database 'sui_bot'<br>
+create user 'sui_user' and give all privileges<br>
+Set up connection in ./request/my_sql_connect.js<br>
+add 'shardbot' table:
+```
+CREATE TABLE shardbot (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+userid VARCHAR(15) NOT NULL,
+wallet VARCHAR(42) DEFAULT NULL,
+timestamp VARCHAR(15) DEFAULT 0
+);
 
-## Overview
 
-Create a community Telegram faucet bot that is secure.
+```
+5.
+create env settings file and enter private key and telegram token
+cp .env.sample .env
+nano .env
 
-## Requirements
+#bot https://t.me/shardeumfaucet_bot
 
-The Telegram Bot:
-
-    -sends 11 SHM tokens per request to users on Betanet
-    -shows its wallet address in a clear way so people can donate to the faucet
-    -to help prevent spam:
-        -has a 12 hour cooldown for the same wallet
-        -throttles requests if there are more than 200 requests per second 
-        -checks that the Telegram account only has one wallet address
-        -has a captcha
-
-## Resources
-
-Faucet request example with NestJS:
-
-https://github.com/m-r-g-t/shardeum-faucet
+![alt text](https://oshi.at/uUXF/bLJs.png)
+![alt text](https://oshi.at/dpNY/ywcd.png)
+![alt text](https://oshi.at/rYBc/tvBm.png)
