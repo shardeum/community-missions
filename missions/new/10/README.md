@@ -41,6 +41,7 @@ cp .env.sample .env
 nano .env
 
 #bot https://t.me/shardeumfaucet_bot
+(only while issuance of 1 token is set)
 
 ![alt text](https://oshi.at/uUXF/bLJs.png)
 ![alt text](https://oshi.at/dpNY/ywcd.png)
