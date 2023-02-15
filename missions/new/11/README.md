@@ -28,8 +28,11 @@ Create a smart contract called: ```TotalVolumeTanks``` which:
             -height: 8  (y-axis)
         -to keep things simple, assume we have an 8x12 grid
         -array for each wall height:
-            -currentTankWalls[0] represents x = 1 
-            -currentTankWalls[8] represents x = 9
+            -convert y = 0 to y = 1 
+            -convert y = 9 to y = 8
+            -currentTankWalls[9] = 1
+            -currentTankWalls[10] = 1 
+            -currentTankWalls[11] = 8
     -function createNewMap:
         -updates currentTankWalls from block.timestamp (uint) that is saved into currentBlockTime with logic:
             -decimal places represent wall height:
