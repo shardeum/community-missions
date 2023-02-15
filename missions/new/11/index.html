@@ -1,0 +1,345 @@
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body{
+            padding: 10px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .display-account{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .stats-table{
+            margin-top: 20px;
+        }
+
+        .spinner-container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            display: none;
+        }
+
+        #result-content{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="display-account">
+    <div>
+        <h6 id="connect_message">Connect your wallet</h6>
+        <button id="connect" class="btn btn-primary">Connect</button>
+    </div>
+</div>
+
+
+
+
+<div id="result-content">
+
+
+    <div>
+        <button id="create" class="btn btn-secondary">create Tank</button>
+    </div>
+
+    <table class="table stats-table">
+        <thead>
+        <tr>
+            <th scope="col">Current Block Time</th>
+            <th scope="col">Current Tank Walls</th>
+            <th scope="col">Total Tanks</th>
+            <th scope="col">Current Water Volume</th>
+            <th scope="col">Total Water Volume</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row"><span id="currentBlockTime" /></th>
+            <td><span id="currentTankWalls" /></td>
+            <td><span id="totalTanks" /></td>
+            <td><span id="currentWaterVolume" /></td>
+            <td><span id="totalWaterVolume" /></td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <br />
+    <button id="compute" class="btn btn-info">compute volume</button>
+</div>
+
+
+<div>
+    <canvas id="ctx" width="1200"></canvas>
+</div>
+
+<div id="spinner" class="spinner-container">
+    <div  class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+
+
+
+<script>
+    const provider = ((window.ethereum != null) ? new ethers.providers.Web3Provider(window.ethereum) : ethers
+        .providers.getDefaultProvider());
+    let address, contract, chart;
+    let spinner = document.getElementById("spinner")
+    let resultContent = document.getElementById("result-content")
+    let chartContent = document.getElementById("ctx")
+    let connectButton = document.getElementById('connect');
+    let createButton = document.getElementById('create');
+    let computeButton = document.getElementById('compute');
+    connectButton.addEventListener('click', getAccounts);
+    createButton.addEventListener('click', createTank);
+    computeButton.addEventListener('click', compute);
+
+    const contractAddress = "0x50fD1c197534B0844f192f0fB6b29e2323E1DAd1";
+    const ABI = [
+                    {
+                        "inputs": [],
+                        "name": "computeTotalTankWaterVolume",
+                        "outputs": [],
+                        "stateMutability": "nonpayable",
+                        "type": "function"
+                    },
+                    {
+                        "inputs": [],
+                        "name": "createNewMap",
+                        "outputs": [],
+                        "stateMutability": "nonpayable",
+                        "type": "function"
+                    },
+                    {
+                        "inputs": [],
+                        "name": "ProcessedAlready",
+                        "type": "error"
+                    },
+                    {
+                        "inputs": [],
+                        "name": "TankUnprocessed",
+                        "type": "error"
+                    },
+                    {
+                        "inputs": [],
+                        "name": "ZeroTanks",
+                        "type": "error"
+                    },
+                    {
+                        "inputs": [],
+                        "name": "myCurrentBlockTime",
+                        "outputs": [
+                            {
+                                "internalType": "uint256",
+                                "name": "currentBlockTime",
+                                "type": "uint256"
+                            }
+                        ],
+                        "stateMutability": "view",
+                        "type": "function"
+                    },
+                    {
+                        "inputs": [],
+                        "name": "myCurrentTankWalls",
+                        "outputs": [
+                            {
+                                "internalType": "uint8[9]",
+                                "name": "currentTankWalls",
+                                "type": "uint8[9]"
+                            }
+                        ],
+                        "stateMutability": "view",
+                        "type": "function"
+                    },
+                    {
+                        "inputs": [],
+                        "name": "myCurrentWaterVolume",
+                        "outputs": [
+                            {
+                                "internalType": "uint256",
+                                "name": "currentWaterVolume",
+                                "type": "uint256"
+                            }
+                        ],
+                        "stateMutability": "view",
+                        "type": "function"
+                    },
+                    {
+                        "inputs": [],
+                        "name": "myTotalTanks",
+                        "outputs": [
+                            {
+                                "internalType": "uint256",
+                                "name": "totalTanks",
+                                "type": "uint256"
+                            }
+                        ],
+                        "stateMutability": "view",
+                        "type": "function"
+                    },
+                    {
+                        "inputs": [],
+                        "name": "myTotalWaterVolume",
+                        "outputs": [
+                            {
+                                "internalType": "uint256",
+                                "name": "totalWaterVolume",
+                                "type": "uint256"
+                            }
+                        ],
+                        "stateMutability": "view",
+                        "type": "function"
+                    }
+                ];
+
+    async function getAccounts() {
+        let accounts = await provider.send('eth_requestAccounts', []);
+        if (accounts.length) {
+            address = accounts[0];
+            document.getElementById('connect').remove();
+            document.getElementById('connect_message').innerHTML = `Wallet Connected: ${address}`
+            contractInit();
+        }
+    }
+
+    async function createTank() {
+        spinner.style.display = "flex"
+        chartContent.style.display = "none"
+        contract.createNewMap().then(success => success.wait().then(done => loadValues()));
+    }
+
+    async function compute() {
+        spinner.style.display = "flex"
+        chartContent.style.display = "none"
+        contract.computeTotalTankWaterVolume().then(success => success.wait().then(done => loadValues()));
+    }
+
+    async function loadValues() {
+        const myCurrentBlockTime = await contract.myCurrentBlockTime();
+        const myCurrentTankWalls = await contract.myCurrentTankWalls();
+        const myCurrentWaterVolume = await contract.myCurrentWaterVolume();
+        const myTotalTanks = await contract.myTotalTanks();
+        const myTotalWaterVolume = await contract.myTotalWaterVolume();
+        spinner.style.display = "none"
+        updateValues(myCurrentBlockTime, myCurrentTankWalls, myTotalTanks, myCurrentWaterVolume,
+            myTotalWaterVolume);
+        var waterBlocks = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+        if (myCurrentWaterVolume != 0) {
+            waterBlocks = getWaterBlocks(myCurrentTankWalls);
+        }
+        if (chart) chart.destroy();
+        plot(myCurrentTankWalls, waterBlocks);
+        spinner.style.display = "none"
+        resultContent.style.display = "block"
+        chartContent.style.display = "none"
+        chartContent.style.display = "block"
+    }
+
+    function contractInit() {
+        spinner.style.display = "flex";
+        contract = new ethers.Contract(contractAddress, ABI, provider.getSigner());
+        loadValues();
+    }
+
+    function getWaterBlocks(blocks) {
+        var left = 0,
+            right = blocks.length - 1;
+        var ans = 0;
+        var left_max = 0,
+            right_max = 0;
+        var leftPads = [];
+        var rightPads = [];
+        while (left <= right) {
+            index = 0;
+            if (blocks[left] < blocks[right]) {
+                if (blocks[left] >= left_max) {
+                    left_max = blocks[left];
+                } else {
+                    ans += left_max - blocks[left];
+                    index = left_max - blocks[left];
+                }
+                ++left;
+                leftPads.push(index);
+            } else {
+                if (blocks[right] >= right_max) {
+                    right_max = blocks[right];
+                } else {
+                    ans += (right_max - blocks[right]);
+                    index = (right_max - blocks[right]);
+                }
+                --right;
+                rightPads.push(index);
+            }
+        }
+        return leftPads.concat(rightPads.reverse());
+    }
+
+    function updateValues(currentBlockTime, currentTankWalls, totalTanks, currentWaterVolume, totalWaterVolume) {
+        document.getElementById("currentBlockTime").innerHTML = currentBlockTime;
+        document.getElementById("currentTankWalls").innerHTML = currentTankWalls;
+        document.getElementById("totalTanks").innerHTML = totalTanks;
+        document.getElementById("currentWaterVolume").innerHTML = currentWaterVolume;
+        document.getElementById("totalWaterVolume").innerHTML = totalWaterVolume;
+    }
+
+    function plot(blocks, waterblocks) {
+        // chart
+        chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['', '', '', '', '', '', '', '', ''],
+                datasets: [{
+                    label: 'Block',
+                    data: blocks,
+                    backgroundColor: '#641E16'
+                }, {
+                    label: 'Water',
+                    data: waterblocks,
+                    backgroundColor: '#3498DB'
+                }],
+            },
+            options: {
+                responsiveAnimationDuration: 5000,
+                maintainAspectRatio: false,
+                indexAxis: 'x',
+                barThickness: 131,
+                maxBarThickness: 800,
+                responsive: false,
+                legend: {
+                    display: true
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        stacked: true,
+                    },
+                    x: {
+                        beginAtZero: true,
+                        stacked: true,
+                    }
+                }
+            }
+        });
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
