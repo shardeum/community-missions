@@ -20,3 +20,10 @@ $ python3 teleFaucetBot.py
 ## Running Faucet API
 
 Refer README.md in faucetSHM/ folder
+
+## Bot Features
+
+- CAPTCHA for human verification
+- Rate Limiting if excessive requests received
+- Config File to control parameters
+- Production ready code
