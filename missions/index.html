@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Shardeum Water Tank Volume</title>
+        <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="wallet">
+                <button class="connect-wallet">Connect Wallet</button>
+            </div>
+            <div class="grid-container"> 
+                <!-- <div class="row">
+                    <div class="col-1" data-id="0"></div>
+                    <div class="col-1" data-id="1"></div>
+                    <div class="col-1" data-id="2"></div>
+                    <div class="col-1" data-id="3"></div>
+                    <div class="col-1" data-id="4"></div>
+                    <div class="col-1" data-id="5"></div>
+                    <div class="col-1" data-id="6"></div>
+                    <div class="col-1" data-id="7"></div>
+                    <div class="col-1" data-id="8"></div>
+                </div> -->
+                <canvas id="tank-data" width="720" height="200"></canvas>
+            </div>
+            <div class="buttons">
+                <button class="create-map">Create New Map</button>
+                <button class="calculate-volume">Calculate Volume</button>
+            </div>
+            <div class="stats">
+                <div class="block-time">
+                    <span class="label">Block Time: </span>
+                    <span class="block-time-value"></span>
+                </div>
+                <div class="total-map-count">
+                    <span class="label">Total Maps: </span>
+                    <span class="map-count"></span>
+                </div>
+                <div class="current-volume">
+                    <span class="label">Current Volume: </span>
+                    <span class="current-volume-value"></span>
+                </div>
+                <div class="total-volume">
+                    <span class="label">Total Volume: </span>
+                    <span class="total-volume-value"></span>
+                </div>
+            </div>
+        </div>
+        <script src="./script.js"></script>
+    </body>
+</html>
