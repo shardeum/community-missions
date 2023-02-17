@@ -26,4 +26,5 @@ Refer README.md in faucetSHM/ folder
 - CAPTCHA for human verification
 - Rate Limiting if excessive requests received
 - Config File to control parameters
-- Production ready code
+- Production ready code, with error handling
+- Code ready and Tested for corner cases
