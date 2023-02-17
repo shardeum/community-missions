@@ -1,0 +1,8 @@
+backoff==2.2.1
+captcha==0.4
+django_recaptcha==3.0.0
+python-telegram-bot==20.1
+python-telegram-bot[rate-limiter]
+ratelimit==2.2.1
+requests==2.25.1
+telegram==0.0.1
