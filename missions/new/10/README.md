@@ -1,6 +1,8 @@
 # Telegram Faucet
 Telegram Faucet for Shardeum Sphinx 1.1
 
+Telegram bot: @PsychorhukTestBot
+
 # Running Telegram bot
 ```bash
 # teleFaucetBotConfig.py contains all configuration parameters
