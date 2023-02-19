@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Shardeum Mission 11: Water Tank Total Volume</title>
+        <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="wallet">
+                <button class="connect-wallet">Connect Wallet</button>
+            </div>
+            <div class="grid-container">
+                <canvas id="tank-data" width="690" height="300"></canvas>
+            </div>
+            <div class="buttons">
+                <button class="create-map">Create New Map</button>
+                <button class="calculate-volume">Calculate Volume</button>
+            </div>
+            <div class="stats">
+                <div class="block-time">
+                    <span class="label">Block Time: </span>
+                    <span class="block-time-value"></span>
+                </div>
+                <div class="total-map-count">
+                    <span class="label">Total Tanks: </span>
+                    <span class="map-count"></span>
+                </div>
+                <div class="current-volume">
+                    <span class="label">Current Volume: </span>
+                    <span class="current-volume-value"></span>
+                </div>
+                <div class="total-volume">
+                    <span class="label">Total Volume: </span>
+                    <span class="total-volume-value"></span>
+                </div>
+            </div>
+        </div>
+        <script src="./script.js"></script>
+    </body>
+</html>
