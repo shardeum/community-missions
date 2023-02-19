@@ -1,0 +1,86 @@
+<html>      
+<head>
+<title>Water Tank Volume</title>
+<link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+
+
+<style>
+th, td {
+  padding: 15px;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#grid {
+  border: 1px solid black;
+}
+body {
+  background-color: magenta;
+  margin: 0;
+  overflow: hidden;
+}
+table {
+  border-collapse: collapse;
+  background-color: lightblue;
+}
+
+table, th, td {
+  border: 2px solid black;
+}
+</style>
+
+<meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+
+<body style="margin:15;padding:0">
+
+<h1 style="display: flex; justify-content: center">Trapping Rain Water</h1>
+<div style="display: flex; justify-content: flex-end"><button  class="enableEthereumButton btn btn-primary">Connect wallet</button></div>
+
+<h4>Your account: <span class="showAccount"></span></h2>
+<!-- <button class="newGameButton btn btn-primary">New Game</button> -->
+<table style="display: flex; justify-content: center">
+    <tr>
+      <td>
+        <p>Current Block Time : </p>
+        <p id="bt"></p>
+      </td>
+      <td>
+        <p>Current Tank Walls : </p>
+        <p id="cw"></p>
+      </td>
+      <td>
+        <p>Total Tanks : </p>
+        <p id="tt"></p>
+      </td>
+      <td>
+        <p>Current Water Volume : </p>
+        <p id="cv"></p>
+      </td>
+      <td>
+        <p>total Water Volume : </p>
+        <p id="tv"></p>
+      </td>
+    </tr>
+</table>
+<div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+<div style="display: flex; justify-content: flex-end"><button  class="createtank btn btn-primary">Create New Tank</button></div>
+<div style="display: flex; justify-content: flex-end"><button  class="tankvolume btn btn-primary">Calculate Tank Volume</button></div>
+</div>
+<div class="container">
+<canvas id="grid"></canvas>
+</div>
+<script src="main.js"></script>
+</body>
+</html>
