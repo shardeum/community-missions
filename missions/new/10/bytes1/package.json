@@ -1,0 +1,22 @@
+{
+  "name": "tbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bot.js"
+  },
+  "dependencies": {
+    "@ethersproject/bignumber": "^5.7.0",
+    "@ethersproject/units": "^5.7.0",
+    "@ethersproject/wallet": "^5.7.0",
+    "api": "^5.0.4",
+    "axios": "^1.2.0",
+    "bottleneck": "^2.19.5",
+    "dotenv": "^16.0.3",
+    "ethers": "^6.0.5",
+    "node-telegram-bot-api": "^0.58.0",
+    "web3": "^1.8.2"
+  }
+}
