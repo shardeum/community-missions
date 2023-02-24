@@ -1,4 +1,4 @@
-Submission 1:([bytes1](https://github.com/bytes1)<br>
+Submission 1:([bytes1](https://github.com/bytes1))<br>
 [Demo](https://youtu.be/kL-rpp-25Vg) <br>
 [Website](https://t.me/shardeumpandabot)
 ## Mission 10: Telegram Faucet Bot
