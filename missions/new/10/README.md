@@ -1,6 +1,11 @@
 Submission 1:([bytes1](https://github.com/bytes1))<br>
 [Demo](https://youtu.be/kL-rpp-25Vg) <br>
-[Website](https://t.me/shardeumpandabot)
+[Website](https://t.me/shardeumpandabot)  
+
+Submission 2:([sagarvd01](https://github.com/sagarvd01))
+Bot: [@ShardeumSphinxBot](http://t.me/ShardeumSphinxBot)  
+Video: [YouTube](https://youtu.be/_GxSSH9_h7c)  
+
 ## Mission 10: Telegram Faucet Bot
 
 <img src="images/telegram.png" alt="telegram"/>
