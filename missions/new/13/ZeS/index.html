@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Play Sudoku</title>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      td {
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        border: 1px solid black;
+      }
+      .win {
+        color: green;
+      }
+      .lose {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Play Sudoku</h1>
+    <button id="connect-wallet-button">Connect Wallet</button>
+    <p id="wallet-status"></p>
+    <p id="win-status"></p>
+    <table id="sudoku-board"></table>
+    <button id="verify-win-button">Verify Win</button>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
+    <script>
+      const contractAddress = "CONTRACT_ADDRESS_GOES_HERE";
+      const contractABI = [
+        {
+          "inputs": [],
+          "name": "didThePlayerWin",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "components": [
+                {
+                  "internalType": "uint8",
+                  "name": "row",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "uint8",
+                  "name": "col",
+                  "type": "uint8"
+                }
+              ],
+              "internalType": "struct PlaySudoku.Uint8Pair[]",
+              "name": "moves",
+              "type": "tuple[]"
+            }
+          ],
+          "name": "verifyWin",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        }
+      ];
+
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+      const contract = new ethers.Contract(contractAddress, contractABI, provider);
+
+      const currentBoard = [
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    	  [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  ];
+
+  function renderBoard() {
+    const boardElement = document.getElementById("sudoku-board");
+    boardElement.innerHTML = "";
+    for (let i = 0; i < 9; i++) {
+      const row = document.createElement("tr");
+      for (let j = 0; j < 9; j++) {
+        const cell = document.createElement("td");
+        cell.textContent = currentBoard[i][j];
+        row.appendChild(cell);
+      }
+      boardElement.appendChild(row);
+    }
+  }
+
+  function updateWinStatus() {
+    contract.didThePlayerWin().then(didWin => {
+      const winStatusElement = document.getElementById("win-status");
+      winStatusElement.textContent = didWin ? "You Won!" : "Keep Trying!";
+      winStatusElement.classList.toggle("win", didWin);
+      winStatusElement.classList.toggle("lose", !didWin);
+    });
+  }
+
+  async function verifyWin() {
+    const moves = [];
+    for (let i = 0; i < 9; i++) {
+      for (let j = 0; j < 9; j++) {
+        const cell = currentBoard[i][j];
+        if (cell !== 0) {
+          moves.push({row: i, col: j, value: cell});
+        }
+      }
+    }
+    await contract.verifyWin(moves);
+    updateWinStatus();
+  }
+
+  document.getElementById("connect-wallet-button").addEventListener("click", async () => {
+    try {
+      await window.ethereum.request({ method: "eth_requestAccounts" });
+      const address = await signer.getAddress();
+      document.getElementById("wallet-status").textContent = `Connected to wallet ${address}`;
+      updateWinStatus();
+    } catch (err) {
+      console.error(err);
+      document.getElementById("wallet-status").textContent = "Failed to connect to wallet";
+    }
+  });
+
+  document.getElementById("verify-win-button").addEventListener("click", verifyWin);
+
+  renderBoard();
+</script>
+</body>
+</html>
