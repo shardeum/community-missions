@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Play Sudoku</title>
+  </head>
+  <body>
+    <h1>Play Sudoku</h1>
+    <p>Connect your wallet to play!</p>
+    <button onclick="connectWallet()">Connect Wallet</button>
+    <div id="status"></div>
+    <br>
+    <img id="board" src="https://i.imgur.com/yP9X2Q8.png">
+    <br>
+    <button onclick="verifyWin()">Verify Win</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.3.0/web3.min.js"></script>
+    <script>
+      const contractAddress = '0xc0b36c3889abee6d86d106e148a510bf289684e8';
+      const contractABI = [
+        {
+          "inputs": [],
+          "name": "verifyWin",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "name": "didThePlayerWin",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        }
+      ];
+      let account;
+      let playSudoku;
+      async function connectWallet() {
+        if (window.ethereum) {
+          try {
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            account = accounts[0];
+            console.log(`Connected to wallet: ${account}`);
+            playSudoku = new web3.eth.Contract(contractABI, contractAddress);
+            updateStatus(`Connected to wallet: ${account}`);
+            updateWinStatus();
+          } catch (error) {
+            console.error(error);
+            updateStatus('Error connecting to wallet. Please try again.');
+          }
+        } else {
+          updateStatus('No wallet detected. Please install Metamask and try again.');
+        }
+      }
+      async function updateWinStatus() {
+        const didWin = await playSudoku.methods.didThePlayerWin(account).call();
+        if (didWin) {
+          updateStatus('You won!');
+        } else {
+          updateStatus('Keep playing!');
+        }
+      }
+      function updateStatus(status) {
+        const statusDiv = document.getElementById('status');
+        statusDiv.innerHTML = status;
+      }
+      async function verifyWin() {
+        try {
+          await playSudoku.methods.verifyWin().send({ from: account });
+          updateWinStatus();
+        } catch (error) {
+          console.error(error);
+          updateStatus('Error verifying win. Please try again.');
+        }
+      }
+    </script>
+  </body>
+</html>
