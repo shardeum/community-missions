@@ -1,0 +1,86 @@
+{
+  "address": "0xf34b6ec7cCbFb4fa4A3bf97d1806b6962f994499",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "flipHorizontally",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "flipVertically",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "turnLeft",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "turnRight",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        }
+      ],
+      "name": "currentImage",
+      "outputs": [
+        {
+          "internalType": "uint256[3][3]",
+          "name": "",
+          "type": "uint256[3][3]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "userImages",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "rightTurns",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "leftTurns",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "verticalFlips",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "horizontalFlips",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ]
+}
