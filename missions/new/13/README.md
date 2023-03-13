@@ -1,3 +1,7 @@
+Submission 1:([arularmstrong](https://github.com/arularmstrong))<br>
+[demo](https://www.youtube.com/watch?v=WCkqoAZjR5M) <br>
+[website](https://bafybeifdw2h5o2exrxe2ibxgvaxqtns5rltxvx3kxyvubksfhca5x533ka.ipfs.cf-ipfs.com)
+
 ## Mission 13: Play Sudoku
 
 <img src="images/validSudoku.png" alt="validSudoku"/>

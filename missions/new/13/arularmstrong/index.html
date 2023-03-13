@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <title>sudoku</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="header">
+        <h4 id="connect_message"></h4>
+        <h5 id="player-won">
+            </h6>
+            <button type="button" class="btn primary" id="connect">Connect</button>
+    </div>
+    <div id="spinner" class="spinner-container">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <div id="result-content">
+        <div class="container"></div>
+        <div id="controls">
+            <button type="button" class="btn primary" data-action="validate">Verify</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+    </script>
+    <script src="./scripts.js"></script>
+</body>
+
+</html>

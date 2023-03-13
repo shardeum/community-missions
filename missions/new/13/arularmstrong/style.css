@@ -1,0 +1,135 @@
+.display-account {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.spinner-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    margin: 20px 0;
+}
+
+#result-content {
+    display: none;
+}
+
+#player-won {
+    color: #2ecc71;
+    margin: 20px 195px;
+}
+
+#connect_message {
+    margin: 20px 0;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    margin: 0;
+    overflow: hidden;
+    font-family: "Lato", sans-serif;
+    background-color: #4D394B;
+    color: #eee;
+}
+
+.sudoku-container {
+    border: 4px solid #aa7eaa;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 2px;
+}
+
+.sudoku-container::before,
+.sudoku-container::after {
+    position: absolute;
+    border-style: solid;
+    pointer-events: none;
+    content: "";
+}
+
+.sudoku-container::before {
+    width: 140px;
+    border-width: 0 3px;
+    border-color: transparent #eee transparent #eee;
+    top: 4px;
+    left: 131px;
+    bottom: 4px;
+}
+
+.sudoku-container::after {
+    height: 140px;
+    border-width: 3px 0;
+    border-color: #eee transparent #eee transparent;
+    left: 4px;
+    top: 131px;
+    right: 4px;
+}
+
+tr:nth-child(1) td:nth-child(3) input,
+tr:nth-child(1) td:nth-child(6) input {
+    margin: 0 10px 0 0;
+}
+
+tr:nth-child(3) input,
+tr:nth-child(6) input {
+    margin: 0 0 10px 0;
+}
+
+.sudoku-container input {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 20px;
+    padding: 0;
+    border: 3px #4f374d solid;
+    background-color: #a67fbd;
+    color: black;
+}
+
+.sudoku-container input:focus {
+    border-color: #cdb3dc;
+}
+
+.sudoku-container input.highlight {
+    background-color: #4C9689;
+    border-color: #3d786d;
+}
+
+.sudoku-container input.disabled {
+    cursor: not-allowed;
+    background-color: #cdb3dc;
+    border-color: #4f374d;
+}
+
+.sudoku-container input.disabled.highlight {
+    background-color: #4C9689;
+    border-color: #3d786d;
+}
+
+.sudoku-container.valid-matrix {
+    border-color: #4C9689;
+}
+
+#controls {
+    margin: 20px 185px;
+}
+
+.btn.primary {
+    background-color: #cdb3dc;
+    box-shadow: inset 0 -3px #45384b;
+}
