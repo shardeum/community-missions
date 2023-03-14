@@ -1,0 +1,25 @@
+<div class="nav-container">
+  <div class="wallet-connect-btn">
+      <button class="btn" *ngIf="!isConnected" (click)="connectWallet()">Connect Wallet</button>
+      <span class="btn-span" *ngIf="isConnected">{{address}}</span>
+  </div>
+</div>
+<div class="sudoku-container" *ngIf="board">
+	<div class="stats">Win: <span class="stat">{{userStatus}}</span></div>
+	<div class="row" *ngFor="let r of board; let i = index">
+		<div class="col" *ngFor="let c of r; let j = index" [class.empty]="c == 0" attr.data-row="{{i}}" attr.data-col="{{j}}">
+			<span [contentEditable]="c == 0">{{c == 0 ? "" : c}}</span>
+		</div>
+	</div>
+	<app-message class="server-message" *ngIf="message" [message]="message"></app-message>
+	<div class="verify-button">
+		
+		<button type="button"(click)="verify()">Verify</button>
+	</div>
+</div>
+<div class="connect-wallet-message" *ngIf="!board || !isConnected">
+	<h4 *ngIf="!isConnected">Please connect wallet</h4>
+	<h4 *ngIf="isConnected">Loading puzzle. Please wait</h4>
+</div>
+
+<app-loading *ngIf="loading"></app-loading>
