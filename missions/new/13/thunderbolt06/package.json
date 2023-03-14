@@ -1,0 +1,42 @@
+{
+  "name": "sudoku",
+  "version": "1.0.0",
+  "private": true,
+  "author": "thunderbolt06 <thunderbolt06@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^15.14.9",
+    "@types/react": "^18.0.24",
+    "ethers": "^6.0.7",
+    "gh-pages": "^3.2.3",
+    "moment": "^2.29.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1",
+    "serve": "^14.2.0",
+    "typescript": "^4.8.4"
+  },
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/react-dom": "^18.0.8"
+  }
+}
