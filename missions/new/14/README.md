@@ -1,5 +1,6 @@
 ## Mission 14: Automated Sudoku
-
+web: https://restless-sea-4620.on.fleek.co/ <br>
+demo: https://youtu.be/Ewry2_Kk5r4
 <img src="images/puzzleToSolve.png" alt="puzzleToSolve"/>
 
 Image credit: https://www.activestate.com/blog/solving-sudoku-with-python-and-artificial-intelligence/
