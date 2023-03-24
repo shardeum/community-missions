@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Shardeum Escape Room</title>
+        <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+        <style>
+            table, td {
+                width: 50%;
+                table-layout: fixed;
+                border-collapse: collapse;
+                border: 1px solid black;
+                text-align: center;
+                vertical-align: middle;
+                margin-left: auto;
+                margin-right:  auto;
+            }
+            .grid-container{
+                width: fit-content;
+                margin-top: 50px;
+                margin-bottom: 50px;
+            }
+            .buttons{
+                display: flex;
+                justify-content: space-evenly;
+                margin-top: 40px;
+            }
+            .buttons button{
+                height: 40px;
+                cursor: pointer;
+            }
+            .stats{
+                text-align: center;
+                margin-top: 30px;
+                font-size: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="wallet">
+                <button class="connect-wallet">Connect Wallet</button>
+            </div>
+            <div class="grid-container">
+                <table id="t1">
+                    <tr height=50>
+                        <td>Start</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr height=50>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr height=50>
+                        <td></td>
+                        <td></td>
+                        <td>Finish</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="buttons">
+                <button class="create-board">Create New Board</button>
+                <button class="calculate-paths">Calculate Paths</button>
+            </div>
+            <div class="stats">
+                <div class="total-paths">
+                    <span class="label">Total Paths: </span>
+                    <span class="total-paths-value"></span>
+                </div>
+            </div>
+        </div>
+        <script src="./script.js"></script>
+    </body>
+</html>
