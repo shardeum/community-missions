@@ -1,0 +1,23 @@
+<div class="nav-container">
+  <div class="wallet-connect-btn">
+      <button class="btn" *ngIf="!isConnected" (click)="connectWallet()">Connect Wallet</button>
+      <span class="btn-span" *ngIf="isConnected">{{address}}</span>
+  </div>
+</div>
+<div class="room-container" *ngIf="board">
+	<div class="stats">Unique Paths: <span class="stat" *ngIf="board.currentPaths > 0">{{board.currentPaths}}</span></div>
+	<div class="row" *ngFor="let r of board.currentRoomCoordinates; let i = index">
+		<div class="col" *ngFor="let c of r; let j = index" attr.data-row="{{i}}" attr.data-col="{{j}}" [ngClass]="{player: hasObstacle && i == 0 && j == 0, obstacle: hasObstacle && c == 1, end: hasObstacle && i == 2 && j == 2}">
+			
+		</div>
+	</div>
+	<div class="button-container">
+		<button (click)="generateNewBoard()" type="button">New Room</button>
+		<button (click)="findPaths()" type="button" [disabled]="!hasObstacle">Calculate Paths</button>
+	</div>
+</div>
+<div class="connect-wallet-message" *ngIf="!board || !isConnected">
+	<h4 *ngIf="!isConnected">Please connect wallet</h4>
+	<h4 *ngIf="isConnected">Loading Room. Please wait</h4>
+</div>
+<app-loading *ngIf="loading"></app-loading>
