@@ -20,7 +20,7 @@ Create a smart contract called: ```MultiSigWalletFactory``` which:
     -is deployed to Sphinx 1.1
     -has mappings:
         -multiSigWalletsCreatedTotal: uint256 => multisigDeployedAddress
-        -multiSigWalletsCreatedByUser: userAddress => uint256
+        -multiSigWalletsCreatedByUser: userAddress => (uint256 => multisigDeployedAddress)
     -deployMultiSigWithCreate:
         -deploys a new MultiSigWallet.sol contract with create
         -increments multiSigWalletsCreatedTotal with the new MultiSigWallet contract address
@@ -54,3 +54,7 @@ https://www.youtube.com/watch?v=8ja72g_Dac4
 Solidity By Example MultiSigWallet
 
 https://solidity-by-example.org/app/multi-sig-wallet/
+
+Solidity 2D Mapping
+
+https://ethereum.stackexchange.com/questions/93212/solidity-how-to-do-2d-mapping-syntax-error
