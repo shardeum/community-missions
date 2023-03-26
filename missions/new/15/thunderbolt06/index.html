@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Shardeum Water Tank Volume</title>
+        <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script> -->
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="wallet">
+                <button class="connect-wallet">Connect Wallet</button>
+            </div>
+            <div class="grid-container">
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+              </div>
+            <div class="buttons">
+                <button class="generate-new-board">Generate New Board</button>
+                <button class="compute-paths">Compute Paths</button>
+            </div>
+            <div class="stats">
+                <div class="block-time">
+                    <span class="label">Block Time: </span>
+                    <span class="block-time-value"></span>
+                </div>
+                <div class="current-volume">
+                    <span class="label">Current Num Paths: </span>
+                    <span class="current-volume-value"></span>
+                </div>
+            </div>
+        </div>
+        <script src="./script.js"></script>
+    </body>
+</html>

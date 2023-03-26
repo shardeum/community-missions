@@ -1,0 +1,53 @@
+.container{
+    position: absolute;
+    /* width: 60vw; */
+    height: 60vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.wallet{
+    text-align: center;
+    margin: 10px
+}
+
+.wallet .connect-wallet{
+    cursor: pointer;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.grid-item {
+background-color: #ccc;
+border: 1px solid #999;
+text-align: center;
+
+justify-content: center;
+align-items: center;
+display: flex;
+
+}
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.buttons button{
+    height: 40px;
+    cursor: pointer;
+}
+
+.stats{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
