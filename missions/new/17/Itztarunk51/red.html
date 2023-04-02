@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Validator GUI</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-B0UglyR+aJetztmazKOtTxjwAUAdn6LWQOfY2+gZFnnlZzI9ep9XJ6Imqc0tbCr" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Header section with validator image and name -->
+  <div class="validator-header">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-4">
+          <img src="shm.png
+.png" alt="Validator Image">
+        </div>
+        <div class="col-md-8">
+          <h1>Sphinx Node Validator</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard section -->
+  <div class="validator-dashboard-container">
+    <div class="container">
+      <div class="row validator-dashboard-row">
+
+        <!-- Add components buttons here -->
+        <div class="col-md-3">
+          <button class="btn validator-dashboard-btn" data-toggle="modal" data-target="#overview-modal">Overview</button>
+        </div>
+        <div class="col-md-3">
+          <button class="btn validator-dashboard-btn" data-toggle="modal" data-target="#performance-modal">Performance</button>
+        </div>
+        <div class="col-md-3">
+          <button class="btn validator-dashboard-btn" data-toggle="modal" data-target="#maintenance-modal">Maintenance</button>
+        </div>
+        <div class="col-md-3">
+          <button class="btn validator-dashboard-btn" data-toggle="modal" data-target="#multi-node-modal">Multi-Node Mgmt</button>
+        </div>
+        <div class="col-md-3">
+          <button class="btn validator-dashboard-btn" data-toggle="modal" data-target="#alerts-modal">Alerts</button>
+        </div>
+        <div class="col-md-3">
+          <button class="btn validator-dashboard-btn" data-toggle="modal" data-target="#settings-modal">Settings</button>
+        </div>
+        <div class="col-md-3">
+          <button class="btn validator-dashboard-btn" data-toggle="modal" data-target="#security-modal">Security</button>
+        </div>
+        <div class="col-md-3">
+          <button class="btn validator-dashboard-btn" data-toggle="modal" data-target="#community-modal">Community</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Overview Modal -->
+  <div class="modal fade" id="overview-modal" tabindex="-1" role="dialog" aria-labelledby="overview-modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="overview-modal-label">Overview - Node Status</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Node Status: Running</p>
+          <img src="val.png" alt="Node Status Graph">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Performance Modal -->
+  <div class="modal fade" id="performance-modal" tabindex="-1" role="dialog" aria-labelledby="performance-modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="performance-modal-label">Performance - Node Transactions</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Node Transactions: 20,000</p>
+          <img src="ren.png" alt="Node Transactions Graph">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Maintenance Modal -->
+  <div class="modal fade" id="maintenance-modal" tabindex="-1" role="dialog" aria-labelledby="maintenance-modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="maintenance-modal-label">Maintenance - Node Start/Stop</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <button class="btn btn-primary">Start Node</button>
+          <button class="btn btn-danger">Stop Node</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Multi-Node Management Modal -->
+  <div class="modal fade" id="multi-node-modal" tabindex="-1" role="dialog" aria-labelledby="multi-node-modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="multi-node-modal-label">Multi-Node Management - Node Information</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Node 1: Running</p>
+          <p>Node 2: Stopped</p>
+          <p>Node 3: Error</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Alerts Modal -->
+  <div class="modal fade" id="alerts-modal" tabindex="-1" role="dialog" aria-labelledby="alerts-modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="alerts-modal-label">Alerts - Node Disturbance</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>No alerts at the moment.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div class="modal fade" id="settings-modal" tabindex="-1" role="dialog" aria-labelledby="settings-modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="settings-modal-label">Settings - Node Settings</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Node Name: sphinx validator 1</p>
+          <p>Node Address: 192.168.0.1</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Security Modal -->
+  <div class="modal fade" id="security-modal" tabindex="-1" role="dialog" aria-labelledby="security-modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="security-modal-label">Security - Node Authentication</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <button class="btn btn-success">Enable Authentication</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Community Modal -->
+  <div class="modal fade" id="community-modal" tabindex="-1" role="dialog" aria-labelledby="community-modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="community-modal-label">Community - Interact With Other Node Validators</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Join our Discord community and chat with other node validators:</p>
+          <a href="https://discord.gg/shardeum">https://discord.gg/shardeum</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer section -->
+  <div class="validator-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          &copy; 2021 Node Validator. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript files -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
