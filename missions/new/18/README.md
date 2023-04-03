@@ -12,12 +12,14 @@ Create a zero knowledge proof contract with circom with Shardeum.
 
 Create a smart contract called: ```ZeroKnowledgeProofCircom``` which:
 
-    -has a circom circuit
-    -public 
-        -input(s)
-        -output(s)
-    -private 
-        -inputs(s)
+    -is deployed to Sphinx 1.1
+    -is generated from a circom circuit
+    -circom circuit logic should have:
+        -public 
+            -input(s)
+            -output(s)
+        -private 
+            -inputs(s)
 
 Create a basic frontend for ```ZeroKnowledgeProofCircom``` which:
 
