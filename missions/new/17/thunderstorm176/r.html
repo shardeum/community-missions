@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validator GUI</title>
+  <style>
+</style>
+  <script src="https://kit.fontawesome.com/8a339aefa3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Top section -->
+  <div class="top-section">
+    <div>
+      <img src="ramp.png" alt="Validator Logo">
+    </div>
+    <div>
+      <h1>SHARDEUM </h1>
+    </div>
+    <div>
+      <label class="switch">
+        <input type="checkbox" id="toggle" onchange="setMode()">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+
+  <!-- Dashboard section -->
+  <div class="dashboard">
+    <a href="node.html" class="dashboard-component">
+      <i class="fas fa-desktop"></i>
+      Node status
+    </a>
+    <a href="validatorstatus.html" class="dashboard-component">
+      <i class="fas fa-check-circle"></i>
+      Validator status
+    </a>
+    <a href="transaction.html" class="dashboard-component">
+      <i class="fas fa-exchange-alt"></i>
+      Transaction history
+    </a>
+    <a href="networkhealth.html" class="dashboard-component">
+      <i class="fas fa-wifi"></i>
+      Network health
+    </a>
+    <a href="performance.html" class="dashboard-component">
+      <i class="fas fa-chart-line"></i>
+      Validator performance
+    </a>
+    <a href="alerts.html" class="dashboard-component">
+      <i class="fas fa-exclamation-triangle"></i>
+      Alerts and notifications
+    </a>
+    <a href="configuration.html" class="dashboard-component">
+      <i class="fas fa-cogs"></i>
+      Configuration settings
+    </a>
+    <a href="export-import-data.html" class="dashboard-component">
+      <i class="fas fa-upload"></i>
+      Export and import data
+    </a>
+    <a href="inline.html" class="dashboard-component">
+      <i class="fas fa-check"></i>
+      Inline validation
+    </a>
+    <a href="thirdparty.html" class="dashboard-component">
+      <i class="fas fa-user-secret"></i>
+      Integrity with third-party services
+    </a>
+    <a href="support.html" class="dashboard-component">
+      <i class="fas fa-question-circle"></i>
+      Support
+    </a>
+  </div>
+
+  <script>
+    function setMode() {
+      var toggleSwitch = document.getElementById("toggle");
+      var body = document.getElementsByTagName("body")[0];
+
+      if (toggleSwitch.checked) {
+        body.classList.add("dark-mode");
+      } else {
+        body.classList.remove("dark-mode");
+      }
+    }
+  </script>
+</body>
+</html>
