@@ -31,16 +31,17 @@ Note: there can be multiple winners if there are multiple submissions that meet 
 7. Draw NFT Pixel Art
 8. Lighthouse View
 9. Water Tank Volume
-10. Trap rain water
-11. Image Editor
-12. Play Sudoku
-13. Automated Sudoku
-14. Escape The Room
-15. Multisignature Wallet Factory
-16. Validator GUI Redesign
-17. Zero Knowledge Circom
-18. Zero Knowledge Zokrates
-19. Zero Knowledge Noir
-20. UniswapV2 Implementation
+10. Telegram Faucet Bot
+11. Trap rain water
+12. Image Editor
+13. Play Sudoku
+14. Automated Sudoku
+15. Escape The Room
+16. Multisignature Wallet Factory
+17. Validator GUI Redesign
+18. Zero Knowledge Circom
+19. Zero Knowledge Zokrates
+20. Zero Knowledge Noir
+21. UniswapV2 Implementation
 
 
