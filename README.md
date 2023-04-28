@@ -19,3 +19,28 @@ Note: there can be multiple winners if there are multiple submissions that meet 
 
 1. Go to missions/new to find new Shardeum missions.
 2. Follow the requirements in the README above and in the new mission.
+
+# Missions List
+
+1. Pinata Storing Candy
+2. Nim
+3. Tic Tac Toe
+4. Dex Orderbook
+5. Connect 4
+6. Timeshare Islands
+7. Draw NFT Pixel Art
+8. Lighthouse View
+9. Water Tank Volume
+10. Trap rain water
+11. Image Editor
+12. Play Sudoku
+13. Automated Sudoku
+14. Escape The Room
+15. Multisignature Wallet Factory
+16. Validator GUI Redesign
+17. Zero Knowledge Circom
+18. Zero Knowledge Zokrates
+19. Zero Knowledge Noir
+20. UniswapV2 Implementation
+
+
