@@ -1,0 +1,24 @@
+{
+  "inputs": [
+    {
+      "name": "a",
+      "public": false,
+      "type": "array",
+      "components": {
+        "size": 9,
+        "type": "field"
+      }
+    },
+    {
+      "name": "sum",
+      "public": true,
+      "type": "field"
+    }
+  ],
+  "output": {
+    "type": "tuple",
+    "components": {
+      "elements": []
+    }
+  }
+}
