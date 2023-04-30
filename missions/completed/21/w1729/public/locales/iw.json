@@ -1,0 +1,18 @@
+{
+  "swap": "המרה",
+  "pool": "להפקיד",
+  "input": "מוכר",
+  "output": "אקבל",
+  "pending": "ממתין לאישור",
+  "noLiquidity": "אין נזילות",
+  "youWillReceive": "תוצר המרה מינימלי",
+  "to": "אל",
+  "addLiquidity": "להוספת נזילות למאגר",
+  "deposit": "הפקדה",
+  "yourPoolShare": "חלקך במאגר הנזילות",
+  "and": "וגם",
+  "removeLiquidity": "הוצאה של נזילות",
+  "tokenAddress": "כתובת הטוקן",
+  "label": "שם",
+  "decimals": "ספרות עשרויות"
+}
