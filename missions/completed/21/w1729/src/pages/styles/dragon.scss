@@ -1,0 +1,65 @@
+@use 'styles/variables' as *;
+@use 'styles/breakpoints' as *;
+
+.dragonWrapper {
+  background: $bgPalette;
+  border-radius: 20px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  @include media("screen", "<phone") {
+    padding: 24px 16px
+  }
+}
+
+.dragonBg {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: $grey5;
+  max-height: 138px;
+  overflow: hidden;
+  & img {
+    width: 100%;
+  }
+}
+
+.dragonMask {
+  width: 100%;
+  position: absolute;
+  top: 207px;
+}
+
+.dragonTitle {
+  margin-bottom: 64px;
+  & h5 {
+    margin-bottom: 16px;
+    color: $textPrimary;
+  }
+}
+
+.dragonAlertWrapper {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 16px 24px 16px 12px;
+  border-radius: 12px;
+}
+
+.quickTodQuick {
+  margin-top: 20px;
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dragonLairRow {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}

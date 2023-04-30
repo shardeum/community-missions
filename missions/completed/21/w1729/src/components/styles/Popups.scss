@@ -1,0 +1,52 @@
+@use 'styles/variables' as *;
+@use 'styles/breakpoints' as *;
+
+.mobilePopupWrapper {
+  position: relative;
+  max-width: 100%;
+  display: none;
+  @include media("screen", "<phone") {
+    display: block;
+  }
+}
+.mobilePopupInner {
+  height: 99%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: row;
+  -webkit-overflow-scrolling: touch;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+.fixedPopupColumn {
+  position: fixed;
+  right: 40px;
+  max-width: 355px !important;
+  width: 100%;
+  z-index: 3;
+
+  @include media("screen", "<phone") {
+    display: none;
+  }
+}
+.pendingBar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  & .MuiLinearProgress-root {
+    background: $yellow2;
+    & .MuiLinearProgress-bar {
+      background: $yellow3
+    }
+  }
+}
+.popupItem {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: $bgPalette;
+  overflow: hidden;
+  position: relative;
+}

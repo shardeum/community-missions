@@ -1,0 +1,18 @@
+{
+  "swap": "Обменять",
+  "pool": "Вложить",
+  "input": "Ввести",
+  "output": "Вывести",
+  "pending": "Ожидание",
+  "noLiquidity": "Нет ликвидности.",
+  "youWillReceive": "Вы получите как минимум",
+  "to": "",
+  "addLiquidity": "Добавить ликвидность",
+  "deposit": "Вложить",
+  "yourPoolShare": "Ваша доля в пуле",
+  "and": "и",
+  "removeLiquidity": "Убрать ликвидность",
+  "tokenAddress": "Адрес токена",
+  "label": "Название",
+  "decimals": "Десятичное значение"
+}

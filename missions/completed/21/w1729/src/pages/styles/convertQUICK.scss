@@ -1,0 +1,82 @@
+@use 'styles/variables' as *;
+
+.convertQUICKWrapper {
+  background: $bgColor;
+  margin-top: 24px;
+  padding: 24px;
+  border-radius: 20px;
+  border: 1px solid $secondary1;
+}
+
+.iconWrapper {
+  display: flex;
+  margin-right: 6px;
+  & svg, & img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.convertArrow {
+  display: flex;
+  & svg path {
+    fill: $textSecondary
+  }
+}
+
+.conversionRate {
+  margin-top: 24px;
+  border: 1px solid $secondary1;
+  padding: 8px 12px;
+  border-radius: 10px;
+  & span {
+    font-size: 13px
+  }
+}
+
+.currencyInput {
+  background: $secondary1;
+  border-radius: 10px;
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  height: 63px;
+  padding: 0 16px;
+  border: 1px solid transparent;
+  
+  & input {
+    flex: 1
+  }
+
+  & h6 {
+    font-size: 18px;
+  }
+}
+
+.maxButton {
+  background: $grey4;
+  color: $primary;
+  width: 34px;
+  height: 18px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.convertButton {
+  max-width: 224px;
+  height: 40px;
+  width: 100%;
+  border-radius: 20px;
+  &.Mui-disabled {
+    background: $grey2;
+  }
+}
+
+.errorInput {
+  border-color: $errorMain
+}

@@ -1,0 +1,14 @@
+{
+  "site": {
+    "id": "2729a06a-1de4-490a-b554-272ee0dd486e",
+    "team": "1c9b713b-c024-49e3-9d7c-ccbda64c16c9",
+    "platform": "ipfs",
+    "source": "ipfs",
+    "name": "cold-boat-8361"
+  },
+  "build": {
+    "baseDir": "",
+    "publicDir": "build",
+    "rootDir": ""
+  }
+}

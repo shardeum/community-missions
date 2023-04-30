@@ -1,0 +1,57 @@
+@use 'styles/variables' as *;
+@use 'styles/breakpoints' as *;
+
+.topMoversWrapper {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border-radius: 10px;
+  padding: 20px 20px 4px;
+  @include media("screen", "<phone") {
+    align-items: center;
+  }
+}
+
+.topMoversContent {
+  width: 100%;
+  margin-top: 12px;
+  padding-bottom: 16px;
+  overflow-x: auto;
+  & > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+.topMoverItem {
+  width: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 16px;
+  &:last-child {
+    margin-right: 0;
+  }
+  @include media("screen", "<phone") {
+    width: 180px;
+    justify-content: flex-start;
+  }
+}
+
+.topMoverText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 10px;
+  margin-left: 8px;
+  & svg {
+    margin: 0 -2px 0 -6px;
+  }
+}

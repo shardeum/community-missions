@@ -1,0 +1,11 @@
+@use 'styles/variables' as *;
+
+.messageWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20rem;
+  & .message {
+    color: black;
+  }
+}

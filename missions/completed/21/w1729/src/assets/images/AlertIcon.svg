@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+    <g data-name="Group 20695" transform="translate(-169 -121)">
+        <circle data-name="Ellipse 920" cx="20" cy="20" r="20" transform="translate(169 121)" style="fill:#282d3d"/>
+        <g data-name="Layer 2">
+            <g data-name="invisible box">
+                <path data-name="Rectangle 20003" style="fill:none" d="M0 0h24v24H0z" transform="translate(177 129)"/>
+            </g>
+            <g data-name="Layer 6">
+                <g data-name="Group 20376">
+                    <path data-name="Path 11781" d="M18 6h-.3l-15 4.4a1 1 0 0 0-.7 1v4.5a1.1 1.1 0 0 0 .7 1l2.35.65.8 5.15A1.45 1.45 0 0 0 7.3 24h2.25a1.6 1.6 0 0 0 1.1-.5 1.65 1.65 0 0 0 .3-1.3l-.55-3.05 7.3 2.15h.3a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1zM8.9 22H7.749l-.6-3.8 1.05.3zm8.1-3L4 15.15v-3l13-3.8z" transform="translate(176.001 126)" style="fill:#fdd835"/>
+                    <path data-name="Path 11782" d="M38.992 12.294a.75.75 0 0 0 .45-.1l2-1a1.006 1.006 0 1 0-.9-1.8l-2 1a1 1 0 0 0-.45 1.35 1.05 1.05 0 0 0 .9.55z" transform="translate(158.008 124.356)" style="fill:#fdd835"/>
+                    <path data-name="Path 11783" d="m41.442 28.5-2-1a1.05 1.05 0 0 0-1.35.4 1 1 0 0 0 .45 1.35l2 1a.75.75 0 0 0 .45.1 1.05 1.05 0 0 0 .9-.55.95.95 0 0 0-.45-1.3z" transform="translate(158.008 115.303)" style="fill:#fdd835"/>
+                    <path data-name="Path 11784" d="M39 21.3h2a1 1 0 0 0 0-2h-2a1 1 0 0 0 0 2z" transform="translate(158 119.35)" style="fill:#fdd835"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

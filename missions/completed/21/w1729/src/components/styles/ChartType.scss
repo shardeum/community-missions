@@ -1,0 +1,14 @@
+@use 'styles/variables' as *;
+
+.chartType {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  padding: 0 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  & span {
+    color: $textPrimary
+  }
+}

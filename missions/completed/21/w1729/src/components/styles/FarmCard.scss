@@ -1,0 +1,133 @@
+@use 'styles/variables' as *;
+@use 'styles/breakpoints' as *;
+
+.farmLPCard {
+  background: $secondary1;
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 16px;
+  @include media("screen", "<phone") {
+    padding: 0;
+    .dailyRateWrapper {
+      margin: 0 16px 16px;
+      width: calc(100% - 32px);
+    }
+  }
+}
+.highlightedCard {
+  border: 1px solid $primary;
+  box-shadow: 0 0 5px 5px $blue6;
+}
+.farmLPCardUp {
+  background: $secondary1;
+  width: 100%;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 16px 0;
+  cursor: pointer;
+  @include media("screen", "<phone") {
+    padding: 16px;
+  }
+}
+.farmLPText {
+  font-size: 14px;
+  font-weight: 600;
+  color: $textSecondary;
+}
+.inputVal {
+  background-color: $bgPalette;
+  border-radius: 10px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  & small {
+    cursor: pointer;
+  }
+}
+.buttonToken {
+  background-color: $grey2;
+  border-radius: 10px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.buttonClaim {
+  background-image: linear-gradient(280deg, $green1 0%, $blue3 0%, $blue2 10%, $blue1 100%);
+  border-radius: 10px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+}
+.buttonWrapper {
+  min-width: 250px;
+  width: 30%;
+  color: $textSecondary;
+  border-radius: 16px;
+  @include media("screen", "<phone") {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid $divider;
+  }
+}
+.dailyRateWrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  background: $secondary3;
+  width: 100%;
+  margin-bottom: 16px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  & > div {
+    display: flex;
+    align-items: center;
+    margin-right: 12px;
+    width: auto;
+    flex-wrap: wrap;
+    & > div {
+      display: flex;
+      margin-right: 8px
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  @include media("screen", "<phone") {    
+    & > div {
+      justify-content: space-between;
+      margin-bottom: 8px;
+      margin-right: 0;
+      width: 100%;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+.farmCardDetails {
+  width: 100%;
+  padding: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1px solid $grey26;
+  align-items: center;
+}
+.farmCardMobileRow {
+  margin-bottom: 16px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}

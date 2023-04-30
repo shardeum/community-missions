@@ -1,0 +1,46 @@
+@use 'styles/variables' as *;
+
+.addressLink {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: $textPrimary;
+  & small {
+    margin-left: 4px;
+  }
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.copyIcon {
+  color: $textPrimary;
+  display: flex;
+  cursor: pointer;
+  &:hover, &:active, &:focus {
+    color: white;
+  }
+  & small {
+    margin-left: 4px;
+  }
+}
+
+.transactionState {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.iconWrapper {
+  color: $primary;
+  display: flex;
+}
+
+.transactionStatusText {
+  color: $primary;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}

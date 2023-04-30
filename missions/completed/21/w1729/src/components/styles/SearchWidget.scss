@@ -1,0 +1,65 @@
+@use 'styles/variables' as *;
+@use 'styles/breakpoints' as *;
+
+.searchWidgetWrapper {
+  width: 320px;
+  position: relative;
+  @include media("screen", "<phone") {
+    width: 100%;
+  }
+}
+
+.searchWidgetInput {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  background: $grey3;
+  height: 46px;
+  border-radius: 10px;
+  margin: 12px 0;
+  & input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    color: $textPrimary
+  }
+}
+.searchWidgetContent {
+  position: absolute;
+  width: 100%;
+  background: $grey3;
+  border-radius: 10px;
+  z-index: 2;
+  height: 300px;
+  overflow-y: auto;
+  & > h6 {
+    margin: 12px;
+  }
+}
+
+.searchWidgetRow {
+  display: flex;
+  align-items: center;
+  padding: 4px 12px;
+  margin: 4px 0;
+  cursor: pointer;
+  & small {
+    margin-left: 8px;
+    color: $textPrimary;
+  }
+  &:hover {
+    background-color: $secondary1;
+  }
+}
+
+.searchWidgetShowMore {
+  cursor: pointer;
+  margin: 8px 0 12px 12px;
+  & small {
+    color: $primary;
+  }
+}

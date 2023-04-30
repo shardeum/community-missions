@@ -1,0 +1,20 @@
+@use 'styles/variables' as *;
+
+.switchItem {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid $secondary1;
+  & p {
+    color: $textSecondary;
+  }
+}
+.activeSwitchItem {
+  background: $secondary1;
+  & p {
+    color: $textPrimary;
+  }
+}

@@ -1,0 +1,101 @@
+@use 'styles/variables' as *;
+
+.coloredSlider {
+  .MuiSlider-root {
+    color: $blue4;
+    height: 2px;
+    width: calc(100% - 16px);
+    padding: 13px 0;
+  
+    & .MuiSlider-mark {
+      width: 4px;
+      height: 4px !important;
+      bottom: 15px;
+      border-radius: 4px;
+      background-color: white;
+      &:hover {
+        &::after {
+          background-color: $bgColor;
+          border: 1px solid $divider;
+          height: 30px;
+          width: 82px;
+          border-radius: 14px;
+          bottom: 14px;
+          color: $textPrimary;
+          font-family: 'DM Sans', sans-serif;
+          content: "Cheaper gas";
+          display: flex;
+          align-items: center;
+          margin-left: -50px;
+          padding: 0.3em 1em;
+          position: absolute;
+          z-index: 98
+        }
+        &::before {
+          background-color: $bgColor;
+          border: 1px solid $divider;
+          height: 12px;
+          width: 12px;
+          bottom: 8px;
+          border-bottom: transparent;
+          border-left: transparent;
+          color: $textPrimary;
+          font-family: 'DM Sans', sans-serif;
+          content: "";
+          display: flex;
+          align-items: center;
+          margin-left: -4px;
+          position: absolute;
+          box-sizing: border-box;
+          -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+          z-index: 99
+        }
+      }
+    }
+  }
+  
+  .MuiSlider-mark {
+    height: 8px;
+    background-color: #B4C2D5;
+  }
+  
+  .MuiSlider-thumb {
+    height: 20px;
+    width: 20px;
+    background-color: $primary;
+    margin-top: -9px;
+    margin-left: 0;
+    box-shadow: 0px 2px 5px $grey21;
+  
+    &:focus, &:hover, &.active {
+      box-shadow: inherit;
+    }
+  }
+  
+  .MuiSlider-valueLabel {
+    left: calc(-50% - 8px);
+    top: -18px;
+    font-size: 12px;
+    & > span {
+      color: transparent;
+    }
+    & > span > span {
+      color: $textPrimary;
+    }
+  }
+  
+  .MuiSlider-track {
+    height: 2px;
+    background: $blue5;
+    border-radius: 4px;
+    padding-right: 8px;
+  }
+  
+  .MuiSlider-rail {
+    height: 2px;
+    border-radius: 4px;
+    background: $bgPalette;
+    width: calc(100% + 16px);
+  }
+}

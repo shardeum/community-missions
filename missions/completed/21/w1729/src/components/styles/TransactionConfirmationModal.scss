@@ -1,0 +1,46 @@
+@use 'styles/variables' as *;
+
+.txModalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  margin-bottom: 20px;
+  & h5 {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+  }
+  & svg {
+    cursor: pointer;
+    position: relative;
+    z-index: 3
+  }
+}
+.txModalBG {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1
+}
+.txModalContent {
+  margin-top: 20px;
+  padding: 16px 0;
+  color: $textPrimary;
+  text-align: center;
+  & p {
+    margin: 16px 0;
+  }
+}
+.txSubmitButton {
+  width: 100%;
+  height: 50px;
+  font-size: 14px;
+  border-radius: 10px;
+  color: $textPrimary;
+  background: $secondary1;
+  &:hover {
+    background: $secondary1;
+  }
+}

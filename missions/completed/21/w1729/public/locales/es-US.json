@@ -1,0 +1,18 @@
+{
+  "swap": "Intercambiar",
+  "pool": "Pool",
+  "input": "Entrada",
+  "output": "Salida",
+  "pending": "Pendiente",
+  "noLiquidity": "Sin liquidez.",
+  "youWillReceive": "Va a recibir al menos",
+  "to": "a",
+  "addLiquidity": "Agregar liquidez",
+  "deposit": "Depositar",
+  "yourPoolShare": "Su parte del Pool",
+  "and": "y",
+  "removeLiquidity": "Remover Liquidez",
+  "tokenAddress": "Dirección de Token",
+  "label": "Etiqueta",
+  "decimals": "Decimales"
+}

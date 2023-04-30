@@ -1,0 +1,273 @@
+@use 'styles/variables' as *;
+@use 'styles/breakpoints' as *;
+
+.header {
+  padding: 0 24px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 88px;
+  z-index: 3;
+  align-items: center;
+  justify-content: space-between;
+  & a {
+    display: flex;
+  }
+  & > div {
+    display: flex;
+    align-items: center;
+    z-index: 2;
+    &:last-child {
+      & button {
+        height: 40px;
+        border-radius: 20px;
+        &:first-child {
+          padding: 0 16px;
+          margin-right: 16px;
+          & svg {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+          }
+        }
+        &:last-child {
+          padding: 0 32px;
+        }
+        & p {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  @include media("screen", "<tablet") {
+    align-items: center;
+  }
+  @include media("screen", "<phone") {
+    padding: 0 16px;
+  }
+}
+.mainMenu {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  height: 100%;
+  & .menuItem {
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 36px;
+    padding: 0 24px;
+    overflow: hidden;
+    color:#00FFFF;
+    small {
+      white-space: nowrap;
+    }
+    .menuItemSparkle {
+      position: absolute;
+      transition: all 0.5s;
+    }
+    .menuItemSparkleTop {
+      top: -20px;
+      margin-left: -10px;
+    }
+    .menuItemSparkleBottom {
+      bottom: -20px;
+      margin-left: -12px;
+    }
+    .menuItemSparkleLeft {
+      left: -20px;
+    }
+    .menuItemSparkleRight {
+      right: -20px;
+    }
+    & .subMenu {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 14px;
+      background: $bgColor;
+      border-radius: 10px;
+      padding: 14px 0;
+      & > a {
+        padding: 10px 24px;
+        &:hover {
+          color: white;
+        }
+      }
+    }
+    &:hover {
+      color: $textPrimary;
+      background: $secondary1;
+      .menuItemSparkleTop {
+        top: 0px;
+      }
+      .menuItemSparkleBottom {
+        bottom: 0px;
+      }
+      .menuItemSparkleLeft {
+        left: 4px;
+      }
+      .menuItemSparkleRight {
+        right: 4px;
+      }
+      & .subMenu {
+        display: block;
+      }
+    }
+  }
+  & a {
+    text-decoration: none;
+    margin-right: 12px;
+    color: $textSecondary;
+    border-radius: 10px;
+    & p {
+      letter-spacing: normal;
+    }
+    &.active {
+      color: $textPrimary;
+      background: $secondary1;
+      .menuItemSparkleTop {
+        top: 0px;
+      }
+      .menuItemSparkleBottom {
+        bottom: 0px;
+      }
+      .menuItemSparkleLeft {
+        left: 4px;
+      }
+      .menuItemSparkleRight {
+        right: 4px;
+      }
+    }
+    &:last-child {
+      margin-right: 0,
+    }
+  }
+}
+.subMenuWrapper {
+  position: absolute;
+  bottom: 72px;
+  right: 12px;
+  width: 209px;
+  background-color: $secondary2;
+  border-radius: 20px;
+  padding: '8px 0';
+  border: 1px solid $divider
+}
+.accountDetails {
+  border: solid 1px $grey2;
+  padding: 0 16px;
+  height: 36px;
+  cursor: pointer;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & p {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  & img {
+    width: 20px;
+    margin-left: 8px
+  }
+}
+.connectButton {
+  width: 152px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  &:hover .wrongNetworkContent {
+    display: block;
+  }
+}
+.wrongNetworkWrapper {
+  position: absolute;
+  top: 36px;
+  width: 272px;
+  right: 0;
+  padding-top: 18px
+}
+.wrongNetworkContent {
+  background: $bgColor;
+  border-radius: 10px;
+  padding: 24px;
+  display: none;
+  & small {
+    color: $grey19;
+    font-size: 14px;
+    line-height: 1.57;
+  }
+  & div {
+    width: 100%;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border: solid 1px $primary;
+    color: $primary;
+    font-size: 14px;
+    font-weight: 600
+  }
+}
+.mobileMenuContainer {
+  background: $secondary1;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 64px;
+  width: 100%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 0 16px;
+  justify-content: center;
+}
+.mobileMenu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 375px;
+  width: 100%;
+  & a {
+    text-decoration: none;
+    padding: 8px 12px;
+    color: $textSecondary;
+    font-weight: bold;
+    &.active {
+      color: $primary;
+    }
+  }
+}
+
+.headerIconWrapper {
+  width: 45px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.styledPollingDot {
+  width: 15px;
+  height: 15px;
+  min-height: 8px;
+  min-width: 8px;
+  margin-left: 0rem;
+  margin-top: 0px;
+  border-radius: 50%;
+  position: relative;
+  background-color: $successMain;
+}

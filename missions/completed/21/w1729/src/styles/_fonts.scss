@@ -1,0 +1,71 @@
+@use './variables' as *;
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .p, small, .small, caption, .caption, span, .span {
+  margin: 0;
+}
+h1, .h1 {
+  font-size: 60px;
+  line-height: 0.93
+}
+h2, .h2 {
+  font-size: 40px;
+  line-height: 1.2
+}
+h3, .h3 {
+  font-size: 30px;
+  line-height: 1.33
+}
+h4, .h4 {
+  font-size: 24px;
+  line-height: 1.5
+}
+h5, .h5 {
+  font-size: 20px;
+  line-height: 1.5
+}
+h6, .h6 {
+  font-size: 18px;
+  line-height: 1.5
+}
+p, .p {
+  font-size: 16px;
+  line-height: 1.5,
+}
+small, .small {
+  font-size: 14px;
+  line-height: 1.57,
+}
+caption, .caption {
+  font-size: 13px;
+  line-height: 1.69,
+}
+span, .span {
+  font-size: 12px;
+  line-height: 1.33,
+}
+
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+.weight-600 {
+  font-weight: 600;
+}
+.weight-500 {
+  font-weight: 500;
+}
+
+.no-decoration {
+  text-decoration: none;
+}
+
+.line-height-1 {
+  line-height: 1;
+}
+

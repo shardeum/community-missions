@@ -1,0 +1,21 @@
+{
+  "swap": "Tauschen",
+  "pool": "Pool",
+  "input": "Input",
+  "output": "Output",
+  "pending": "hängige",
+  "unknownError": "Oops! Ein unbekannter Fehler ist aufgetreten. Bitte Seite neu laden oder uns von einem anderen Browser oder Gerät erneut besuchen.",
+  "noLiquidity": "Keine Liquidität.",
+  "youWillReceive": "Du erhältst mindestens",
+  "to": "zu",
+  "addLiquidity": "Liquidität hinzufügen",
+  "deposit": "Depot",
+  "yourPoolShare": "Dein Anteil am Pool",
+  "and": "und",
+  "removeLiquidity": "Liquidität entfernen",
+  "tokenAddress": "Tokenadresse",
+  "label": "Label",
+  "name": "Name",
+  "symbol": "Symbol",
+  "decimals": "Dezimalstellen"
+}

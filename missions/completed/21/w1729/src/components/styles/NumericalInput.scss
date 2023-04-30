@@ -1,0 +1,34 @@
+@use 'styles/variables' as *;
+
+.styledInput {
+  width: 100%;
+  position: relative;
+  outline: none;
+  border: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-appearance: textfield;
+  background: transparent;
+  box-shadow: none;
+  text-align: left;
+  color: $textPrimary;
+  font-size: 18px;
+  font-weight: 600;
+
+  &::placeholder {
+    color: $textSecondary;
+  }
+
+  &::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+
+  & [type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+}

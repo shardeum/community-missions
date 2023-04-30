@@ -1,0 +1,12 @@
+@use 'styles/variables' as *;
+
+.txTableFilterMobile {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: -48px;
+  right: 0;
+  & > div {
+    padding: 8px;
+  }
+}

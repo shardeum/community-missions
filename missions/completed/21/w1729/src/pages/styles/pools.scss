@@ -1,0 +1,30 @@
+@use 'styles/variables' as *;
+@use 'styles/breakpoints' as *;
+
+.wrapper {
+  padding: 24px;
+  background: $bgPalette;
+  border-radius: 20px;
+  @include media("screen", "<phone") {
+    padding: 16px 12px
+  }
+}
+
+.headingItem {
+  cursor: pointer;
+  display: flex
+}
+
+.liquidityText {
+  color: $textSecondary;
+  & small {
+    color: $primary;
+    cursor: pointer;
+  }
+}
+
+.noLiquidityImage {
+  max-width: 286px;
+  width: 80%;
+  filter: grayscale(1)
+}

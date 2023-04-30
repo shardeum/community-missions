@@ -1,0 +1,30 @@
+@use 'styles/variables' as *;
+@use 'styles/breakpoints' as *;
+
+.farmsWrapper {
+  background: $bgPalette;
+  border-radius: 20px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  @include media("screen", "<phone") {
+    padding: 24px 16px
+  }
+}
+
+.farmListHeader {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.farmRewards {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 16px 0;
+  border-radius: 10px;
+  padding: 12px 0;
+  background-color: $secondary2;
+}

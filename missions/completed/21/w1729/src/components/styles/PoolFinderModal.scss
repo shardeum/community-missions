@@ -1,0 +1,19 @@
+@use 'styles/variables' as *;
+
+.borderedCard {
+  border: 1px solid $divider;
+  padding: 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  &:hover {
+    border: 1px solid $textPrimary;
+  }
+}
+
+.poolFinderInfo {
+  margin-top: 16px;
+  padding: 8px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+}

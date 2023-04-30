@@ -1,0 +1,173 @@
+@use './variables' as *;
+
+.bg-white {
+  background-color: rgb(248, 244, 244);
+}
+
+.bg-default {
+  background-color: $bgColor;
+}
+
+.bg-palette {
+  background-color: $bgPalette;
+}
+
+.bg-secondary1 {
+  background-color: $secondary1;
+}
+
+.bg-secondary2 {
+  background-color: $secondary2;
+}
+
+.bg-blue1 {
+  background-color: $blue1;
+}
+
+.bg-gray1 {
+  background-color: $grey1;
+}
+
+.bg-gray2 {
+  background-color: $grey2;
+}
+
+.bg-gray3 {
+  background-color: $grey3;
+}
+
+.bg-transparent {
+  background-color: transparent;
+}
+
+.bg-primary {
+  background-color: $primary;
+}
+
+.bg-successLight {
+  background-color: $successLight;
+}
+
+.bg-error {
+  background-color: $errorMain;
+}
+
+.bg-errorLight {
+  background-color: $errorLight;
+}
+
+.border {
+  border: 1px solid $divider;
+}
+
+.border-left {
+  border-left: 1px solid $divider;
+}
+
+.border-right {
+  border-right: 1px solid $divider;
+}
+
+.border-top {
+  border-top: 1px solid $divider;
+}
+
+.border-bottom {
+  border-bottom: 1px solid $divider;
+}
+
+.border-secondary1 {
+  border: 1px solid $secondary1;
+}
+
+.border-top-secondary1 {
+  border-top: 1px solid $secondary1;
+}
+
+.border-bottom-secondary1 {
+  border-bottom: 1px solid $secondary1;
+}
+
+.border-right-secondary1 {
+  border-right: 1px solid $secondary1;
+}
+
+.border-secondary2 {
+  border: 1px solid $secondary2;
+}
+
+.border-gray14 {
+  border: 1px solid $grey14;
+}
+
+.border-gray2 {
+  border: 1px solid $grey2;
+}
+
+.border-error {
+  border: 1px solid $errorMain;
+}
+
+.border-primary {
+  border: 1px solid $primary;
+}
+
+.border-primaryDark {
+  border: 1px solid $primaryDark;
+}
+
+.text-error {
+  color: $errorMain;
+}
+
+.text-blueviolet {
+  color: blueviolet;
+}
+
+.text-success {
+  color: $successMain;
+}
+
+.text-primary {
+  color: $primary;
+}
+
+.text-primaryText {
+  color: $textPrimary;
+}
+
+.text-secondary {
+  color: $textSecondary;
+}
+
+.text-hint {
+  color: $textHint;
+}
+
+.text-disabled {
+  color: $textDisabled;
+}
+
+.text-gray19 {
+  color: $grey19;
+}
+
+.text-gray22 {
+  color: $grey22;
+}
+
+.text-gray25 {
+  color: $grey25;
+}
+
+.text-yellow {
+  color: $yellow1;
+}
+
+.text-yellow3 {
+  color: $yellow3;
+}
+
+.text-blue7 {
+  color: $blue7;
+}

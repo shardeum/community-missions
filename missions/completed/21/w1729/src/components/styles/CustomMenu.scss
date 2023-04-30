@@ -1,0 +1,22 @@
+@use 'styles/variables' as *;
+
+.customMenuWrapper {
+  border-radius: 10px;
+  border: 1px solid $secondary1;
+  height: 100%;
+  width: 100%;
+  padding: 0 8px 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $textSecondary
+}
+.menuContent {
+  border-radius: 10px;
+  border: 1px solid $secondary1;
+  padding: 12px;
+  background: $bgColor;
+  position: relative;
+  z-index: 10;
+  margin-top: 8px;
+}

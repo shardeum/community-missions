@@ -1,0 +1,30 @@
+@use 'styles/variables' as *;
+
+.toggleWrapper {
+  width: 40px;
+  height: 20px;
+  position: relative;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 1px solid $textDisabled;
+  background-color: transparent;
+  &.toggled {
+    border: 1px solid transparent;
+    background-color: $grey24;
+    & .innerCircle {
+      background-color: $successMain;
+      left: unset;
+      right: 2px;
+    }
+  }
+}
+.innerCircle {
+  width: 14px;
+  height: 14px;
+  border-radius: 8px;
+  background-color: $textDisabled;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 'unset'
+}

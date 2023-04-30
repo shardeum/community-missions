@@ -1,0 +1,57 @@
+@use 'styles/variables' as *;
+@use 'styles/breakpoints' as *;
+
+.swapBox {
+  padding: 16px;
+  border-radius: 10px;
+  z-index: 1;
+  position: relative;
+  text-align: left;
+  & > p {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  & > div {
+    display: flex;
+    align-items: center;
+    & .inputWrapper {
+      flex: 1;
+      position: relative;
+      padding-left: 8px;
+      & input {
+        color: $textSecondary;
+      }
+    }
+    & .maxWrapper {
+      padding-left: 8px;
+      cursor: pointer;
+      & small {
+        color: $primary;
+        font-weight: 600
+      }
+    }
+  }
+  @include media("screen", "<phone") {
+    padding: 12px;
+  }
+}
+.priceShowBox {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0
+}
+.currencyButton {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 38px;
+  & p {
+    margin-left: 4px;
+  }
+}
+.noCurrency {
+  background-image: linear-gradient(105deg, $blue1, $blue1);
+}
+.currencySelected {
+  background-color: $grey12;
+}

@@ -1,0 +1,72 @@
+@use 'styles/variables' as *;
+@use 'styles/breakpoints' as *;
+
+.poolButtonRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  & .MuiButton-root {
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+  }
+  & .MuiButton-outlined {
+    width: 49%;
+    background: transparent;
+    border: 1px solid $grey12;
+    &:hover {
+      background: transparent;
+    }
+  }
+  & .MuiButton-contained {
+    width: 24%;
+    border: 1px solid transparent;
+    background-image: linear-gradient(286deg, $blue1, $blue);
+    background-color: transparent;
+    color: $textPrimary;
+  }
+}
+.cardRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  & > div {
+    display: flex;
+    align-items: center;
+    & > small {
+      margin-right: 10px;
+    }
+  }
+}
+.poolPositionAPYWrapper {
+  background-color: $grey12;
+  padding: 6px 24px;
+  @include media("screen", "<phone") {
+    padding: 6px 16px;
+  }
+}
+.poolPositionCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  @include media("screen", "<phone") {
+    padding: 16px 12px;
+  }
+}
+.poolPositionCard {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid $secondary2;
+  overflow: hidden;
+}
+.poolPositionCardDetails {
+  padding: 24px;
+  margin-bottom: 24px;
+  @include media("screen", "<phone") {
+    padding: 12px;
+  }
+}

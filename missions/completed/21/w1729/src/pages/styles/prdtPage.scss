@@ -1,0 +1,19 @@
+@use 'styles/variables' as *;
+ 
+.externalDappWarningBanner {
+  width: 100%;
+  background: $grey25;
+  color: $bgColor;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 32px 8px 16px;
+  & span {
+    margin-left: 8px;
+    text-transform: uppercase;
+    width: calc(100% - 32px);
+    text-align: left;
+  }
+}

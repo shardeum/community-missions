@@ -1,0 +1,43 @@
+@use 'styles/variables' as *;
+
+.buttonSwitchContainer {
+  border: 1px solid $grey27;
+  border-radius: 8px;
+  & .MuiTabs-scroller {
+    padding: 0px !important;
+  }
+  & .indicator {
+    height: 100%;
+    border-radius: 4px;
+  }
+}
+.MuiTab-root {
+  &.tab {
+    text-transform: none;
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 1;
+    min-width: 0;
+    color: $textSecondary
+  }
+  &.tabInactive {
+    cursor: pointer;
+    & svg path {
+      fill: $secondary
+    }
+    &:hover {
+      color: $textPrimary;
+      & svg path {
+        fill: $textPrimary
+      }
+    }
+  }
+  &.tabActive {
+    cursor: default;
+    color: $textPrimary;
+    z-index: 2;
+    & svg path {
+      fill: $textPrimary
+    }
+  }
+}

@@ -1,0 +1,24 @@
+@use 'styles/variables' as *;
+
+.paymentBox {
+  margin-top: 24px;
+  border: 1px solid $secondary1;
+  padding: 32px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  & img {
+    width: 132px;
+  }
+}
+.buyButton {
+  width: 104px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background: $primary;
+  cursor: pointer;
+}

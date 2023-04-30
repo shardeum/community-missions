@@ -1,0 +1,270 @@
+@use 'styles/variables' as *;
+@use 'styles/breakpoints' as *;
+
+.currencySearchWrapper {
+  padding: 32px 24px 0;
+  height: 90vh;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  background: $bgColor;
+  backdrop-filter: blur(9.9px);
+  border: 1px solid $grey2;
+  overflow: hidden;
+  .currencySearchHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 6px;
+    & svg {
+      fill: #686c80;
+      cursor: pointer;
+    }
+    & h6 {
+      color: $textPrimary;
+      font-weight: 600,
+    }
+  }
+  @include media("screen", "<phone") {
+    height: 90vh;
+  }
+}
+.currencySearchFooter {
+  background-image: linear-gradient(to bottom, $grey15, $bgColor 64%);
+  width: 100%;
+  height: 64px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.searchInputWrapper {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  margin: 12px 0;
+  font-size: 16px;
+  border-radius: 12px;
+  outline: none;
+  border: solid 2px $grey14;
+  background-color: $bgColor;
+  & svg {
+    margin-right: 12px;
+  }
+  & input {
+    background: transparent;
+    flex: 1;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: $textSecondary;
+  }
+}
+::placeholder {
+  color: #000000;
+}
+.currencyListWrapper {
+  flex: 1;
+  overflow-y: auto;
+  margin-top: 16px;
+  & .MuiListItem-root {
+    padding: 6px;
+    &.Mui-selected, &:hover {
+      background: none;
+    }
+  }
+}
+.baseWrapper {
+  border-radius: 18px;
+  display: flex;
+  padding: 6px 10px;
+  margin: 4px 8px 4px 0;
+  align-items: center;
+  background-color: $secondary1;
+  &:hover {
+    cursor: pointer;
+  }
+  & small {
+    margin-left: 6px;
+  }
+}
+title {
+  & span {
+    margin-right: 4px;
+    color: $textSecondary;
+  }
+}
+.tag {
+  font-size: 14px;
+  border-radius: 4px;
+  padding: 0.25rem 0.3rem 0.25rem 0.3rem;
+  max-width: 6rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.currencyRow {
+  width: 100%;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  & > p {
+    margin: 0 4px;
+  }
+  & button {
+    background: transparent;
+    padding: 0;
+    min-width: unset;
+    & svg {
+      fill: white;
+      stroke: black;
+    }
+    & div {
+      background: transparent;
+    }
+  }
+}
+.currencySymbol {
+  color: $textPrimary;
+  line-height: 1,
+}
+.currencyName {
+  color: $textSecondary;
+}
+.popoverWrapper {
+  z-index: 100;
+  box-shadow: 0px 0px 1px $grey16, 0px 4px 8px $grey17, 0px 16px 24px $grey17, 0px 24px 32px $grey16;
+  color: black;
+  border-radius: 12px;
+  padding: 16px;
+  & p {
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+  & > div {
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+    & a, & button {
+      font-size: 16px;
+      font-weight: 400
+    }
+    & a {
+      text-decoration: none;
+      color: $primary;
+    }
+    & button {
+      background: transparent;
+      color: black;
+      padding: 0;
+      margin-top: 6px;
+    }
+  }
+}
+.styledMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: none;
+  & > div:first-child {
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $divider;
+    margin-right: 8px
+  }
+}
+.styledListUrlText {
+  max-width: 160px;
+  opacity: 0.6;
+  margin-right: 0.5rem;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.manageList {
+  & p {
+    color: black;
+  }
+  & .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    & svg {
+      stroke: black;
+      width: 24px;
+      height: 24px;
+    }
+    & p {
+      font-size: 18px;
+    }
+  }
+  & .content {
+    padding: 12px 16px;
+    & > div {
+      display: flex;
+      &:first-child {
+        align-items: center;
+        & p {
+          margin-right: 8px
+        }
+      }
+      &:nth-child(2) {
+        margin-top: 8px;
+        & input {
+          flex: 1;
+          margin-right: 8px;
+          border: 1px solid $divider;
+          font-size: 16px;
+          outline: none;
+        }
+      }
+      & > div {
+        background: transparent;
+      }
+      & svg {
+        fill: white;
+        stroke: black;
+      }
+    }
+  }
+}
+.listRow {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  & .listname {
+    flex: 1;
+    margin-left: 8px;
+    & div {
+      color: $grey18;
+    }
+  }
+}
+.filterWrapper {
+  background-color: white;
+  color: $textPrimary;
+  border: 1px solid $divider;
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  & p {
+    font-size: 14px;
+    font-weight: 500;
+  }
+}

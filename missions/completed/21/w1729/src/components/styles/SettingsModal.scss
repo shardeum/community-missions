@@ -1,0 +1,55 @@
+@use 'styles/variables' as *;
+
+.slippageButton {
+  width: 62px;
+  height: 40px;
+  border-radius: 10px;
+  border: solid 1px $secondary2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 16px
+}
+.activeSlippageButton {
+  background: $primary;
+}
+.expertConfirmInput {
+  height: 40px;
+  border: 1px solid $secondary1;
+  background-color: $bgColor;
+  border-radius: 10px;
+  padding: 0 16px;
+  margin-bottom: 20px;
+  & input {
+    background: transparent;
+    border: none;
+    outline: none;
+    text-align: right;
+    flex: 1;
+    font-size: 14px;
+    color: $grey23;
+    font-weight: 500  
+  }
+}
+.expertButtonWrapper {
+  cursor: pointer;
+  background-color: $errorMain;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.settingsInputWrapper {
+  flex: 1;
+  height: 40px;
+  border-radius: 10px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  background-color: $bgColor;
+  & input {
+    color: $grey23;
+  }
+}

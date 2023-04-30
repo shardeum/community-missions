@@ -1,0 +1,34 @@
+@use 'styles/variables' as *;
+@use 'styles/breakpoints' as *;
+
+.searchInput {
+  height: 40px;
+  border: 1px solid $secondary1;
+  border-radius: 10px;
+  min-width: 300px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  width: 100%;
+  & input {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    margin-left: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: $textPrimary;
+    flex: 1;
+  }
+  @include media("screen", "<phone") {
+    min-width: unset;
+    margin-right: 0
+  }
+}
+.focusedSearchInput {
+  border: 1px solid $primary;
+  & svg path {
+    fill: $primary !important
+  }
+}

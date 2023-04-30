@@ -1,0 +1,10 @@
+@use 'styles/variables' as *;
+
+.doubleCurrencyLogo {
+  position: relative;
+  display: flex;
+  & > div:first-child {
+    z-index: 2;
+    margin-right: -4px;
+  }
+}

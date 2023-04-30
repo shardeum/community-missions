@@ -1,0 +1,114 @@
+@use 'styles/variables' as *;
+@use 'styles/breakpoints' as *;
+
+.exchangeSwap {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 16px auto;
+  z-index: 2;
+  position: relative;
+}
+
+.swapPrice {
+  display: flex;
+  justify-content: space-between;
+  background: $grey9;
+  padding: 8px 16px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  & p {
+    display: flex;
+    align-items: center;
+    color: #b6b9cc;
+    & svg {
+      margin-left: 8px;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      & path {
+        fill: $primary;
+      }
+    }
+  }
+}
+
+.swapButtonWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  width: 100%;
+  & button {
+    border-radius: 100px;
+    height: 56px;
+    font-size: 18px;
+    font-weight: 600;
+    background-image: linear-gradient(to bottom, $primary, $blue1);
+    &.Mui-disabled {
+      background-image: linear-gradient(to bottom, $secondary1, $grey10);
+      color: $textSecondary;
+      opacity: 0.5;
+    }
+    & .content {
+      display: flex;
+      align-items: center;
+      & > div {
+        color: white;
+        margin-left: 6px
+      }
+    }
+  }
+}
+
+.recipientInput {
+  width: 100%;
+  & .recipientInputHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    & button {
+      background: transparent;
+    }
+  }
+}
+
+.summaryRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 8px 16px 0;
+  & small {
+    color: $grey19;
+  }
+  & .swapSlippage {
+    cursor: pointer;
+    & small {
+      color: #030303e0;
+    }
+    & svg {
+      margin-left: 8px;
+    }
+  }
+  & > div {
+    display: flex;
+    align-items: center;
+    & > div {
+      margin-left: 4px
+    }
+  }
+}
+
+.swapRoute {
+  margin: 8px 0;
+  & .header {
+    display: flex;
+    align-items: center;
+    & p {
+      font-size: 16px;
+      line-height: 28px;
+      margin-right: 4px
+    }
+  }
+}

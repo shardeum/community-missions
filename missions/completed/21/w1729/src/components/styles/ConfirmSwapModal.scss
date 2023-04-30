@@ -1,0 +1,52 @@
+@use 'styles/variables' as *;
+
+.swapContent {
+  margin: 24px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & p {
+    color: $textPrimary;
+  }
+  & svg {
+    margin: 12px 0;
+  }
+}
+.priceUpdate {
+  background-color: $grey11;
+  margin: 16px 0;
+  padding: 8px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: $primary;
+  & > div {
+    display: flex;
+    align-items: center;
+    & p {
+      margin-left: 6px;
+    }
+  }
+  & button {
+    padding: 6px;
+    width: fit-content;
+    font-size: 12px;
+    border-radius: 12px;
+  }
+}
+.transactionText {
+  margin-top: 32px;
+  color: $textSecondary;
+  text-align: center;
+  & p {
+    margin-bottom: 16px;
+  }
+  & button {
+    background-image: linear-gradient(to bottom, $primary, $blue1);
+    background-color: transparent;
+    border-radius: 12px;
+    width: 100%;
+    height: 56px;
+  }
+}

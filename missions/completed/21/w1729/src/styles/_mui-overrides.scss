@@ -1,0 +1,21 @@
+@use './variables' as *;
+
+html {
+  .MuiTooltip-arrow {
+    font-size: 16px;
+    width: 17px;
+    &::before {
+      color: $secondary1;
+      border: 1px solid $divider;
+      box-sizing: border-box;
+    }
+  }
+  .MuiTooltip-tooltip {
+    background-color: $secondary1;
+    border: 1px solid $divider;
+    padding: 14px;
+    font-size: 14px;
+    border-radius: 14px;
+    color: $textPrimary;
+  }
+}

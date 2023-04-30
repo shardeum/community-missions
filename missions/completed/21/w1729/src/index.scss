@@ -1,0 +1,165 @@
+@use 'styles/variables' as *;
+@use 'styles/fonts' as *;
+@use 'styles/colors' as *;
+@use 'styles/breakpoints' as *;
+@use 'styles/mui-overrides' as *;
+
+body {
+  margin: 0;
+}
+
+[data-reach-dialog-overlay] {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10 !important;
+}
+
+[data-reach-dialog-content] {
+  @include media("screen", "<tablet") {
+    transform: translateY(-90px) !important;
+    max-height: calc(100vh - 120px) !important;
+    min-height: calc(100vh - 120px) !important;
+    border-radius: 20px !important;
+  }
+}
+
+.page {
+  background-color: $bgColor;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.pageWrapper {
+  max-width: 1312px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 24px auto;
+  padding: 0 32px;
+  @include media("screen", "<phone") {
+    padding: 0 12px;
+  }
+}
+
+.pageWrapper-no-max {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 24px auto;
+  padding: 0 32px;
+  @include media("screen", "<phone") {
+    padding: 0 12px;
+  }
+}
+
+.pageHeading {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.heroBkg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  overflow: hidden;
+  & img {
+    width: 100%;
+    min-width: 1200px;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.helpWrapper {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border: 1px solid $secondary2;
+  border-radius: 10px;
+  & p {
+    color: $textHint;
+  }
+
+  & svg {
+    margin-left: 8px;
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.no-decoration {
+  text-decoration: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.opacity-disabled {
+  opacity: 0.6;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.devPassModal {
+  padding: 12px;
+  & input {
+    width: 100%;
+    margin: 8px 0;
+    outline: none;
+    padding: 6px 4px;
+  }
+}

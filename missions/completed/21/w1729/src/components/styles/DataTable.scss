@@ -1,0 +1,58 @@
+@use 'styles/variables' as *;
+
+.datatableWrapper {
+  .table {
+    width: 100%;
+  }
+  .visuallyHidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    top: 20px;
+    width: 1px;
+  }
+  .sortIcon {
+    margin-left: 4px;
+    display: flex;
+    align-items: center;
+    & svg {
+      width: 16px;
+      & path {
+        stroke: $textSecondary;
+      }
+    }
+  }
+  .headCellLabel {
+    color: $textSecondary;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    & svg {
+      margin-left: 3px;
+      width: 16px;
+      & path {
+        fill: $textSecondary;
+      }
+    }
+  }
+  .sortRequestedHeadLabel {
+    color: $primary;
+    & svg path {
+      fill: $primary;
+    }
+  }
+  .sortRequestedIcon {
+    & svg path {
+      stroke: $primary;
+    }
+  }
+  .tablePagination {
+    & svg path {
+      fill: $primary;
+    }
+  }
+}

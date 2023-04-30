@@ -1,0 +1,50 @@
+@use 'styles/variables' as *;
+@use 'styles/breakpoints' as *;
+
+.syrupCard {
+  background: $secondary1;
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 24px;
+  & .dailyRateWrapper {
+    margin-bottom: 0;
+    margin-top: 16px;
+    @include media("screen", "<phone") {
+      margin-top: 6px;
+    }
+  }
+}
+.syrupCardContent {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  padding: 16px;
+  cursor: pointer;
+}
+.syrupText {
+  font-size: 14px;
+  font-weight: 600;
+  color: $textSecondary,
+}
+.syrupButton {
+  background-image: linear-gradient(280deg, $green1 0%, $blue3 0%, $blue2 10%, $blue1 100%);
+  border-radius: 10px;
+  cursor: pointer;
+  width: 134px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include media("screen", "<phone") {
+    width: 49%;
+  }
+}
+
+.syrupAPR {
+  border-radius: 4px;
+  padding: 4px;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+}

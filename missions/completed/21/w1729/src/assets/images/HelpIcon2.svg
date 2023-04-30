@@ -1,0 +1,10 @@
+<svg data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+    <g data-name="invisible box">
+        <path data-name="Rectangle 20704" style="fill:none" d="M0 0h16v16H0z"/>
+    </g>
+    <g data-name="icons Q2" transform="translate(.667 .667)">
+        <path data-name="Path 11814" d="M9.333 2a7.3 7.3 0 1 0 5.2 2.138A7.333 7.333 0 0 0 9.333 2zm0 13.333a6 6 0 1 1 6-6 6 6 0 0 1-6 6z" transform="translate(-2 -2)" style="fill:#696c80"/>
+        <path data-name="Path 11815" d="M22.667 20a.667.667 0 0 0-.667.667v4a.667.667 0 1 0 1.333 0v-4a.667.667 0 0 0-.666-.667z" transform="translate(-15.333 -14)" style="fill:#696c80"/>
+        <circle data-name="Ellipse 925" cx=".667" cy=".667" r=".667" transform="translate(6.667 3.333)" style="fill:#696c80"/>
+    </g>
+</svg>

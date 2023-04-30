@@ -1,0 +1,85 @@
+@use 'styles/variables' as *;
+
+.walletModalWrapper {
+  max-height: 80vh;
+  overflow: auto;
+}
+.blurb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  & a {
+    margin-left: 8px;
+    color: $primary;
+    text-decoration: none;
+  }
+}
+.pendingSection {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  & > * {
+    width: 100%;
+  }
+}
+.errorGroup {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: $errorMain;
+}
+.errorButton {
+  border-radius: 8px;
+  font-size: 12px;
+  color: $textPrimary;
+  background-color: $bgColor;
+  margin-left: 1rem;
+  padding: 0.5rem;
+  font-weight: 600;
+  user-select: none;
+  cursor: pointer;
+}
+.infoCard {
+  background-color: $bgPalette;
+  outline: none;
+  border: 1px solid $divider;
+  border-radius: 12px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding: 1rem;
+  &:focus {
+    box-shadow: 0 0 0 1px $primary;
+  }
+}
+.optionCardClickable {
+  border: 1px solid transparent;
+  background: $secondary1;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 16px 24px;
+  margin-bottom: 16px;
+  &:hover {
+    cursor: pointer;
+    border: 1px solid $primary;
+  }
+}
+.optionConnectedDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  margin-right: 8px;
+  background-color: $successMain;
+}
+.optionLink {
+  color: $textPrimary;
+}

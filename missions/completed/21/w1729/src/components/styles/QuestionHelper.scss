@@ -1,0 +1,35 @@
+@use 'styles/variables' as *;
+
+.questionWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2px;
+  border: none;
+  background: none;
+  outline: none;
+  border-radius: 36px;
+  &:hover, &:focus {
+    opacity: 0.7
+  }
+}
+.lightQuestionWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2px;
+  border: none;
+  background: none;
+  outline: none;
+  cursor: default;
+  border-radius: 36px;
+  width: 24px;
+  height: 24px;
+  color: white;
+  &:hover, &:focus {
+    opacity: 0.7
+  }
+}
+.questionMark {
+  font-size: 1rem;
+}

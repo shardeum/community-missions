@@ -1,0 +1,46 @@
+@use 'styles/variables' as *;
+
+.removeButton {
+  background-image:
+    linear-gradient(104deg, $blue1 -32%, $blue2 54%, $blue3 120%, $green1 198%);
+  background-color: transparent;
+  height: 48px;
+  width: 48%;
+  border-radius: 10px;
+  & span {
+    font-size: 16px;
+    font-weight: 600
+  }
+  &.Mui-disabled {
+    background-image: none;
+    background-color: $secondary1
+  }
+}
+
+.removeLiquidityInput {
+  margin-top: 24px;
+  border-radius: 10px;
+  padding: 16px;
+  background-color: $bgColor;
+  border: 1px solid $grey14;
+}
+
+.removeLiquidityInfo {
+  padding: 16px;
+  border-radius: 10px;
+  & > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    & > div {
+      display: flex;
+      align-items: center;
+      & .currencyLogo {
+        margin-left: 6px;
+      }
+    }
+    &:not(:first-child) {
+      margin-top: 8px;
+    }
+  }
+}

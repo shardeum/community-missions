@@ -1,0 +1,9 @@
+@use 'styles/variables' as *;
+
+.mobileRow {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 8px 0;
+}
