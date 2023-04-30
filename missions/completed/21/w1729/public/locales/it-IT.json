@@ -1,0 +1,21 @@
+{
+  "swap": "Scambia",
+  "pool": "Riserva",
+  "input": "Input",
+  "output": "Output",
+  "pending": "In attesa",
+  "unknownError": "Oops! Si è verificato un Errore imprevisto. Aggiorna la pagina o visita da un altro browser o dispositivo.",
+  "noLiquidity": "Nessuna liquidità.",
+  "youWillReceive": "Riceverai almeno",
+  "to": "a",
+  "addLiquidity": "Aggiungi liquidità",
+  "deposit": "Depositare",
+  "yourPoolShare": "La tua parte di pool condivisa",
+  "and": "e",
+  "removeLiquidity": "Rimuovi Liquidità",
+  "tokenAddress": "Indirizzo Token",
+  "label": "Etichetta",
+  "name": "Nome",
+  "symbol": "Simbolo",
+  "decimals": "Decimali"
+}
