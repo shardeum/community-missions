@@ -43,5 +43,6 @@ Note: there can be multiple winners if there are multiple submissions that meet 
 19. Zero Knowledge Zokrates
 20. Zero Knowledge Noir
 21. UniswapV2 Implementation
+22. UniswapV3 Implementation
 
 
