@@ -1,0 +1,33 @@
+<div class="nav-container">
+  <div class="wallet-connect-btn">
+      <button class="btn" *ngIf="!isConnected" (click)="connectWallet()">Connect Wallet</button>
+      <span class="btn-span" *ngIf="isConnected">{{address}}</span>
+  </div>
+</div>
+<div class="app-container" *ngIf="isConnected">
+	<div class="container">
+		<h4 class="mb-4">Zero Knowledge Proof of Circom</h4>
+		<div class="container mt-3 pb-3">
+			<div class="form-floating">
+				<textarea class="form-control" placeholder="Enter Proof (0x...)" id="proof" style="height: 100px; resize: none;"></textarea>
+				<label for="proof">Enter Proof</label>
+			</div>
+		</div>
+		<div class="container">
+			<div class="form-floating">
+				<input type="email" class="form-control" id="pubsignal" placeholder="0x...">
+				<label for="pubsignal">Enter PubSignal</label>
+			</div>
+		</div>
+		<div class="container mt-4">
+			<button (click)="verifyProof()" class="btn btn-primary form-control" type="button">Verify Proof</button>
+		</div>
+		<div class="result-container container mt-4" *ngIf="result != undefined">
+			<h5 class="text-center mt-3" [innerText]="result ? 'Verified' : 'Not Verified'" [ngClass]="{'green': result, 'red': !result}"></h5>
+		</div>
+	</div>
+</div>
+<div class="connect-wallet-message" *ngIf="!isConnected">
+	<h4>Please connect wallet</h4>
+</div>
+<app-loading *ngIf="loading"></app-loading>
