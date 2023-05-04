@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Shardeum Mission 19: ZK Proof Zokrates</title>
+        <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+        <link rel="stylesheet" href="./style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container-fluid mt-3">
+            <div class="connected-wallet d-flex justify-content-end"></div>
+        </div>
+        <div class="wallet text-center"><button class="btn btn-primary btn-md connect-wallet">Connect Wallet</button></div>
+        <div class="container body-content">
+            <div class="container app-content">
+                
+                <div class="app-interface container-fluid flex-wrap">
+					<div class="container-fluid">
+						<textarea class="form-control text-area-proof" placeholder="Enter proof (tuple)"></textarea>
+						<textarea class="form-control text-area-input my-3" placeholder="Enter input (uint[2])"></textarea>
+						<span class="verify-result"></span>
+						<button class="verify-button form-control btn btn-primary mt-3">Verify Proof</button>
+					</div>
+					<div class="container-fluid mt-5">
+						<div class="row">
+							<div class="col-3 offset-2">
+								<button class="btn btn-primary form-control sample-proof">Copy Sample Proof</button>
+							</div>
+							<div class="col-3 offset-2">
+								<button class="btn btn-primary form-control sample-input">Copy Sample Input</button>
+							</div>
+						</div>
+					</div>
+                </div>
+            </div>
+        
+        <div class="opacity"></div>
+        <div class="loader">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; display: block;" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                <g transform="rotate(0 50 50)">
+                  <rect x="47" y="29.5" rx="3" ry="0.5" width="6" height="1" fill="#85a2b6">
+                    <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.9166666666666666s" repeatCount="indefinite"></animate>
+                  </rect>
+                </g><g transform="rotate(30 50 50)">
+                  <rect x="47" y="29.5" rx="3" ry="0.5" width="6" height="1" fill="#85a2b6">
+                    <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.8333333333333334s" repeatCount="indefinite"></animate>
+                  </rect>
+                </g><g transform="rotate(60 50 50)">
+                  <rect x="47" y="29.5" rx="3" ry="0.5" width="6" height="1" fill="#85a2b6">
+                    <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.75s" repeatCount="indefinite"></animate>
+                  </rect>
+                </g><g transform="rotate(90 50 50)">
+                  <rect x="47" y="29.5" rx="3" ry="0.5" width="6" height="1" fill="#85a2b6">
+                    <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.6666666666666666s" repeatCount="indefinite"></animate>
+                  </rect>
+                </g><g transform="rotate(120 50 50)">
+                  <rect x="47" y="29.5" rx="3" ry="0.5" width="6" height="1" fill="#85a2b6">
+                    <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.5833333333333334s" repeatCount="indefinite"></animate>
+                  </rect>
+                </g><g transform="rotate(150 50 50)">
+                  <rect x="47" y="29.5" rx="3" ry="0.5" width="6" height="1" fill="#85a2b6">
+                    <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.5s" repeatCount="indefinite"></animate>
+                  </rect>
+                </g><g transform="rotate(180 50 50)">
+                  <rect x="47" y="29.5" rx="3" ry="0.5" width="6" height="1" fill="#85a2b6">
+                    <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.4166666666666667s" repeatCount="indefinite"></animate>
+                  </rect>
+                </g><g transform="rotate(210 50 50)">
+                  <rect x="47" y="29.5" rx="3" ry="0.5" width="6" height="1" fill="#85a2b6">
+                    <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.3333333333333333s" repeatCount="indefinite"></animate>
+                  </rect>
+                </g><g transform="rotate(240 50 50)">
+                  <rect x="47" y="29.5" rx="3" ry="0.5" width="6" height="1" fill="#85a2b6">
+                    <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.25s" repeatCount="indefinite"></animate>
+                  </rect>
+                </g><g transform="rotate(270 50 50)">
+                  <rect x="47" y="29.5" rx="3" ry="0.5" width="6" height="1" fill="#85a2b6">
+                    <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.16666666666666666s" repeatCount="indefinite"></animate>
+                  </rect>
+                </g><g transform="rotate(300 50 50)">
+                  <rect x="47" y="29.5" rx="3" ry="0.5" width="6" height="1" fill="#85a2b6">
+                    <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.08333333333333333s" repeatCount="indefinite"></animate>
+                  </rect>
+                </g><g transform="rotate(330 50 50)">
+                  <rect x="47" y="29.5" rx="3" ry="0.5" width="6" height="1" fill="#85a2b6">
+                    <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animate>
+                  </rect>
+                </g>
+                </svg>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <script src="./script.js"></script>
+    </body>
+</html>

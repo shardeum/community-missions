@@ -1,0 +1,49 @@
+.body-content{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.app-content{
+
+}
+.wallet{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.app-interface{
+    flex-basis: 100%;
+    display: none;
+    max-width: 640px;
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+}
+.text-area-proof, .text-area-input{
+    resize: none;
+}
+.verify-result{
+    font-size: 1.3em;
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+.opacity{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    z-index: 1100;
+}
+.loader{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1101;
+}
