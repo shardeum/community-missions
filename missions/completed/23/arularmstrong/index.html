@@ -1,0 +1,204 @@
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-flow: column;
+            margin: 0;
+            overflow: hidden;
+            font-family: "Lato", sans-serif;
+        }
+
+        .display-account {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .spinner-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            display: none;
+        }
+
+        #output-content {
+            display: none;
+            margin-top: 60px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #input-content {
+            display: none;
+            margin-top: 60px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="display-account">
+        <div>
+            <h6 id="connect_message">Connect your wallet</h6>
+            <button id="connect" class="btn btn-primary">Connect</button>
+        </div>
+    </div>
+
+
+    <div id="input-content">
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <table class="table table-responsive">
+                    <tbody>
+                        <tr>
+                            <th> Due </th>
+                            <th> <input id="due" size="50" value="59" />
+                            </th>
+                        </tr>
+                        <tr>
+                            <th> Paid </th>
+                            <th><input id="paid" size="50" value='100' />
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <div id="spinner" class="spinner-container">
+                                    <div class="spinner-border" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </div>
+                            </th>
+                            <th><button id="verify" class="btn btn-primary">Calculate Change</button></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="output-content">
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <table class="table table-responsive" id="change-result">
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        const provider = ((window.ethereum != null) ? new ethers.providers.Web3Provider(window.ethereum) : ethers
+            .providers.getDefaultProvider());
+        let address, contract;
+        let spinner = document.getElementById("spinner")
+        let inputContent = document.getElementById("input-content")
+        let outputContent = document.getElementById("output-content")
+        let connectButton = document.getElementById('connect');
+        let verifyButton = document.getElementById('verify');
+        connectButton.addEventListener('click', getAccounts);
+        verifyButton.addEventListener('click', verify);
+
+        const contractAddress = "0x4C6ab14bDC7ccdfE5A1E6bB427b6B3bd662CC1e9";
+        const ABI = [{
+                "inputs": [],
+                "name": "InvalidInput",
+                "type": "error"
+            },
+            {
+                "inputs": [{
+                        "internalType": "uint256",
+                        "name": "amountDue",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "amountPaid",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "changeReturn",
+                "outputs": [{
+                    "internalType": "uint256[]",
+                    "name": "coins",
+                    "type": "uint256[]"
+                }],
+                "stateMutability": "pure",
+                "type": "function"
+            }
+        ];
+
+        async function getAccounts() {
+            let accounts = await provider.send('eth_requestAccounts', []);
+            if (accounts.length) {
+                address = accounts[0];
+                document.getElementById('connect').remove();
+                document.getElementById('connect_message').innerHTML = `Wallet Connected: ${address}`
+                contractInit();
+            }
+        }
+
+        async function verify() {
+            const paid = document.getElementById('paid').value;
+            const due = document.getElementById('due').value;
+            if (parseInt(due) > parseInt(paid)) {
+                alert('payment has to be higer than the amount due');
+                return;
+            }
+            spinner.style.display = "flex";
+            const result = await contract.changeReturn(due, paid);
+            const table = document.getElementById('change-result');
+            const tBody = document.createElement('tbody');
+            tBody.innerHTML = `
+                        <tr>
+                            <th> quarter </th>
+                            <th>${result[0].toNumber()}</th>
+                        </tr>
+                        <tr>
+                            <th> dime </th>
+                            <th>${result[1].toNumber()}</th>
+                        </tr>
+                        <tr>
+                            <th> nickle </th>
+                            <th>${result[2].toNumber()}</th>
+                        </tr>
+                        <tr>
+                            <th> penny </th>
+                            <th>${result[3].toNumber()}</th>
+                        </tr>`;
+
+            table.innerHTML = '';
+            table.appendChild(tBody);
+            outputContent.style.display = "block"
+            spinner.style.display = "none";
+        }
+
+        function contractInit() {
+            contract = new ethers.Contract(contractAddress, ABI, provider.getSigner());
+            inputContent.style.display = "block"
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+    </script>
+
+</body>
+
+</html>
