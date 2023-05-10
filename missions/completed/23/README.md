@@ -1,4 +1,4 @@
-## Mission 23: Coin Change
+## Mission 23: Coin Change Optimization
 
 <img src="images/change.png" alt="change"/>
 
