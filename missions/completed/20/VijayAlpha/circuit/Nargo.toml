@@ -1,0 +1,5 @@
+[package]
+authors = ["Alpha-V"]
+compiler_version = "0.1"
+
+[dependencies]
