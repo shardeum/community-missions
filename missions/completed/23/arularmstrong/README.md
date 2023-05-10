@@ -4,10 +4,6 @@
 
 <a href="https://youtu.be/C3B0vjtnl68"> Demo Video (youtube)</a>
 
-<img src="images/change.png" alt="change"/>
-
-Image credit: https://www.youtube.com/watch?v=H9bfqozjoqs
-
 ## Overview
 
 Calculate the change needed in coins needed from a payment with a Solidity smart contract.
