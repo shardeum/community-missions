@@ -45,4 +45,4 @@ Note: there can be multiple winners if there are multiple submissions that meet 
 21. UniswapV2 Implementation
 22. UniswapV3 Implementation
 23. Coin Change Optimization
-
+24. Spiral Matrix
