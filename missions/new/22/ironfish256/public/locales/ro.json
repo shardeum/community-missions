@@ -1,0 +1,18 @@
+{
+  "swap": "Schimba",
+  "pool": "Extrage",
+  "input": "Input",
+  "output": "Output",
+  "pending": "În Așteptare",
+  "noLiquidity": "Lichiditate Inexistentă.",
+  "youWillReceive": "Vei primi cel puțin",
+  "to": "spre",
+  "addLiquidity": "Crește Lichiditatea",
+  "deposit": "Depozitează",
+  "yourPoolShare": "Partea Ta Din Fond Comun",
+  "and": "și",
+  "removeLiquidity": "Elimină Lichiditate",
+  "tokenAddress": "Adresă Token",
+  "label": "Denumire",
+  "decimals": "Zecimale"
+}
