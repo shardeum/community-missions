@@ -1,0 +1,18 @@
+{
+  "swap": "兑换",
+  "pool": "资金池",
+  "input": "输入",
+  "output": "输出",
+  "pending": "处理中",
+  "noLiquidity": "没有流动金。",
+  "youWillReceive": "你将至少收到",
+  "to": "至",
+  "addLiquidity": "添加流动金",
+  "deposit": "存入",
+  "yourPoolShare": "你的资金池份额",
+  "and": "和",
+  "removeLiquidity": "删除流动金",
+  "tokenAddress": "通证地址",
+  "label": "通证符号",
+  "decimals": "小数位数"
+}

@@ -1,0 +1,21 @@
+{
+  "swap": "Hoán đổi",
+  "pool": "Chung vốn",
+  "input": "Đầu vào",
+  "output": "Đầu ra",
+  "pending": "Đang chờ xử lý",
+  "unknownError": "Rất tiếc! Xảy ra lỗi không xác định. Vui lòng làm mới trang, hoặc truy cập từ trình duyệt hay thiết bị khác.",
+  "noLiquidity": "Không có tính thanh khoản.",
+  "youWillReceive": "Bạn sẽ nhận dược ít nhất là",
+  "to": "đến",
+  "addLiquidity": "Thêm tiền thanh khoản",
+  "deposit": "Gửi tiền",
+  "yourPoolShare": "Phần hùn của bạn trong quỹ",
+  "and": "và",
+  "removeLiquidity": "Loại bỏ thanh khoản",
+  "tokenAddress": "Địa chỉ đồng tiền điện tử",
+  "label": "Nhãn",
+  "name": "Tên",
+  "symbol": "Biểu tượng",
+  "decimals": "Số thập phân"
+}

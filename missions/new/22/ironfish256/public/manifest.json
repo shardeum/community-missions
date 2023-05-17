@@ -1,0 +1,22 @@
+{
+  "short_name": "QuickSwap",
+  "name": "QuickSwap Interface",
+  "icons": [
+    {
+      "src": "./logo_circle.png",
+      "sizes": "50x150",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./logo_circle.png",
+      "sizes": "50x50",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
