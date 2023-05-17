@@ -1,0 +1,18 @@
+{
+  "swap": "兌換",
+  "pool": "資金池",
+  "input": "輸入",
+  "output": "輸出",
+  "pending": "處理中",
+  "noLiquidity": "沒有流動性資金。",
+  "youWillReceive": "你將至少收到",
+  "to": "至",
+  "addLiquidity": "增加流動性資金",
+  "deposit": "存入",
+  "yourPoolShare": "你在資金池中的佔比",
+  "and": "和",
+  "removeLiquidity": "領出流動性資金",
+  "tokenAddress": "代幣地址",
+  "label": "代幣符號",
+  "decimals": "小數位數"
+}
