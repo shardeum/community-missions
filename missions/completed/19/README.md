@@ -43,19 +43,30 @@ https://www.youtube.com/watch?v=NMa479P8r0Y
 
 Example ZoKrates Verifier contract deployed to Sepolia testnet:
 
-Verifier.sol on Sepolia :
-
-https://sepolia.etherscan.io/address/0x74df70658b6b3dd026e496573469070dc19eabf4#code
-
-proof (with letters removed and added brackets to wrap the whole proof):
+ZoKrates circuit:
 
 ```solidity
-[["0x2ccd01243e80e97833c828ff7a191bf7d6e585232fb36660ee7af93de30a5e7b","0x103e5f1bad0d2277614707584a159c812f3efdcbf0cb686f406394d32cd2415d"],[["0x2618a2fdc065ca794df97f8c529d2d17649066a6d1c2d7df2f7abee728870801","0x1d32b0f634c5bffd04bd9fa702a6bcbf1c62825c573acbcbb76dca7343903b42"],["0x07fbaa831dda929d475e9a75319cef62a0628dda873d048ac7a53a29db9a8faa","0x23fd8bd80e2885f12aadcdfeb1ebc162bfdc4c0f765f5931ea324355070e0a63"]],["0x016142c26845f701ce57d4daae407d16fcf6112539af81cd64582e181e91c785","0x2ca8bb75214ef3b64e58c9e137e8b052bf2dcdec48104635fc32793979533d45"]]
+import "hashes/sha256/512bitPacked" as sha256packed;
+
+def main(private field a, private field b, private field c, private field d,field h0, field h1) {
+  field[2] h = sha256packed([a, b, c, d]);
+  assert(h[0] == h0);
+  assert(h[1] == h1);
+  return;
+  // Input: 'a' -> 0,0,0,97
+  // assert(h[0] == 45324487246557938747332883189457400843)
+  // assert(h[1] == 84478852209878349000735790184433475398)
+}
 ```
 
-input:
+Verifier.sol on Sepolia :
 
+https://sepolia.etherscan.io/address/0xbe7d33cee356236fc02f09f7ffbb0ab90af237a6#code
+
+calldata for test (proof and input data copied from ZoKrates)
+:warning: removed quotes from the input values to avoid Etherscan BigNumber error :warning:
 ```solidity
-["0x0000000000000000000000000000000000000000000000000000000000000001","0x0000000000000000000000000000000000000000000000000000000000000002","0x0000000000000000000000000000000004d8ac91b0ff52c3c2421267ee6da7da","0x000000000000000000000000000000006df16755c25f7be7dd284bf4ea2ecf84"]
+[["0x2bb0b66df8e2f7a17f8b38516d5f834404077f5c81abb485e7ccf98d2fb44bb4","0x1a7480811eea3b13dfe57a8760ce8a2560ad3e7e07754572eec9a9420f338d59"],[["0x1c273b90d0fbb8cb1c84a12ef71edb960a6b2825b7f8317e149c23a52ac10813","0x2822f95ca4abb1b86dc009432b7302e4e873bafa1698e963c5f783767019bd95"],["0x021b55da9717e0dd50c1d4b5c80eda926f8ff6f6cdf8fc0493e3b4bc7886d2db","0x21e02130eba51672a5b374df9bc6af5f1117dac631523a77dc9c6dceba17a1a3"]],["0x0a59fa02e772c30585c0cd31c527badea18fb62a39f441e8ee7858b053c6ee8e","0x13025f0f572a08198f27ef168313d5516c8c041efea6ba9fcfb609d8a41a6208"]],[0x0000000000000000000000000000000022192dc09ba3afbc0d0c5b60675ab40b,0x000000000000000000000000000000003f8e08fd3897de4e81a37a4752805f46]
+```8ac91b0ff52c3c2421267ee6da7da","0x000000000000000000000000000000006df16755c25f7be7dd284bf4ea2ecf84"]
 ```
 
