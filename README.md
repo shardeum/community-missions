@@ -40,7 +40,7 @@ Note: there can be multiple winners if there are multiple submissions that meet 
 16. Multisignature Wallet Factory
 17. Validator GUI Redesign
 18. Zero Knowledge Circom
-19. Zero Knowledge Zokrates
+19. Zero Knowledge ZoKrates
 20. Zero Knowledge Noir
 21. UniswapV2 Implementation
 22. UniswapV3 Implementation
