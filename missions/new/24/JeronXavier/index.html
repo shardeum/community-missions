@@ -1,0 +1,229 @@
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-flow: column;
+            margin: 0;
+            overflow: hidden;
+            font-family: "Lato", sans-serif;
+        }
+
+        .display-account {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .matrix-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .matrix {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        #spinner-container {
+            display: none;
+            margin-top: 40px;
+        }
+
+        #input-content {
+            display: none;
+            margin-top: 60px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .button-spacing {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="display-account">
+        <div>
+            <h6 id="connect-message">Connect your wallet</h6>
+            <button id="connect" class="btn btn-primary">Connect</button>
+        </div>
+    </div>
+
+    <div id="input-content">
+        <div class="matrix-container">
+            <div class="matrix">
+            </div>
+        </div>
+
+        <div class="btn-container">
+            <button id="spiral-clockwise" class="btn btn-primary button-spacing">Spiral Clockwise</button>
+            <button id="spiral-counterclockwise" class="btn btn-primary button-spacing">Spiral Counter Clockwise</button>
+            <button id="spiral-reset" class="btn btn-primary">Reset</button>
+        </div>
+
+        <div id="spinner-container">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        const provider = (window.ethereum != null) ? new ethers.providers.Web3Provider(window.ethereum) : ethers.providers.getDefaultProvider();
+        let address, contract;
+        let spinnerContainer = document.getElementById("spinner-container");
+        let inputContent = document.getElementById("input-content")
+        let connectButton = document.getElementById("connect");
+        let spiralClockwiseButton = document.getElementById("spiral-clockwise");
+        let spiralCounterClockwiseButton = document.getElementById("spiral-counterclockwise");
+        let resetButton = document.getElementById("spiral-reset");
+
+        connectButton.addEventListener("click", getAccounts);
+        spiralClockwiseButton.addEventListener("click", spiralClockwise);
+        spiralCounterClockwiseButton.addEventListener("click", spiralCounterClockwise);
+        resetButton.addEventListener("click", reset);
+        
+        const contractAddress = "0x0a2ad21FC0dd58Bc4a816a4455de2Bbb18DC0270";
+        const ABI = [
+                        {
+                            "inputs": [],
+                            "name": "reset",
+                            "outputs": [],
+                            "stateMutability": "nonpayable",
+                            "type": "function"
+                        },
+                        {
+                            "inputs": [],
+                            "name": "spiralClockwise",
+                            "outputs": [],
+                            "stateMutability": "nonpayable",
+                            "type": "function"
+                        },
+                        {
+                            "inputs": [],
+                            "name": "spiralCounterClockwise",
+                            "outputs": [],
+                            "stateMutability": "nonpayable",
+                            "type": "function"
+                        },
+                        {
+                            "inputs": [],
+                            "stateMutability": "nonpayable",
+                            "type": "constructor"
+                        },
+                        {
+                            "inputs": [],
+                            "name": "getMatrix",
+                            "outputs": [
+                                {
+                                    "internalType": "uint256[][]",
+                                    "name": "",
+                                    "type": "uint256[][]"
+                                }
+                            ],
+                            "stateMutability": "view",
+                            "type": "function"
+                        }
+                    ];
+
+        async function getAccounts() {
+            let accounts = await provider.send("eth_requestAccounts", []);
+            if (accounts.length) {
+                address = accounts[0];
+                document.getElementById("connect-message").innerHTML = `Wallet Connected: ${address}`;
+                contract = new ethers.Contract(contractAddress, ABI, provider.getSigner());
+                showContent();
+                await fetchMatrix();
+            }
+        }
+
+        function loader(status) {
+            status?spinnerContainer.style.display = "block" : spinnerContainer.style.display = "none";
+        }
+
+        function showContent() {
+            connectButton.style.display = "none";
+            inputContent.style.display = "block";
+        }
+
+        async function fetchMatrix() {
+            loader(true);
+            const matrixValues = await contract.getMatrix();
+
+            const matrixContainer = document.querySelector('.matrix');
+            matrixContainer.innerHTML = '';
+
+            matrixValues.forEach(row => {
+                row.forEach(value => {
+                    const cell = document.createElement('div');
+                    cell.classList.add('cell');
+                    cell.textContent = value;
+                    matrixContainer.appendChild(cell);
+                });
+            });
+            loader(false);
+        }
+
+        async function spiralClockwise() {
+            loader(true);
+            const tx = await contract.spiralClockwise();
+            await waitForConfirmation(tx.hash);
+            await fetchMatrix()
+        }
+
+        async function spiralCounterClockwise() {
+            loader(true);
+            const tx = await contract.spiralCounterClockwise();
+            await waitForConfirmation(tx.hash);
+            await fetchMatrix()
+        }
+
+        async function reset() {
+            loader(true);
+            const tx = await contract.reset();
+            await waitForConfirmation(tx.hash);
+            await fetchMatrix()
+        }
+
+        async function waitForConfirmation(txHash) {
+            while (true) {
+                const receipt = await provider.send('eth_getTransactionReceipt', [txHash]);
+                if (receipt && receipt.blockNumber) {
+                    break;
+                }
+                // Wait for a few seconds before checking again
+                await new Promise(resolve => setTimeout(resolve, 2000));
+            }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+</body>
+</html>
