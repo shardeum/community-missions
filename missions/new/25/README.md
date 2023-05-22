@@ -13,16 +13,17 @@ Calculate math expressions in Solidity.
 Create a smart contract called: `StringInputCalculator` which:
         
     -is deployed to Betanet 1.X
-    -computeStringExpression
-        -accepts the following input characters for math operations:
-            -positive integer values with characters 0 to 9
-            -plus "+"
-            -minus "-"
-            -multiplication "*"
-            -division "/"
-            -open parentheses "("
-            -closing parentheses ")"
-        -returns the correct computed value 
+    -function:computeStringExpression
+        -argument: stringMathExpression
+            -accepts the following input characters for math operations:
+                -positive integer values with characters 0 to 9
+                -plus "+"
+                -minus "-"
+                -multiplication "*"
+                -division "/"
+                -open parentheses "("
+                -closing parentheses ")"
+        -returns: the correct computed value 
     
 Create a basic frontend which:
 
