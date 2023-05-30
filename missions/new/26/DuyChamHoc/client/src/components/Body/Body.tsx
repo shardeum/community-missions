@@ -5,7 +5,7 @@ import ChipInput from "material-ui-chip-input";
 export default function Body(props: any) {
   const { accounts } = props;
   const [target, setTarget] = useState("");
-  const [wordsList, setWordsList] = useState([]);
+  const [wordsList, setWordsList] = useState<string[]>([]);
   const [check, setCheck] = useState();
   const [render, setRender] = useState(false);
 
