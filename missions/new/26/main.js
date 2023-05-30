@@ -58,9 +58,9 @@ async function validate() {
     alert("Enter an array of string as argument for validate() !");
   }  
   console.log(document.getElementById("targetString").value);
-  console.log(document.getElementById("wordlist").value.split(","));
+  console.log(document.getElementById("wordlist").value.split(",").map((item) => item.trim()));
   const wordmixerWithSigner = wordmixerContract.connect(signer);
-  result = await wordmixerWithSigner.validate(document.getElementById("targetString").value, document.getElementById("wordlist").value.split(","));
+  result = await wordmixerWithSigner.validate(document.getElementById("targetString").value, document.getElementById("wordlist").value.split(",").map((item) => item.trim()));
   alert(result);
 }
 
