@@ -1,0 +1,52 @@
+:host{
+    .nav-container{
+        display: flex;
+        width: 100%;
+        overflow: hidden;
+        justify-content: flex-end;
+        .wallet-connect-btn{
+            .btn, .btn-span{
+                height: 30px;
+                background: #424eb3;
+                color: #fff;
+                padding: 0px 30px;
+                border: 0px;
+                cursor: pointer;
+            }
+            .btn-span{
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+	.app-container, .connect-wallet-message{
+        margin-top: 50vh;
+        margin-left: 50vw;
+        transform: translate(-50%, -50%);
+        // width: fit-content;
+		text-align: center;
+		&.app-container{
+			max-width: 700px;
+		}
+        
+        .button-container{
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            button{
+                color: #fff;
+                background: #00f;
+                padding: 10px;
+                cursor: pointer;
+            }
+        }
+		.result-container{
+			.green{
+				color: #0f0;
+			}
+			.red{
+				color: #f00;
+			}
+		}
+    }
+}
