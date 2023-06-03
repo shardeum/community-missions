@@ -1,0 +1,131 @@
+.label {
+  font-size: 25px;
+  font-family: 'Times New Roman', Times, serif;
+  color: white;
+  
+}
+.desktop-1,
+.word-break-parent {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.App {
+  align-self: center;
+}
+.word-break-parent {
+  border-radius: 30px;
+  border: 5px solid #f2f70d;
+  width: 700px;
+  height: 600px;
+  padding: 0px 0 0 0px;
+}
+.desktop-1 {
+  position: relative;
+  background-color: #023b04;
+  width: 100%;
+  overflow: hidden;
+  padding: 110px 380px;
+  text-align: left;
+  font-size: var(--font-size-11xl);
+  color: var(--color-white);
+  font-family: var(--font-inter);
+}
+
+.f1 {
+  align-self: center;
+  padding-top: 15px;
+  padding-left: 30px;
+  
+}
+
+.input1,.input2 {
+  width: 250px;
+  height: 50px;
+  background-color: khaki;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  border: 5px solid;
+  border-color: orangered;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
+.input1{
+  margin-left: 50px;
+}
+.head{
+  font-family: 'Times New Roman', Times, serif;
+  font-size:  40px;
+  text-decoration: underline;
+  margin-left: 90px;
+  color: white;
+}
+
+.button {
+  align-self: center;
+  margin-left: 110px;
+  width: 100px;
+  height: 40px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+  background-color: yellow;
+  border-radius: 10px;
+  color: red;
+}
+
+.connect {
+  width: 200px;
+  height: 40px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+  background-color: yellow;
+  border-radius: 10px;
+  color: red;
+  
+}
+
+.button:hover,
+.connect:hover {
+  background-color: burlywood;
+}
+
+.account {
+  font-family: 'Times New Roman', Times, serif;
+  margin-left: 5px;
+  font-size: 20px;
+  color: white;
+}
+
+.ts {
+  font-family: 'Times New Roman', Times, serif;
+  margin-left: 150px;
+  font-size: 20px;
+  color: white;
+  }
+
+
+@media (max-width: 767px) {
+  /* Adjust styles for screens smaller than 768px */
+  .f1 {
+    padding-top: 20px;
+    padding-left: 20px;
+  }
+
+  .input1,
+  .input2,
+  .button,
+  .connect {
+    width: 100%;
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .account {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+}
