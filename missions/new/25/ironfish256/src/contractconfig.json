@@ -1,0 +1,196 @@
+{
+  "address": "0xf34b6ec7cCbFb4fa4A3bf97d1806b6962f994499",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "array",
+          "type": "bytes"
+        }
+      ],
+      "name": "bytesarray",
+      "outputs": [
+        {
+          "internalType": "bytes[10]",
+          "name": "",
+          "type": "bytes[10]"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes1",
+          "name": "byteValue",
+          "type": "bytes1"
+        }
+      ],
+      "name": "byteToInt",
+      "outputs": [
+        {
+          "internalType": "int256",
+          "name": "",
+          "type": "int256"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "int256[]",
+          "name": "array",
+          "type": "int256[]"
+        }
+      ],
+      "name": "calculateSum",
+      "outputs": [
+        {
+          "internalType": "int256",
+          "name": "",
+          "type": "int256"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "str",
+          "type": "string"
+        }
+      ],
+      "name": "computeStringExpression",
+      "outputs": [
+        {
+          "internalType": "int256",
+          "name": "",
+          "type": "int256"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes1",
+          "name": "value",
+          "type": "bytes1"
+        }
+      ],
+      "name": "convert",
+      "outputs": [
+        {
+          "internalType": "int256",
+          "name": "",
+          "type": "int256"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "int256[]",
+          "name": "stack",
+          "type": "int256[]"
+        },
+        {
+          "internalType": "int256",
+          "name": "num",
+          "type": "int256"
+        },
+        {
+          "internalType": "int256",
+          "name": "op",
+          "type": "int256"
+        }
+      ],
+      "name": "helper",
+      "outputs": [
+        {
+          "internalType": "int256[]",
+          "name": "",
+          "type": "int256[]"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes1",
+          "name": "byteValue",
+          "type": "bytes1"
+        }
+      ],
+      "name": "isNumber",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "int256[]",
+          "name": "array",
+          "type": "int256[]"
+        }
+      ],
+      "name": "pop",
+      "outputs": [
+        {
+          "internalType": "int256",
+          "name": "",
+          "type": "int256"
+        },
+        {
+          "internalType": "int256[]",
+          "name": "",
+          "type": "int256[]"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "int256[]",
+          "name": "array",
+          "type": "int256[]"
+        },
+        {
+          "internalType": "int256",
+          "name": "element",
+          "type": "int256"
+        }
+      ],
+      "name": "push",
+      "outputs": [
+        {
+          "internalType": "int256[]",
+          "name": "",
+          "type": "int256[]"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ]
+}
