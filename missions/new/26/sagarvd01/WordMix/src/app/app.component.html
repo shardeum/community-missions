@@ -1,0 +1,33 @@
+<div class="nav-container">
+  <div class="wallet-connect-btn">
+      <button class="btn" *ngIf="!isConnected" (click)="connectWallet()">Connect Wallet</button>
+      <span class="btn-span" *ngIf="isConnected">{{address}}</span>
+  </div>
+</div>
+<div class="app-container" *ngIf="isConnected">
+	<div class="container">
+		<h4 class="mb-4">Word Mixer: Mission 26</h4>
+		<div class="container mt-3 pb-3">
+			<div class="form-floating">
+				<input type="text" class="form-control" placeholder="Enter Target String" id="target">
+				<label for="proof">Enter Target Word</label>
+			</div>
+		</div>
+		<div class="container">
+			<div class="form-floating">
+				<input type="text" class="form-control" id="wordlist" placeholder="Comma separated array">
+				<label for="pubsignal">Enter Comma Separated Word List</label>
+			</div>
+		</div>
+		<div class="container mt-4">
+			<button (click)="validateWord()" class="btn btn-primary form-control" type="button">Validate Mix</button>
+		</div>
+		<div class="result-container container mt-4" *ngIf="result != undefined">
+			<h5 class="text-center mt-3" [innerText]="result ? 'Valid' : 'Not Valid'" [ngClass]="{'green': result, 'red': !result}"></h5>
+		</div>
+	</div>
+</div>
+<div class="connect-wallet-message" *ngIf="!isConnected">
+	<h4>Please connect wallet</h4>
+</div>
+<app-loading *ngIf="loading"></app-loading>
