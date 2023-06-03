@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .check-content {
+    @apply mb-[51px] flex gap-8 ml-[70px] mr-[29px] items-center md:mx-0;
+  }
+  .btn-hover {
+    @apply hover:text-purple-500 transition-all duration-200 cursor-pointer;
+  }
+  .connect-button {
+    padding: 8px 16px;
+    background-color: #8a2be2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 2px solid transparent; /* Thêm border ban đầu và đặt màu transparent */
+    transition: border-color 0.3s; /* Thêm hiệu ứng transition cho màu border */
+  }
+  .connect-button:hover {
+    background-color: #6c15a7;
+  }
+}
