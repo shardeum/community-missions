@@ -1,0 +1,102 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-light: white;
+  --color-dark: #212121;
+  --color-signal: #fab700;
+  --color-background: var(--color-light);
+  --color-text: var(--color-dark);
+  --color-accent: var(--color-signal);
+  --size-bezel: .5rem;
+  --size-radius: 4px;
+}
+
+body {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  font-family: Roboto, sans-serif;
+  background: #243746;
+}
+
+.card {
+  padding: 34px 54px;
+  margin: 80px;
+  background: #fafafa;
+  max-width: 450px;
+  border-radius: 15px;
+}
+.card p {
+  max-width: 90%;
+  margin-bottom: 50px;
+}
+
+button {
+  border: none;
+  background: transparent;
+  --btn-width: 150px;
+  width: var(--btn-width);
+  min-height: 45px;
+  background-color: tomato;
+  color: white;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.grow-button {
+  box-sizing: content-box;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  --expand: 0px;
+  position: relative;
+  transition: padding 0.5s, left 0.5s;
+  padding-inline: var(--expand);
+  left: calc( var(--expand) * -1);
+}
+.grow-button:hover, .grow-button:active {
+  --expand: calc( var(--btn-width) * .15);
+}
+
+.input__label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: calc(var(--size-bezel) * 0.75) calc(var(--size-bezel) * .5);
+  margin: calc(var(--size-bezel) * 0.75 + 3px) calc(var(--size-bezel) * .5);
+  background: pink;
+  white-space: nowrap;
+  transform: translate(0, 0);
+  transform-origin: 0 0;
+  background: var(--color-background);
+  transition: transform 120ms ease-in;
+  font-weight: bold;
+  line-height: 1.2;
+}
+.input__field {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border: 3px solid currentColor;
+  padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
+  color: currentColor;
+  background: transparent;
+  border-radius: var(--size-radius);
+}
+.input__field:not(:-moz-placeholder-shown) + .input__label {
+  transform: translate(0.25rem, -65%) scale(0.8);
+  color: var(--color-accent);
+}
+.input__field:not(:-ms-input-placeholder) + .input__label {
+  transform: translate(0.25rem, -65%) scale(0.8);
+  color: var(--color-accent);
+}
+.input__field:focus + .input__label, .input__field:not(:placeholder-shown) + .input__label {
+  transform: translate(0.25rem, -65%) scale(0.8);
+  color: var(--color-accent);
+}
