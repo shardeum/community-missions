@@ -1,0 +1,174 @@
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-flow: column;
+            margin: 0;
+            overflow: hidden;
+            font-family: "Lato", sans-serif;
+        }
+
+        .display-account {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        #input-container {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        #spinner-container {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        #output-content {
+            display: none;
+            margin-top: 60px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="display-account">
+        <div>
+            <h6 id="connect_message">Connect your wallet</h6>
+            <button id="connect" class="btn btn-primary">Connect</button>
+        </div>
+    </div>
+
+    <div id="input-container">
+        <div class="col-auto">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="target-word" placeholder="Target Word (orange)" style="width: 400px;">
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="word-array" placeholder="Word list (or,ange,app)" style="width: 400px;">
+            </div>
+            <button id="validate" class="btn btn-primary">Validate</button>
+        </div>
+    </div>
+
+    <div id="spinner-container">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <div id="output-content">
+    </div>
+
+    <script>
+        const provider = ((window.ethereum != null) ? new ethers.providers.Web3Provider(window.ethereum) : ethers
+            .providers.getDefaultProvider());
+        let spinner = document.getElementById("spinner-container");
+        let connectButton = document.getElementById('connect');
+        let inputContent = document.getElementById("input-container");
+        let outputContent = document.getElementById("output-content");
+        let validateButton = document.getElementById('validate');
+        connectButton.addEventListener('click', getAccounts);
+        validateButton.addEventListener('click', validate);
+
+        const contractAddress = "0xcc86EbB070B5d6b332AFAD01df6B5677F4403C4e";
+        const ABI = [
+                        {
+                            "inputs": [
+                                {
+                                    "internalType": "string",
+                                    "name": "targetString",
+                                    "type": "string"
+                                },
+                                {
+                                    "internalType": "string[]",
+                                    "name": "wordList",
+                                    "type": "string[]"
+                                }
+                            ],
+                            "name": "validate",
+                            "outputs": [
+                                {
+                                    "internalType": "bool",
+                                    "name": "",
+                                    "type": "bool"
+                                }
+                            ],
+                            "stateMutability": "pure",
+                            "type": "function"
+                        }
+                    ];
+
+        async function getAccounts() {
+            let accounts = await provider.send('eth_requestAccounts', []);
+            if (accounts.length) {
+                address = accounts[0];
+                document.getElementById('connect').remove();
+                document.getElementById('connect_message').innerHTML = `Wallet Connected: ${address}`;
+                contractInit();
+            }
+        }
+
+        function contractInit() {
+            contract = new ethers.Contract(contractAddress, ABI, provider.getSigner());
+            inputContent.style.display = "block";
+        }
+
+        async function validate() {
+            const targetWord = document.getElementById('target-word').value;
+            const wordListInput = document.getElementById('word-array').value;
+            const wordList = wordListInput.split(',').map(word => word.trim());
+            loader(true);
+            try {
+                const result = await contract.validate(targetWord, wordList);
+                console.log(result);
+                if (result) {
+                    outputContent.innerHTML = "Result<br/>The target word can be formed using the wordList";
+                } else {
+                    outputContent.innerHTML = "Result<br/>The target word cannot be formed using the wordList";
+                }
+            } catch(err) {
+                outputContent.innerHTML = "Result<br/>The target word cannot be formed using the wordList";
+                return;
+            }
+            outputContent.style.display = "block";
+            loader(false);
+        }
+
+        function loader(status) {
+            if (status) {
+                spinner.style.display = "block";
+                outputContent.style.display = "none";
+            } else {
+                spinner.style.display = "none";
+            }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+    </script>
+
+</body>
+
+</html>
