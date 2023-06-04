@@ -1,0 +1,29 @@
+{
+  "address": "0xf34b6ec7cCbFb4fa4A3bf97d1806b6962f994499",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "targetString",
+          "type": "string"
+        },
+        {
+          "internalType": "string[]",
+          "name": "wordList",
+          "type": "string[]"
+        }
+      ],
+      "name": "validate",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ]
+}
