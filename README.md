@@ -48,3 +48,4 @@ Note: there can be multiple winners if there are multiple submissions that meet 
 24. Spiral Matrix
 25. String Input Calculator
 26. Word Mixer
+27. Solidity Vault
