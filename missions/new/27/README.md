@@ -6,7 +6,7 @@ Image credit: https://www.logosvgpng.com/solidity-logo-vector/
 
 ## Overview
 
-Create a bank contract which locks your tokens and mints ERC-20 tokens over time.
+Create a bank contract in Solidity which locks your tokens and mints ERC-20 tokens over time.
 
 ## Requirements
 
