@@ -52,11 +52,15 @@ ERC-20 Solmate Contract
 
 https://github.com/transmissions11/solmate/blob/main/src/tokens/ERC20.sol
 
-Re-Entrancy Vulnerability | Solidity by Example
+Solidity by Example - Custom Errors in Solidity
+
+https://blog.soliditylang.org/2021/04/21/custom-errors/
+
+Solidity by Example - Re-Entrancy Vulnerability 
 
 https://solidity-by-example.org/hacks/re-entrancy/
 
-Sending Ether (transfer, send, call) | Solidity by Example
+Solidity by Example - Sending Ether (transfer, send, call)
 
 https://www.google.com/search?client=firefox-b-1-lm&q=solidity+stop+using+transfer
 
