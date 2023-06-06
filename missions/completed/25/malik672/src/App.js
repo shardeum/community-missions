@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 import abi from "./abi.json";
 import "./App.css";
 
-const CONTRACT_ADDRESS = "0x05Fa261e5289b033c435475f7F5Fae9309fd04b9";
+const CONTRACT_ADDRESS = "0x89Ef9d871e85D99B4AD98480EED5eec84fBef213";
 const providers = new ethers.providers.Web3Provider(window.ethereum);
 // Create signer and contract instances
 const signers = providers.getSigner();
@@ -65,7 +65,7 @@ function App() {
       return;
     }
     const result = await evac.connect(signers).eval(str);
-    const results = await result[0];
+    const results = await result[1];
     setMessage(`Evaluate: ${parseInt(await results._hex, 16)}`);
   }
   
