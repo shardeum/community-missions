@@ -13,8 +13,8 @@ import { shardeumSphinx } from "viem/chains";
 const config = createConfig(
   getDefaultConfig({
     // Required API Keys
-    alchemyId: "iSoLFoQDND_y0a4IOLotRoJ-ZPy2r5it", // or infuraId
-    walletConnectProjectId: "290fe969658b17415aa3fc92fd257e30",
+    alchemyId: process.env.ALCHEMY_ID, // or infuraId
+    walletConnectProjectId: process.env.WALLETCONNECT_PROJECT_ID,
     chains: [shardeumSphinx],
     // Required
     appName: "Solidity Vault",
