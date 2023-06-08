@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>String Input Calculator</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <h1>String Input Calculator</h1>
+  
+  <div class="calculator">
+    <div class="input-group">
+      <input type="text" id="expression" readonly class="input" placeholder="Enter string expression" />
+    </div>
+    <div class="calculator-grid">
+      <button onclick="appendToExpression('7')" class="button">7</button>
+      <button onclick="appendToExpression('8')" class="button">8</button>
+      <button onclick="appendToExpression('9')" class="button">9</button>
+      <button onclick="appendToExpression('/')" class="button">/</button>
+      <button onclick="appendToExpression('4')" class="button">4</button>
+      <button onclick="appendToExpression('5')" class="button">5</button>
+      <button onclick="appendToExpression('6')" class="button">6</button>
+      <button onclick="appendToExpression('*')" class="button">*</button>
+      <button onclick="appendToExpression('1')" class="button">1</button>
+      <button onclick="appendToExpression('2')" class="button">2</button>
+      <button onclick="appendToExpression('3')" class="button">3</button>
+      <button onclick="appendToExpression('-')" class="button">-</button>
+      <button onclick="appendToExpression('0')" class="button zero-button">0</button>
+      <button onclick="appendToExpression('.')" class="button">.</button>
+      <button onclick="appendToExpression('+')" class="button">+</button>
+      <button onclick="appendToExpression('(')" class="button">(</button>
+      <button onclick="appendToExpression(')')" class="button">)</button>
+      <button onclick="appendToExpression('&quot;')" class="button">&quot;</button>
+      <button onclick="backspace()" class="button">⌫</button>
+    </div>
+    <div>
+      <button onclick="computeExpression()" class="button" id="computeButton" disabled>Compute</button>
+      <button onclick="showResult()" class="button" id="showResultButton" disabled>Show Result</button>
+    </div>
+    <div class="result-text" id="result"></div>
+    <div class="error-text" id="error"></div>
+    <div class="wallet-address" id="walletAddress">
+      <button onclick="connectWallet()" class="button">Connect Wallet</button>
+    </div>
+  </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+
+  <script src="./script.js"></script>
+
+</body>
+</html>
