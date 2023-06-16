@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ERC20 Token Interface</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>VYPER VAULT</h1>
+      <button id="connect-wallet" class="btn btn-primary">Connect Wallet</button>
+      <br><br>
+      <div id="wallet-info" style="display: none;">
+        <p>Connected wallet: <span id="wallet-address"></span></p>
+        <p>Balance: <span id="balance"></span> Ether</p>
+        <p>Transaction History: </p>
+        <ul id="transaction-history"></ul>
+        <br>
+        <button id="deposit" class="btn btn-success">Deposit 1 Wei</button>
+        <button id="withdraw" class="btn btn-danger" disabled>Withdraw</button>
+        <p id="minted-tokens-info"></p>
+      </div>
+    </div>
+
+    <!-- Include web3 library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.6.0/web3.min.js"></script>
+
+    <!-- Main script -->
+    <script>
+      // Set contract address
+      const contractAddress = "0xcc2bDFAA45FD5fe6021117F198491134C3F75aE9";
+      const contractABI = [{"name":"Transfer","inputs":[{"name":"sender","type":"address","indexed":true},{"name":"receiver","type":"address","indexed":true},{"name":"value","type":"uint256","indexed":false}],"anonymous":false,"type":"event"},{"name":"Approval","inputs":[{"name":"owner","type":"address","indexed":true},{"name":"spender","type":"address","indexed":true},{"name":"value","type":"uint256","indexed":false}],"anonymous":false,"type":"event"},{"name":"Mint","inputs":[{"name":"to","type":"address","indexed":true},{"name":"value","type":"uint256","indexed":false}],"anonymous":false,"type":"event"},{"name":"Withdrawn","inputs":[{"name":"withdrawer","type":"address","indexed":true},{"name":"value","type":"uint256","indexed":false}],"anonymous":false,"type":"event"},{"stateMutability":"payable","type":"function","name":"deposit","inputs":[],"outputs":[],"gas":300000},{"stateMutability":"nonpayable","type":"function","name":"withdraw","inputs":[],"outputs":[{"name":"","type":"bool"}],"gas":300000},{"stateMutability":"nonpayable","type":"function","name":"totalSupply","inputs":[],"outputs":[{"name":"","type":"uint256"}],"gas":2448},{"stateMutability":"nonpayable","type":"function","name":"balanceOf","inputs":[{"name":"_owner","type":"address"}],"outputs":[{"name":"","type":"uint256"}],"gas":2693},{"stateMutability":"nonpayable","type":"function","name":"allowance","inputs":[{"name":"_owner","type":"address"},{"name":"_spender","type":"address"}],"outputs":[{"name":"","type":"uint256"}],"gas":2938},{"stateMutability":"nonpayable","type":"function","name":"transfer","inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"outputs":[{"name":"","type":"bool"}],"gas":81628},{"stateMutability":"nonpayable","type":"function","name":"approve","inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"outputs":[{"name":"","type":"bool"}],"gas":39211},{"stateMutability":"nonpayable","type":"function","name":"transferFrom","inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"outputs":[{"name":"","type":"bool"}],"gas":119309},{"stateMutability":"view","type":"function","name":"depositTime","inputs":[{"name":"arg0","type":"address"}],"outputs":[{"name":"","type":"uint256"}],"gas":2843},{"stateMutability":"view","type":"function","name":"total_supply","inputs":[],"outputs":[{"name":"","type":"uint256"}],"gas":2658}];
+
+
+      if (typeof web3 !== 'undefined') {
+        web3 = new Web3(web3.currentProvider);
+      } else {
+        // Set the provider you want from Web3.providers
+        web3 = new Web3(new Web3.providers.HttpProvider("https://sepolia.rpc.thirdweb.com"));
+      }
+
+      // Create contract instance
+      const contract = new web3.eth.Contract(contractABI, contractAddress);
+
+      // Reset UI
+      function resetUI() {
+        document.querySelector("#deposit").disabled = false;
+        document.querySelector("#withdraw").disabled = true;
+      }
+
+      // Connect wallet button
+      const connectWalletButton = document.querySelector("#connect-wallet");
+      connectWalletButton.addEventListener("click", async () => {
+        // Request account access
+        const accounts = await ethereum.enable();
+        const account = accounts[0];
+
+        // Update UI
+        document.querySelector("#wallet-address").textContent = account;
+        document.querySelector("#wallet-info").style.display = "block";
+        updateBalance(account);
+        updateMintedTokens();
+        resetUI();
+      });
+
+      // Deposit button
+      const depositButton = document.querySelector("#deposit");
+      let isDeposited = false;
+      let mintedTokens = 0;
+      let depositTimestamp;
+
+      depositButton.onclick = function () {
+        // Get user account
+        const account = document.querySelector("#wallet-address").textContent;
+
+        if (isDeposited) {
+          console.log("Already deposited from this address");
+          return;
+        }
+
+        // Call deposit function
+        contract.methods
+          .deposit()
+          .send({ from: account, value: "1", gas: 300000 })
+          .on("transactionHash", function (hash) {
+            console.log("Deposit transaction hash:", hash);
+            // Update transaction history
+            document.querySelector("#transaction-history").innerHTML += `<li>Depositing 1 wei...</li>`;
+          })
+          .on("receipt", function (receipt) {
+            console.log("Deposit receipt:", receipt);
+
+            // Update UI
+            isDeposited = true;
+            depositTimestamp = Date.now();
+            depositButton.disabled = true;
+            document.querySelector("#withdraw").disabled = false;
+
+            // Update transaction history
+            document.querySelector("#transaction-history").innerHTML += `
+              <li>Deposited 1 wei (Block Number: ${receipt.blockNumber})</li> `;
+          })
+          .on("error", function (error) {
+            console.error("Deposit error:", error);
+          });
+      };
+
+      // Withdraw button
+      const withdrawButton = document.querySelector("#withdraw");
+      withdrawButton.onclick = function () {
+        // Get user account
+        const account = document.querySelector("#wallet-address").textContent;
+
+        // Call withdraw function
+        contract.methods
+          .withdraw()
+          .send({ from: account, gas: 300000 })
+          .on("transactionHash", function (hash) {
+            console.log("Withdraw transaction hash:", hash);
+            // Update transaction history
+            document.querySelector("#transaction-history").innerHTML += `<li>Withdrawing...</li>`;
+          })
+          .on("receipt", function (receipt) {
+            console.log("Withdraw receipt:", receipt);
+
+            // Calculate minted tokens
+            const depositTime = (Date.now() - depositTimestamp) / 1000; // Convert to seconds
+            mintedTokens = Math.floor(depositTime);
+
+            // Update UI
+            isDeposited = false;
+            depositTimestamp = null;
+            resetUI();
+
+            // Update transaction history
+            document.querySelector("#transaction-history").innerHTML += `
+              <li>Withdrawal confirmed (Block Number: ${receipt.blockNumber})</li>
+              <li>Minted tokens: ${mintedTokens}</li>`;
+          })
+          .on("error", function (error) {
+            console.error("Withdraw error:", error);
+          });
+      };
+
+      // Update balance
+      function updateBalance(account) {
+        web3.eth.getBalance(account, function (error, balance) {
+          if (!error) {
+            const balanceInEther = web3.utils.fromWei(balance, "ether");
+            document.querySelector("#balance").textContent = balanceInEther;
+          }
+        });
+      }
+
+      // Update minted tokens
+      async function updateMintedTokens() {
+        const account = document.querySelector("#wallet-address").textContent;
+        const depositTime = (Date.now() - depositTimestamp) / 1000; // Convert to seconds
+        mintedTokens = Math.floor(depositTime);
+        
+      }
+    </script>
+  </body>
+</html>
