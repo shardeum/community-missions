@@ -137,7 +137,8 @@ function SendTxn() {
     args: [txn],
   })
   const { data, isLoading, write } = useContractWrite(config)
-  const { isError, isSuccess } = useWaitForTransaction({hash: (data?.hash)?.toString()})
+  const dataStr = data?.hash;
+  const { isError, isSuccess } = useWaitForTransaction({hash: dataStr})
 
   return (
     <>
