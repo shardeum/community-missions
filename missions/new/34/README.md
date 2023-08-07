@@ -1,4 +1,4 @@
-# Mission 32: NFT Lending and Borrowing Platform
+# Mission 34: NFT Lending and Borrowing Platform
 
 <img src="images/download.jpeg" alt="NFT lending"/>
 
