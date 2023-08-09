@@ -1,6 +1,6 @@
-# Mission 35: Decentralizded Ticketing App
+# Mission 35: Decentralized Ticketing App
 
-<img src="images/tickets.jpeg" alt="Decentralizded Ticketing App"/>
+<img src="images/tickets.jpeg" alt="Decentralized Ticketing App"/>
 
 ## Overview
 
