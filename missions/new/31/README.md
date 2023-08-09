@@ -4,7 +4,7 @@
 
 ## Overview
 
-Build an upgradeable smart contract application on Shardeum whcih lets the deployer change a variable in the contract with a proxy.
+Build an upgradeable smart contract application on Shardeum which lets the deployer change a variable in the contract with a proxy.
 
 ## Requirements
 
@@ -29,7 +29,7 @@ Create a basic frontend which:
 
     - is hosted on IPFS/Filecoin using Fleek/Spheron for easy access
     - allows user to connect Metamask wallet with a button
-    - allows the user to read the inital(before upgrade) and final(after upgrade) value
+    - allows the user to read the initial(before upgrade) and final(after upgrade) value
     - allows the user to change the value/update
 
 
