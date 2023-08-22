@@ -1,4 +1,4 @@
-# Mission 35: Smart contract Event Subscriber
+# Mission 36: Smart contract Event Subscriber
 
 <img src="images/event.png" alt="Smart contract Event Subscriber"/>
 
