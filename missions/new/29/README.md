@@ -26,7 +26,7 @@ Create a smart contract called: `TimeVaultLock` which:
             -lockedTime = block.timestamp - depositTime[msg.sender]
                 -Example: lockedTime = block.timestamp - depositTime[msg.sender] = 1685973567 - 1685973507 = 60 seconds = 60 wei tokens to mint for msg.sender
             -Note: ERC-20 tokens have no fallback or receive functions, so there is no risk for reentrancy attacks minting tokens at any point
-        -set depositTime[msg.sender] to 0 which confirms the withdraw went through (make sure this done before the msg.value transfer or else a reentrancy attack can occur)
+        -set depositTime[msg.sender] to 0 which confirms the withdraw went through (make sure this is done before the msg.value transfer or else a reentrancy attack can occur)
         -transfer out msg.value back to msg.sender
             -call 
                 -address = msg.sender  
