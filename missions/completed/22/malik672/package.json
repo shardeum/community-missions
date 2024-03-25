@@ -19,7 +19,7 @@
     "react-scripts": "5.0.1",
     "wagmi": "^0.12.12",
     "web-vitals": "^2.1.4",
-    "web3": "^1.9.0" 
+    "web3": "^4.6.0" 
   },
   "scripts": {
     "start": "react-scripts start",
