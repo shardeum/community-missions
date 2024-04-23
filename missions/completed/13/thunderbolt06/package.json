@@ -8,7 +8,7 @@
     "@types/node": "^15.14.9",
     "@types/react": "^18.0.24",
     "ethers": "^6.0.7",
-    "gh-pages": "^3.2.3",
+    "gh-pages": "^5.0.0",
     "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

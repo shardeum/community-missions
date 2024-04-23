@@ -14,7 +14,7 @@
     "react-scripts": "5.0.1",
     "tailwindcss": "^3.3.1",
     "web-vitals": "^2.1.4",
-    "web3": "^1.9.0",
+    "web3": "^4.8.0",
     "zokrates-js": "^1.1.6"
   },
   "scripts": {
